@@ -67,7 +67,7 @@ jobs:
         with:
           name: Release ${{ steps.tag.outputs.tag }}
           tag_name: ${{ steps.tag.outputs.tag }}
-          generate_release_notes: true
+          body: 'Release ${{ steps.tag.outputs.tag }} — built by GitHub Actions.'
           files: app/build/outputs/apk/release/*.apk
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
