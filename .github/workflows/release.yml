@@ -28,9 +28,8 @@ jobs:
 
       - name: Set up Android SDK
         uses: android-actions/setup-android@v3
-
-      - name: Install required Android SDK components
-        run: sdkmanager "build-tools;26.0.0" "platforms;android-26"
+        with:
+          packages: 'platform-tools build-tools;26.0.0 platforms;android-26'
 
       - name: Set up JDK 8 (for AGP 3.5.1 build)
         uses: actions/setup-java@v4
