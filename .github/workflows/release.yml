@@ -36,6 +36,10 @@ jobs:
           mv cmdline-tools latest
           yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses >/dev/null
           "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platform-tools" "build-tools;26.0.0" "platforms;android-26"
+          # Remove preinstalled NDK: AGP 3.5.1's stripReleaseDebugSymbols needs the
+          # legacy arm-linux-androideabi gcc toolchain which newer NDKs lack. With no
+          # NDK present AGP skips stripping and packages the .so files as-is.
+          rm -rf "$ANDROID_HOME/ndk"
 
       - name: Set up JDK 8 (for AGP 3.5.1 build)
         uses: actions/setup-java@v4
