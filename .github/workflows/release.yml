@@ -26,13 +26,16 @@ jobs:
           distribution: 'temurin'
           java-version: '8'
 
-      - name: Set up Android SDK
-        uses: android-actions/setup-android@v3
-        with:
-          # Pin cmdline-tools 10.0 (build 11076708): works with JDK 8 and
-          # produces SDK repository metadata that AGP 3.5.1 can parse.
-          cmdline-tools-version: '11076708'
-          packages: 'platform-tools build-tools;26.0.0 platforms;android-26'
+      - name: Set up Android SDK with cmdline-tools 10.0
+        run: |
+          set -e
+          cd "$ANDROID_HOME/cmdline-tools"
+          rm -rf latest
+          curl -fsSL https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip -o cmdline-tools.zip
+          unzip -q cmdline-tools.zip
+          mv cmdline-tools latest
+          yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses >/dev/null
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platform-tools" "build-tools;26.0.0" "platforms;android-26"
 
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
