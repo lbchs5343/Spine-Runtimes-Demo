@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DeepSeek 服务状态历史事件调查报告（2024.02–2026.10）</title>
+<style>
+@font-face { font-family:'Outfit'; src:url('./_shared/fonts/Outfit-Regular.ttf') format('truetype'); font-weight:400; }
+@font-face { font-family:'Outfit'; src:url('./_shared/fonts/Outfit-Bold.ttf') format('truetype'); font-weight:700; }
+@font-face { font-family:'IBMPlexMono'; src:url('./_shared/fonts/IBMPlexMono-Regular.ttf') format('truetype'); font-weight:400; }
+@font-face { font-family:'IBMPlexMono'; src:url('./_shared/fonts/IBMPlexMono-Bold.ttf') format('truetype'); font-weight:700; }
+
+:root {
+  --bg: #f4f6f9;
+  --bg2: #ffffff;
+  --ink: #16222e;
+  --muted: #55677a;
+  --rule: #d9e1ea;
+  --accent: #1e56d6;
+  --accent2: #d64545;
+  --warn: #b45309;
+  --violet: #6d28d9;
+  --ok: #16803c;
+  --cover: #101c2c;
+  --font-head: 'Outfit','PingFang SC','Hiragino Sans GB','Microsoft YaHei','Noto Sans CJK SC',sans-serif;
+  --font-body: 'Outfit','PingFang SC','Hiragino Sans GB','Microsoft YaHei','Noto Sans CJK SC',sans-serif;
+  --font-mono: 'IBMPlexMono','PingFang SC','Microsoft YaHei',monospace;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { background:var(--bg); color:var(--ink); font-family:var(--font-body); font-size:16px; line-height:1.7; }
+
+/* ===== 封面 ===== */
+.cover { background:var(--cover); color:#eaf0f7; padding:4.5rem 1.5rem 3.5rem; }
+.cover-inner { max-width:1080px; margin:0 auto; }
+.cover .kicker { font-family:var(--font-mono); font-size:0.85rem; letter-spacing:0.25em; color:#7fa3e8; text-transform:uppercase; margin-bottom:1.2rem; }
+.cover h1 { font-family:var(--font-head); font-size:clamp(1.9rem, 4.5vw, 3.1rem); font-weight:700; line-height:1.25; letter-spacing:0.01em; margin-bottom:1rem; }
+.cover .subtitle { font-size:1.1rem; color:#b8c6d6; max-width:760px; margin-bottom:2.4rem; }
+.cover .meta-grid { display:flex; flex-wrap:wrap; gap:2.5rem; border-top:1px solid rgba(255,255,255,0.18); padding-top:1.6rem; }
+.cover .meta-item .k { font-family:var(--font-mono); font-size:0.75rem; color:#7d93ab; letter-spacing:0.12em; margin-bottom:0.25rem; }
+.cover .meta-item .v { font-size:1.05rem; font-weight:700; color:#fff; }
+
+/* ===== 目录 ===== */
+nav.toc { background:var(--bg2); border-bottom:1px solid var(--rule); position:sticky; top:0; z-index:50; }
+.toc-inner { max-width:1080px; margin:0 auto; padding:0.65rem 1.5rem; display:flex; flex-wrap:wrap; gap:0.25rem 1.35rem; }
+.toc-inner a { font-size:0.85rem; color:var(--muted); text-decoration:none; white-space:nowrap; padding:0.2rem 0; }
+.toc-inner a:hover { color:var(--accent); }
+.toc-inner a .no { font-family:var(--font-mono); color:var(--accent); margin-right:0.25rem; }
+
+/* ===== 主体 ===== */
+main { max-width:1080px; margin:0 auto; padding:2.5rem 1.5rem 3rem; }
+section { background:var(--bg2); border:1px solid var(--rule); border-radius:10px; padding:2.2rem 2.4rem; margin-bottom:2.2rem; }
+h2 { font-size:1.55rem; font-weight:700; line-height:1.3; margin-bottom:1.4rem; display:flex; align-items:baseline; gap:0.75rem; }
+h2 .no { font-family:var(--font-mono); font-size:0.95rem; color:var(--accent); border:1px solid var(--accent); border-radius:6px; padding:0.15rem 0.5rem; flex:none; position:relative; top:-0.15rem; }
+h3 { font-size:1.15rem; font-weight:700; margin:1.8rem 0 0.8rem; color:var(--ink); }
+h4 { font-size:1rem; font-weight:700; margin:1.2rem 0 0.5rem; }
+p { margin-bottom:0.95rem; }
+p.lead { font-size:1.05rem; color:var(--ink); }
+strong { font-weight:700; }
+mark.key { background:none; color:var(--accent); font-weight:600; padding:0; }
+ul.clean { list-style:none; margin:0.5rem 0 1rem; }
+ul.clean li { padding-left:1.35rem; position:relative; margin-bottom:0.55rem; }
+ul.clean li::before { content:''; position:absolute; left:0; top:0.62em; width:0.42rem; height:0.42rem; border-radius:2px; background:var(--accent); }
+ul.clean li.warn::before { background:var(--warn); }
+ul.clean li.bad::before { background:var(--accent2); }
+.divider { border:none; border-top:1px solid var(--rule); margin:1.8rem 0; }
+
+sup a { color:var(--accent); text-decoration:none; font-size:0.72em; font-weight:600; }
+sup a:hover { text-decoration:underline; }
+
+/* ===== 指标卡 ===== */
+.metric-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin:1.2rem 0 1.6rem; }
+.metric { background:var(--bg); border:1px solid var(--rule); border-radius:10px; padding:1.1rem 1.2rem; }
+.metric .num { font-family:var(--font-mono); font-size:2rem; font-weight:700; color:var(--accent); line-height:1.15; }
+.metric .num.red { color:var(--accent2); }
+.metric .num.amber { color:var(--warn); }
+.metric .num.green { color:var(--ok); }
+.metric .lbl { font-size:0.85rem; color:var(--muted); margin-top:0.3rem; }
+.metric .sub { font-family:var(--font-mono); font-size:0.72rem; color:var(--muted); margin-top:0.15rem; }
+
+/* ===== 表格 ===== */
+.table-wrap { overflow-x:auto; overflow-y:auto; max-height:600px; border:1px solid var(--rule); border-radius:8px; margin:1rem 0 1.4rem; }
+table { border-collapse:collapse; width:100%; min-width:640px; font-size:0.88rem; background:var(--bg2); }
+thead th { position:sticky; top:0; background:var(--bg2); z-index:2; text-align:left; font-weight:700; color:var(--ink); border-bottom:2px solid var(--ink); padding:0.6rem 0.75rem; white-space:nowrap; }
+tbody td { padding:0.5rem 0.75rem; border-bottom:1px solid var(--rule); vertical-align:top; }
+tbody tr:hover { background:#eef3fb; }
+td.mono, .mono { font-family:var(--font-mono); font-size:0.85em; white-space:nowrap; }
+td.num { font-family:var(--font-mono); text-align:right; white-space:nowrap; }
+tr.hl td { background:#fdf3f3; }
+tr.mnt td { color:var(--muted); }
+.dur-long { color:var(--accent2); font-weight:700; }
+
+/* ===== 徽章 ===== */
+.badge { display:inline-block; font-size:0.72rem; font-weight:600; padding:0.1rem 0.5rem; border-radius:99px; white-space:nowrap; border:1px solid transparent; }
+.b-out { color:var(--accent2); background:rgba(214,69,69,0.09); border-color:rgba(214,69,69,0.35); }
+.b-deg { color:var(--warn); background:rgba(180,83,9,0.08); border-color:rgba(180,83,9,0.32); }
+.b-par { color:var(--accent); background:rgba(30,86,214,0.08); border-color:rgba(30,86,214,0.32); }
+.b-fun { color:var(--violet); background:rgba(109,40,217,0.07); border-color:rgba(109,40,217,0.3); }
+.b-mnt { color:var(--ok); background:rgba(22,128,60,0.07); border-color:rgba(22,128,60,0.3); }
+
+/* ===== 图表 ===== */
+.chart-figure { margin:1.6rem 0; }
+.chart-figure figcaption { font-size:0.95rem; font-weight:700; color:var(--ink); margin-bottom:0.75rem; }
+.chart-figure .chart-note { font-size:0.78rem; color:var(--muted); margin-top:0.5rem; }
+.chart-grid2 { display:grid; grid-template-columns:1fr 1fr; gap:1.4rem; margin:1.6rem 0; }
+
+/* ===== 时间线 ===== */
+.timeline { border-left:2px solid var(--rule); margin:1.4rem 0 0.5rem 0.35rem; padding-left:1.6rem; }
+.tl-item { position:relative; padding-bottom:1.5rem; }
+.tl-item:last-child { padding-bottom:0.2rem; }
+.tl-item::before { content:''; position:absolute; left:-1.98rem; top:0.32rem; width:0.85rem; height:0.85rem; border-radius:50%; background:var(--bg2); border:3px solid var(--accent); }
+.tl-item.sev::before { border-color:var(--accent2); }
+.tl-item.warn::before { border-color:var(--warn); }
+.tl-date { font-family:var(--font-mono); font-size:0.8rem; color:var(--accent); font-weight:700; letter-spacing:0.04em; }
+.tl-item.sev .tl-date { color:var(--accent2); }
+.tl-item.warn .tl-date { color:var(--warn); }
+.tl-title { font-weight:700; font-size:1.02rem; margin:0.15rem 0 0.3rem; }
+.tl-body { font-size:0.92rem; color:var(--muted); }
+
+/* ===== 提示框 ===== */
+.callout { border-left:4px solid var(--accent); background:var(--bg); border-radius:0 8px 8px 0; padding:0.95rem 1.2rem; margin:1.2rem 0; font-size:0.92rem; }
+.callout.red { border-left-color:var(--accent2); }
+.callout.amber { border-left-color:var(--warn); }
+
+/* ===== 页脚 ===== */
+footer { background:var(--bg2); border-top:1px solid var(--rule); padding:2.2rem 1.5rem 2.8rem; margin-top:1rem; }
+.foot-inner { max-width:1080px; margin:0 auto; }
+footer .sources h2 { font-size:1.1rem; margin-bottom:0.8rem; }
+footer .sources ol { padding-left:1.2rem; font-size:0.85rem; color:var(--muted); }
+footer .sources li { margin-bottom:0.5rem; overflow-wrap:break-word; word-break:break-all; }
+footer .sources .src-title { color:var(--ink); word-break:normal; }
+footer .sources .src-url { display:block; margin-top:0.15rem; font-size:0.82rem; color:var(--accent); word-break:break-all; }
+footer .sources a { word-break:break-all; }
+.foot-note { font-size:0.78rem; color:var(--muted); margin-top:1.6rem; border-top:1px solid var(--rule); padding-top:1rem; }
+
+/* ===== 响应式 & 打印 ===== */
+@media (max-width: 780px) {
+  .metric-grid { grid-template-columns:repeat(2,1fr); }
+  .chart-grid2 { grid-template-columns:1fr; }
+  section { padding:1.5rem 1.2rem; }
+  .cover { padding:3rem 1.2rem 2.5rem; }
+  table { min-width:560px; }
+}
+@media print {
+  nav.toc { display:none; }
+  .table-wrap { max-height:none; overflow:visible; }
+  section { break-inside:avoid-page; page-break-inside:avoid; }
+  body { background:#fff; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== 封面 ===== -->
+<header class="cover">
+  <div class="cover-inner">
+    <div class="kicker">Incident History Investigation · 2024.02 – 2026.10</div>
+    <h1>DeepSeek 服务状态历史事件调查报告</h1>
+    <p class="subtitle">基于官方状态页 status.deepseek.com 逐月历史数据，对 2024 年 2 月至 2026 年 10 月共 33 个月内的全部服务事件进行系统梳理：事件总量、类型结构、持续时间与趋势演变，并对关键事件进行复盘。</p>
+    <div class="meta-grid">
+      <div class="meta-item"><div class="k">DATA SOURCE</div><div class="v">status.deepseek.com/history</div></div>
+      <div class="meta-item"><div class="k">数据截止</div><div class="v">2026-10-15</div></div>
+      <div class="meta-item"><div class="k">事件总量</div><div class="v">109 起（故障 107 + 维护 2）</div></div>
+      <div class="meta-item"><div class="k">覆盖时长</div><div class="v">33 个月</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- ===== 目录 ===== -->
+<nav class="toc">
+  <div class="toc-inner">
+    <a href="#s1"><span class="no">01</span>执行摘要</a>
+    <a href="#s2"><span class="no">02</span>调查方法与数据来源</a>
+    <a href="#s3"><span class="no">03</span>总体态势</a>
+    <a href="#s4"><span class="no">04</span>故障趋势分析</a>
+    <a href="#s5"><span class="no">05</span>事件类型分析</a>
+    <a href="#s6"><span class="no">06</span>持续时间分析</a>
+    <a href="#s7"><span class="no">07</span>关键事件复盘</a>
+    <a href="#s8"><span class="no">08</span>年度事件明细</a>
+    <a href="#s9"><span class="no">09</span>结论与建议</a>
+  </div>
+</nav>
+
+<main>
+
+<!-- ===== 01 执行摘要 ===== -->
+<section id="s1">
+  <h2><span class="no">01</span>执行摘要</h2>
+
+  <div class="metric-grid">
+    <div class="metric"><div class="num">109</div><div class="lbl">事件总数</div><div class="sub">故障 107 起 + 计划维护 2 起</div></div>
+    <div class="metric"><div class="num green">100%</div><div class="lbl">事件闭环率</div><div class="sub">全部标记为已恢复/已完成</div></div>
+    <div class="metric"><div class="num amber">23.5<span style="font-size:1rem"> 分钟</span></div><div class="lbl">故障持续时间中位数</div><div class="sub">基于 107 起故障事件</div></div>
+    <div class="metric"><div class="num">88%</div><div class="lbl">1 小时内恢复占比</div><div class="sub">94 / 107 起</div></div>
+    <div class="metric"><div class="num red">17<span style="font-size:1rem"> 天</span></div><div class="lbl">最长持续事件</div><div class="sub">2025-02-08 网页/API 性能异常</div></div>
+    <div class="metric"><div class="num red">6.2<span style="font-size:1rem"> 起/月</span></div><div class="lbl">2026 年月均故障数</div><div class="sub">2025 年为 2.3 起/月</div></div>
+  </div>
+
+  <p class="lead">本报告核查了 DeepSeek 官方状态页自 2024 年 2 月（状态页最早记录）至 2026 年 10 月 15 日的全部历史事件。<strong>共记录 109 起事件</strong>，其中故障（incidents）107 起、计划维护（maintenances）2 起，<strong>全部事件均已恢复或完成</strong>，无未闭环记录。</p>
+
+  <p>调查发现的<strong>核心结论</strong>是：DeepSeek 的服务事件呈「<mark class="key">频率显著上升、单起严重度明显下降</mark>」的演变轨迹——</p>
+  <ul class="clean">
+    <li><strong>频率上升：</strong>月均故障数从 2024 年的 1.9 起、2025 年的 2.3 起，跃升至 2026 年的 6.2 起（截至 10 月 15 日），2026 年 8 月以 16 起创单月最高纪录；</li>
+    <li><strong>严重度下降：</strong>事件类型从以「完全不可用」为主（2024 年占 86%）转变为以「性能下降」为主（2026 年占 80%），2026 年全年完全不可用事件仅 4 起、且无超过 1 小时的宕机；</li>
+    <li><strong>恢复变快：</strong>故障持续时间中位数为 23.5 分钟，88% 的故障在 1 小时内恢复，P90 为 2 小时；</li>
+    <li class="bad"><strong>长尾风险仍存：</strong>3 起超过 12 小时的超长性能异常（最长 17 天）均与流量洪峰或容量问题相关，集中出现在 2025 年初 R1 发布期与 2026 年 8 月。</li>
+  </ul>
+
+  <div class="callout">
+    <strong>一句话总结：</strong>2026 年的 DeepSeek「小故障」变多了，但「大事故」变少了——频繁出现的分钟级性能下降取代了 2024 年动辄数小时的完全宕机；对 API 使用方而言，常规风险是每月数起、半小时内自愈的短时降级，真正需要防范的是由流量洪峰引发的数天级长尾降级。
+  </div>
+</section>
+
+<!-- ===== 02 调查方法 ===== -->
+<section id="s2">
+  <h2><span class="no">02</span>调查方法与数据来源</h2>
+
+  <h3>2.1 数据来源与采集方式</h3>
+  <p>本报告的全部数据来自 DeepSeek 官方状态页历史事件记录<sup><a href="#cite-1">[1]</a></sup>。状态页默认仅展示最近 3 个月的历史，但支持按月查询参数（<span class="mono">?month=YYYY-MM</span>）。本次调查<strong>按月逐期抓取了 2024 年 2 月至 2026 年 10 月共 33 个月</strong>的完整历史记录，并与页面官方月度统计（如「8 个故障 / 8 incidents」）逐月核对，确保事件计数一致。数据截止时间为 <span class="mono">2026-10-15</span>。</p>
+
+  <h3>2.2 事件分类方案</h3>
+  <p>原始记录中的事件标题表述不一（不可用、性能下降、部分中断、报错率上升、服务不稳定等）。本报告按服务影响程度归并为<strong>四类故障 + 一类维护</strong>：</p>
+  <div class="table-wrap" style="max-height:340px">
+    <table>
+      <thead><tr><th>类别</th><th>定义</th><th>典型原始表述</th><th>本报告配色</th></tr></thead>
+      <tbody>
+        <tr><td><span class="badge b-out">完全不可用</span></td><td>网页/APP/API 服务整体不可用</td><td class="mono">Service Not Available / Unavailable</td><td>红色</td></tr>
+        <tr><td><span class="badge b-deg">性能下降</span></td><td>服务可用但响应缓慢/不稳定/错误率升高</td><td class="mono">Degraded Performance / Abnormal / 不稳定、报错率上升</td><td>琥珀色</td></tr>
+        <tr><td><span class="badge b-par">部分中断</span></td><td>服务部分功能或部分用户不可用</td><td class="mono">Partially Unavailable</td><td>蓝色</td></tr>
+        <tr><td><span class="badge b-fun">功能故障</span></td><td>特定功能失效（登录/注册、搜索等），核心对话服务正常</td><td class="mono">无法登录/注册、搜索服务异常</td><td>紫色</td></tr>
+        <tr class="mnt"><td><span class="badge b-mnt">计划维护</span></td><td>预先通告的升级操作，不计入故障统计</td><td class="mono">API 升级、模型版本更新</td><td>绿色</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>2.3 统计口径</h3>
+  <ul class="clean">
+    <li>「故障数」不含计划维护（仅 2024 年 7 月出现 2 起：API 升级与 deepseek-coder 版本更新）；</li>
+    <li>持续时间以状态页官方标注的「共持续（Lasted）」为准；</li>
+    <li>2026 年 10 月仅统计至 10 月 15 日（半个月），月度对比中已作标注。</li>
+  </ul>
+
+  <h3>2.4 数据局限性</h3>
+  <ul class="clean">
+    <li><strong>记录起点：</strong>状态页最早记录为 2024 年 2 月，此前（含 V1 时期）无公开事件数据；2024 年 2–4 月连续三个月零故障，早期小故障可能未被完整记录；</li>
+    <li><strong>组件名称回溯更新：</strong>历史事件的影响组件标签会随组件改名同步更新（如 2024 年事件的组件标签当前显示为「DeepSeek V4 Pro API 服务、V4.1 Flash」等新命名），故本报告不对历史组件名做逐年还原；</li>
+    <li><strong>时长为官方口径：</strong>性能下降类事件（如 17 天）的起止以官方状态标记为准，与个体用户的实际感知可能存在差异；</li>
+    <li><strong>初步口径修正：</strong>本报告初稿快评曾统计为 105 起故障，经与状态页逐月官方计数（21 + 27 + 59）逐条复核后修正为 <strong>107 起</strong>，本报告以修正后数据为准。</li>
+  </ul>
+</section>
+
+<!-- ===== 03 总体态势 ===== -->
+<section id="s3">
+  <h2><span class="no">03</span>总体态势</h2>
+
+  <p>2024 年 2 月至 2026 年 10 月 15 日，DeepSeek 状态页共记录 <strong>107 起故障与 2 起计划维护</strong>。三个年度的关键指标如下：</p>
+
+  <div class="table-wrap" style="max-height:420px">
+    <table>
+      <thead><tr><th>年度</th><th>故障数</th><th>维护数</th><th>月均故障</th><th>占比最高类型</th><th>最长单起事件</th></tr></thead>
+      <tbody>
+        <tr><td class="mono">2024（2–12月）</td><td class="num">21</td><td class="num">2</td><td class="num">1.9</td><td><span class="badge b-out">完全不可用 86%</span></td><td class="mono">12 小时 ×2（05-10、11-27）</td></tr>
+        <tr><td class="mono">2025（全年）</td><td class="num">27</td><td class="num">0</td><td class="num">2.3</td><td><span class="badge b-out">完全不可用 70%</span></td><td class="dur-long mono">17 天（02-08 性能异常）</td></tr>
+        <tr><td class="mono">2026（1–10.15）</td><td class="num">59</td><td class="num">0</td><td class="num red">6.2</td><td><span class="badge b-deg">性能下降 80%</span></td><td class="dur-long mono">2 天（08-04 API 性能下降）</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>从年度视角可以清晰看到三条曲线的<strong>分叉</strong>：故障频率逐年抬升（1.9 → 2.3 → 6.2 起/月），而事件主导类型从「完全不可用」翻转为「性能下降」，最长事件时长则从 12 小时（2024）恶化为 17 天（2025，R1 流量洪峰期）后回落至 2 天（2026）。</p>
+
+  <div class="callout amber">
+    <strong>2024 年的「静默起步」：</strong>2024 年 2–4 月、2025 年 4/6/9/10 月、2026 年 1 月均为零故障月份。2026 年 2 月之后再无整月零故障——事件记录粒度变细与真实故障增多共同造成了这一变化。
+  </div>
+</section>
+
+<!-- ===== 04 趋势分析 ===== -->
+<section id="s4">
+  <h2><span class="no">04</span>故障趋势分析</h2>
+
+  <figure class="chart-figure">
+    <figcaption>图 1 ｜ 月度故障数（2024-02 至 2026-10，共 33 个月，含 3 个月移动平均线）</figcaption>
+    <div id="chart-monthly" style="width:100%;min-height:430px"></div>
+    <div class="chart-note">注：不含 2 起计划维护；2026-10 仅统计至 10 月 15 日。红色柱为历史峰值月 2026-08（16 起）。</div>
+  </figure>
+
+  <h3>4.1 阶段特征</h3>
+  <ul class="clean">
+    <li><strong>2024-02 ~ 2025-03（低位波动期）：</strong>月度故障数在 0–3 起之间波动，仅 2025 年 1 月因 R1 发布出现 10 起的尖峰；</li>
+    <li><strong>2025-04 ~ 2026-01（平静期）：</strong>长达 10 个月故障数始终 ≤ 4 起，其中 4 个整月零故障，为全记录期最稳定阶段；</li>
+    <li><strong>2026-02 ~ 2026-10（高频常态化期）：</strong>月度故障数几乎逐月攀升，3 月 6 起、5 月 7 起、7 月 8 起、8 月 16 起、9 月 8 起——<mark class="key">高频短时性能下降成为常态</mark>，仅 1 月为整月零故障。</li>
+  </ul>
+
+  <div class="chart-grid2">
+    <figure class="chart-figure" style="margin:0">
+      <figcaption>图 2 ｜ 年度故障总数与月均故障数对比</figcaption>
+      <div id="chart-yearly" style="width:100%;min-height:330px"></div>
+      <div class="chart-note">2024 年自 2 月起计（11 个月）；2026 年截至 10 月 15 日（约 9.5 个月）。</div>
+    </figure>
+    <figure class="chart-figure" style="margin:0">
+      <figcaption>图 3 ｜ 故障发生的星期分布（107 起）</figcaption>
+      <div id="chart-weekday" style="width:100%;min-height:330px"></div>
+      <div class="chart-note">周二、周三为相对高发日；周末（周六+周日）合计仅 12 起，约为工作日均值的 63%。</div>
+    </figure>
+  </div>
+
+  <p>星期分布呈现明显的<strong>工作日偏向</strong>：周二（23 起）与周三（20 起）合计占四成，而周六仅 5 起、周日 7 起。这一规律与「发布/变更多安排在工作日」的工程惯例吻合——2026 年 8 月 4 日（周二）单日即发生 4 起 API 性能下降，是全记录期单日故障之最。</p>
+</section>
+
+<!-- ===== 05 类型分析 ===== -->
+<section id="s5">
+  <h2><span class="no">05</span>事件类型分析</h2>
+
+  <figure class="chart-figure">
+    <figcaption>图 4 ｜ 各年度故障类型构成（堆叠对比）</figcaption>
+    <div id="chart-type" style="width:100%;min-height:380px"></div>
+    <div class="chart-note">「性能下降」含报错率上升、服务不稳定等未达完全不可用的事件；2 起计划维护不计入。</div>
+  </figure>
+
+  <div class="metric-grid">
+    <div class="metric"><div class="num red">41</div><div class="lbl">完全不可用</div><div class="sub">2024:18 → 2025:19 → 2026:4</div></div>
+    <div class="metric"><div class="num amber">57</div><div class="lbl">性能下降</div><div class="sub">2024:3 → 2025:7 → 2026:47</div></div>
+    <div class="metric"><div class="num">4</div><div class="lbl">部分中断</div><div class="sub">全部出现在 2026 年 7 月后</div></div>
+    <div class="metric"><div class="num" style="color:var(--violet)">5</div><div class="lbl">功能故障</div><div class="sub">登录/注册 1 起 + 搜索服务 4 起</div></div>
+  </div>
+
+  <h3>5.1 从「宕机」到「降级」的结构性转变</h3>
+  <p><strong>2024 年是「宕机之年」：</strong>21 起故障中 18 起为完全不可用（86%），两次 12 小时宕机（5 月 10 日、11 月 27 日）和一次 9 小时 Coder 宕机（8 月 11 日）构成本年度最严重的三次事故；性能类事件仅 3 起（两次 API 报错率上升、一次服务不稳定）。</p>
+  <p><strong>2026 年是「降级之年」：</strong>59 起故障中 47 起为性能下降（80%），完全不可用仅 4 起（3 月 2 起、5 月 2 起，均未超过 1 小时）。同时出现了此前从未记录过的两类事件——<mark class="key">部分中断</mark>（4 起，7 月后密集出现）与<mark class="key">搜索服务故障</mark>（4 起），反映出故障来源随产品组件（APP、搜索、快速模式等）扩张而多元化。</p>
+  <p>2025 年则是二者的过渡带：上半年承接 2024 年的高占比宕机（R1 发布期 1 月出现 2 起 2 小时级宕机），下半年已明显转向分钟级性能事件。</p>
+
+  <div class="callout">
+    <strong>解读：</strong>类型结构的迁移通常意味着两种可能：其一，工程容灾能力增强，原先会演变为完全宕机的问题被拦截在「性能下降」阶段；其二，监控与公告粒度变细，短时降级被更完整地记录。两种解释并不互斥——但结合第 6 章中位持续时间缩短至 23.5 分钟的事实，前者应占主导。
+  </div>
+</section>
+
+<!-- ===== 06 持续时间分析 ===== -->
+<section id="s6">
+  <h2><span class="no">06</span>持续时间分析</h2>
+
+  <figure class="chart-figure">
+    <figcaption>图 5 ｜ 故障持续时间分布（107 起故障）</figcaption>
+    <div id="chart-duration" style="width:100%;min-height:380px"></div>
+    <div class="chart-note">红色柱为超过 12 小时的超长事件（3 起），均未达「完全不可用」，属持续性性能异常。</div>
+  </figure>
+
+  <div class="metric-grid">
+    <div class="metric"><div class="num">23.5<span style="font-size:1rem"> 分钟</span></div><div class="lbl">持续时间中位数</div><div class="sub">50% 的故障在 24 分钟内恢复</div></div>
+    <div class="metric"><div class="num">56<span style="font-size:1rem"> 分钟</span></div><div class="lbl">平均持续时间</div><div class="sub">剔除 3 起 &gt;12h 事件后为 20 分钟（中位）</div></div>
+    <div class="metric"><div class="num">2<span style="font-size:1rem"> 小时</span></div><div class="lbl">P90 恢复时长</div><div class="sub">90% 的故障在 2 小时内恢复</div></div>
+  </div>
+
+  <p>持续时间呈<strong>极端右偏分布</strong>：58% 的故障在 30 分钟内结束，88% 在 1 小时内结束；但均值（458 分钟）被 3 起超长事件拉高至中位数的近 20 倍——<strong>「多数很快恢复、少数异常持久」</strong>是 DeepSeek 事件时长的基本形态。7 起持续 3 小时以上的事件如下：</p>
+
+  <div class="table-wrap" style="max-height:360px">
+    <table>
+      <thead><tr><th>#</th><th>开始日期</th><th>事件</th><th>类型</th><th>持续时长</th></tr></thead>
+      <tbody>
+        <tr class="hl"><td>1</td><td class="mono">2025-02-08（周六）</td><td>DeepSeek 网页/API 性能异常</td><td><span class="badge b-deg">性能下降</span></td><td class="dur-long mono">17 天</td></tr>
+        <tr class="hl"><td>2</td><td class="mono">2025-01-27（周一）</td><td>DeepSeek 网页/API 性能异常（R1 发布期）</td><td><span class="badge b-deg">性能下降</span></td><td class="dur-long mono">11 天</td></tr>
+        <tr class="hl"><td>3</td><td class="mono">2026-08-04（周二）</td><td>DeepSeek API 性能下降</td><td><span class="badge b-deg">性能下降</span></td><td class="dur-long mono">2 天</td></tr>
+        <tr><td>4</td><td class="mono">2024-05-10（周五）</td><td>网页对话服务与 API 不可用</td><td><span class="badge b-out">完全不可用</span></td><td class="dur-long mono">12 小时</td></tr>
+        <tr><td>5</td><td class="mono">2024-11-27（周三）</td><td>DeepSeek 网页/API 不可用</td><td><span class="badge b-out">完全不可用</span></td><td class="dur-long mono">12 小时</td></tr>
+        <tr><td>6</td><td class="mono">2026-03-30（周一）</td><td>DeepSeek 网页/APP 性能异常</td><td><span class="badge b-deg">性能下降</span></td><td class="dur-long mono">10 小时</td></tr>
+        <tr><td>7</td><td class="mono">2024-08-11（周日）</td><td>DeepSeek Coder 网页/API 不可用</td><td><span class="badge b-out">完全不可用</span></td><td class="dur-long mono">9 小时</td></tr>
+        <tr><td>8</td><td class="mono">2026-04-20（周一）</td><td>Web/APP 快速模式性能异常</td><td><span class="badge b-deg">性能下降</span></td><td class="dur-long mono">3 小时</td></tr>
+        <tr><td>9</td><td class="mono">2026-07-22（周三）</td><td>DeepSeek 网页端搜索不可用</td><td><span class="badge b-fun">功能故障</span></td><td class="dur-long mono">3 小时</td></tr>
+        <tr><td>10</td><td class="mono">2026-09-15（周二）</td><td>DeepSeek 网页/API 部分中断</td><td><span class="badge b-par">部分中断</span></td><td class="dur-long mono">3 小时</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout red">
+    <strong>关键观察：</strong>全部 3 起超 12 小时的超长事件均为「性能下降」而非「完全不可用」——即服务仍然可用，但经历了长达数天至数周的响应缓慢/限流状态。这类事件对重度 API 用户（批量任务、高并发服务）的实际影响可能超过短时宕机，是 SLA 规划中最需要预留缓冲的部分。
+  </div>
+</section>
+
+<!-- ===== 07 关键事件复盘 ===== -->
+<section id="s7">
+  <h2><span class="no">07</span>关键事件复盘</h2>
+  <p>以下按时间线复盘 8 组对趋势判断最具代表性的关键事件（红色 = 完全不可用级，琥珀色 = 长时性能异常，蓝色 = 结构性新特征）：</p>
+
+  <div class="timeline">
+    <div class="tl-item sev">
+      <div class="tl-date">2024-05-10（周五）</div>
+      <div class="tl-title">记录期内首起重大宕机：网页对话与 API 不可用 12 小时</div>
+      <div class="tl-body">状态页自 2024 年 2 月开始记录后连续三个月零故障，5 月 10 日出现首起长时事故，持续 12 小时，为 2024 年上半年最严重事件。同月另有 2 起短时不可用/报错事件，标志着服务进入流量快速增长期。<sup><a href="#cite-5">[5]</a></sup></div>
+    </div>
+    <div class="tl-item sev">
+      <div class="tl-date">2024-08-11 ~ 08-13（周日至周二）</div>
+      <div class="tl-title">DeepSeek Coder 連环故障：3 天 5 起事件</div>
+      <div class="tl-body">8 月 11 日 Coder 网页/API 不可用 9 小时（当月最严重），同日再发 1 起不可用（1 小时）；次日服务不稳定 1 小时；13 日 Chat 与 Coder 又各发生 1 起短时不可用。Coder 独立服务在 2024 年 6–11 月间共发生 8 起不可用事件，是当年的主要故障源。</div>
+    </div>
+    <div class="tl-item sev">
+      <div class="tl-date">2024-11-27（周三）</div>
+      <div class="tl-title">第二次 12 小时完全宕机</div>
+      <div class="tl-body">网页/API 不可用持续 12 小时，与 5 月 10 日并列为记录期内最长的完全不可用事件。2024 年的两次 12 小时宕机均未公布详细根因。<sup><a href="#cite-7">[7]</a></sup></div>
+    </div>
+    <div class="tl-item warn">
+      <div class="tl-date">2025-01-27（周一）</div>
+      <div class="tl-title">R1 发布流量冲击：单日 4 起，开启 11 天性能异常</div>
+      <div class="tl-body">DeepSeek-R1 于 1 月 20 日发布后流量激增，1 月 27 日单日记录 4 起事件：11 天的网页/API 性能异常、1 小时无法登录/注册、两起 2 小时不可用。当月故障总数 10 起，为 2025 年峰值。<sup><a href="#cite-4">[4]</a></sup></div>
+    </div>
+    <div class="tl-item warn">
+      <div class="tl-date">2025-02-08（周六）</div>
+      <div class="tl-title">记录期最长事件：性能异常持续 17 天</div>
+      <div class="tl-body">网页/API 性能异常自 2 月 8 日持续至 2 月 25 日左右，是全部 107 起故障中持续时间最长者。该事件与 1 月 27 日起的 11 天异常首尾相接，共同构成 R1 爆火后约一个月的服务紧张期。<sup><a href="#cite-3">[3]</a></sup></div>
+    </div>
+    <div class="tl-item warn">
+      <div class="tl-date">2026-03-30（周一）</div>
+      <div class="tl-title">10 小时网页/APP 性能异常</div>
+      <div class="tl-body">3 月末出现连续三天的性能事件（3-29 1 小时、3-30 10 小时、3-31 1 小时），其中 3 月 30 日为 2026 年最长事件。3 月共 6 起故障，拉开了 2026 年高频期的序幕。</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">2026-07-22 ~ 08-18</div>
+      <div class="tl-title">搜索服务四连故障：新组件成为新风险点</div>
+      <div class="tl-body">搜索服务在不到一个月内异常 4 次（07-22 不可用 3 小时、07-29 异常 40 分钟、08-14 异常 6 分钟、08-18 异常 39 分钟）。此外 7 月 28 日还出现首起「部分中断」类事件。「部分中断」「功能故障」两类此前未见过的事件形态自 2026 年 7 月起密集出现，与产品功能组件化程度提高直接相关。</div>
+    </div>
+    <div class="tl-item warn">
+      <div class="tl-date">2026-08-04（周二）</div>
+      <div class="tl-title">单日 4 起 + 2 天 API 降级，8 月以 16 起创单月纪录</div>
+      <div class="tl-body">8 月 4 日单日记录 4 起 API 性能下降，其中一起持续 2 天；全月 16 起故障为记录期最高，且 15 起集中在 API 性能类事件。该月标志着高频短时降级的常态化。<sup><a href="#cite-6">[6]</a></sup></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 08 年度明细 ===== -->
+<section id="s8">
+  <h2><span class="no">08</span>年度事件明细</h2>
+  <p>以下为全部 109 起事件的完整清单（按时间正序），与官方状态页逐月记录一一对应。红色底色行为持续 ≥3 小时的重大事件；灰色行为计划维护。</p>
+
+  <h3>8.1 2024 年（21 起故障 + 2 起维护）</h3>
+  <div class="table-wrap" style="max-height:520px">
+    <table>
+      <thead><tr><th>#</th><th>日期</th><th>星期</th><th>事件</th><th>类型</th><th>持续</th></tr></thead>
+      <tbody>
+        <tr class="hl"><td>1</td><td class="mono">2024-05-10</td><td>五</td><td>DeepSeek 网页对话服务与 API 不可用</td><td><span class="badge b-out">完全不可用</span></td><td class="mono dur-long">12 小时</td></tr>
+        <tr><td>2</td><td class="mono">2024-05-21</td><td>二</td><td>DeepSeek 网页/API 不可用</td><td><span class="badge b-out">完全不可用</span></td><td class="mono">9 分钟</td></tr>
+        <tr><td>3</td><td class="mono">2024-05-23</td><td>四</td><td>API 报错频率上升</td><td><span class="badge b-deg">性能下降</span></td><td class="mono">58 分钟</td></tr>
+        <tr><td>4</td><td class="mono">2024-06-14</td><td>五</td><td>DeepSeek-V2 Chat 网页端/API 访问异常</td><td><span class="badge b-out">完全不可用</span></td><td class="mono">35 分钟</td></tr>
+        <tr><td>5</td><td class="mono">2024-06-26</td><td>三</td><td>DeepSeek-V2 Chat 网页端/API 访问异常</td><td><span class="badge b-out">完全不可用</span></td><td class="mono">20 分钟</td></tr>
+        <tr><td>6</td><td class="mono">2024-07-23</td><td>二</td><td>DeepSeek Chat 网页与 API 不可用</td><td><span class="badge b-out">完全不可用</span></td><td class="mono">6 分钟</td></tr>
+        <tr class="mnt"><td>7</td><td class="mono">2024-07-24</td><td>三</td><td>deepseek-coder 升级至 DeepSeek-Coder-V2-0724</td><td><span class="badge b-mnt">计划维护</span></td><td class="mono">29 分钟</td></tr>
+        <tr class="mnt"><td>8</td><td class="mono">2024-07-25</td><td>四</td><td>DeepSeek API 升级</td><td><span class="badge b-mnt">计划维护</span></td><td class="mono">59 分钟</td></tr>
+        <tr><td>9</td><td class="mono">2024-07-25</td><td>四</td><td>DeepSeek Chat Web/API 不可用</td><td><span class="badge b-out">完全不可用</span></td><td class="mono">1 分钟</td></tr>
+        <tr><td>10</td><td class="mono">2024-08-02</td><td>五</td><td>DeepSeek API 高错误率</td><td><span class="badge b-deg">性能下降</span></td><td class="mono">1 小时</td></tr>
+        <tr class="hl"><td>11</td><td class="mono">2024-08-11</td><td>日</td><td>DeepSeek Coder 网页/API 不可用</td><td><span class="badge b-out">完全不可用</span></td><td class="mono dur-long">9 小时</td></tr>
+        <tr><td>12</td><td class="mono">2024-08-11</td><td>日</td><td>DeepSeek Coder 网页/API 不可用</td><td><span class="badge b-out">完全不可用</span></td><td class="mono">1 小时</td></tr>
+        <tr><td>13</td><td class="mono">2024-08-12</td><td>一</td><td>DeepSeek Coder 网页/API 服务不稳定</td><td><span class="badge b-deg">性能下降</span></td><td class="mono">1 小时</td></tr>
+        <tr><td>14</td><td class="mono">2024-08-13</td><td>二</td><td>DeepSeek Chat 网页/API 不可用</td><td><span class="badge b-out">完全不可用</span></td><td class="mono">18 分钟</td></tr>
+        <tr><td>15</td><td class="mono">2024-08-13</td><td>二</td><td>DeepSeek Coder 网页/API 不可用</td><td><span class="badge b-out">完全不可用</span></td><td class="mono">1 分钟</td></tr>
+        <tr><td>16</td><td class="mono">2024-09-14</td><td>六</td><td>DeepSeek Coder 网页/API 不可用</td><td><span class="badge b-out">完全不可用</span></td><td class="mono">7 分钟</td></tr>
+        <tr><td>17</td><td class="mono">2024-09-23</td><td>一</td><td>DeepSeek 网页/API 不可用</td><td><span class="badge b-out">完全不可用</span></td><td class="mono">23 分钟</td></tr>
+        <tr><td>18</td><td class="mono">2024-10-22</td><td>二</td><td>DeepSeek Coder 网页/API 不可用</td><td><span class="badge b-out">完全不可用</span></td><td class="mono">13 分钟</td></tr>
+        <tr><td>19</td><td class="mono">2024-10-23</td><td>三</td><td>DeepSeek Coder 网页/API 不可用</td><td><span class="badge b-out">完全不可用</span></td><td class="mono">11 分钟</td></tr>
+        <tr><td>20</td><td class="mono">2024-11-13</td><td>三</td><td>DeepSeek Coder 网页/API 不可用</td><td><span class="badge b-out">完全不可用</span></td><td class="mono">9 分钟</td></tr>
+        <tr class="hl"><td>21</td><td class="mono">2024-11-27</td><td>三</td><td>DeepSeek 网页/API 不可用</td><td><span class="badge b-out">完全不可用</span></td><td class="mono dur-long">12 小时</td></tr>
+        <tr><td>22</td><td class="mono">2024-12-26</td><td>四</td><td>DeepSeek 网页/API 不可用</td><td><span class="badge b-out">完全不可用</span></td><td class="mono">20 分钟</td></tr>
+        <tr><td>23</td><td class="mono">2024-12-26</td><td>四</td><td>DeepSeek 网页/API 不可用</td><td><span class="badge b-out">完全不可用</span></td><td class="mono">4 分钟</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:0.88rem;color:var(--muted)">年度小结：故障集中在 5–8 月与 11–12 月；Coder 服务为头号故障源（8 起）；两次 12 小时宕机为全年最严重事件。</p>
+
+  <h3>8.2 2025 年（27 起故障）</h3>
+  <div class="table-wrap" style="max-height:560px">
+    <table>
+      <thead><tr><th>#</th><th>日期</th><th>星期</th><th>事件</th><th>类型</th><th>持续</th></tr></thead>
+      <tbody>
+        <tr><td>24</td><td class="mono">2025-01-03</td><td>五</td><td>DeepSeek 网页/API 不可用</td><td><span class="badge b-out">完全不可用</span></td><td class="mono">14 分钟</td></tr>
+        <tr><td>25</td><td class="mono">2025-01-08</td><td>三</td><td>DeepSeek 网页/API 不可用</td><td><span class="badge b-out">完全不可用</span></td><td class="mono">14 分钟</td></tr>
+        <tr><td>26</td><td class="mono">2025-01-08</td><td>三</td><td>DeepSeek 网页/API 不可用</td><td><span class="badge b-out">完全不可用</span></td><td class="mono">27 分钟</td></tr>
+        <tr><td>27</td><td class="mono">2025-01-14</td><td>二</td><td>DeepSeek 网页不可用</td><td><span class="badge b-out">完全不可用</span></td><td class="mono">1 分钟</td></tr>
+        <tr><td>28</td><td class="mono">2025-01-26</td><td>日</td><td>DeepSeek 网页/API 不可用</td><td><span class="badge b-out">完全不可用</span></td><td class="mono">40 分钟</td></tr>
+        <tr><td>29</td><td class="mono">2025-01-26</td><td>日</td><td>DeepSeek-R1 网页/API 不可用</td><td><span class="badge b-out">完全不可用</span></td><td class="mono">4 分钟</td></tr>
+        <tr class="hl"><td>30</td><td class="mono">2025-01-27</td><td>一</td><td>DeepSeek 网页/API 性能异常（R1 流量洪峰）</td><td><span class="badge b-deg">性能下降</span></td><td class="mono dur-long">11 天</td></tr>
+        <tr><td>31</td><td class="mono">2025-01-27</td><td>一</td><td>DeepSeek 无法登录/注册</td><td><span class="badge b-fun">功能故障</span></td><td class="mono">1 小时</td></tr>
+        <tr><td>32</td><td class="mono">2025-01-27</td><td>一</td><td>DeepSeek 网页/API 不可用</td><td><span class="badge b-out">完全不可用</span></td><td class="mono">2 小时</td></tr>
+        <tr><td>33</td><td class="mono">2025-01-27</td><td>一</td><td>DeepSeek API 不可用</td><td><span class="badge b-out">完全不可用</span></td><td class="mono">2 小时</td></tr>
+        <tr class="hl"><td>34</td><td class="mono">2025-02-08</td><td>六</td><td>DeepSeek 网页/API 性能异常（最长事件）</td><td><span class="badge b-deg">性能下降</span></td><td class="mono dur-long">17 天</td></tr>
+        <tr><td>35</td><td class="mono">2025-03-11</td><td>二</td><td>DeepSeek R1 网页/API 不可用</td><td><span class="badge b-out">完全不可用</span></td><td class="mono">25 分钟</td></tr>
+        <tr><td>36</td><td class="mono">2025-03-20</td><td>四</td><td>DeepSeek R1 网页/API 不可用</td><td><span class="badge b-out">完全不可用</span></td><td class="mono">7 分钟</td></tr>
+        <tr><td>37</td><td class="mono">2025-03-21</td><td>五</td><td>DeepSeek 网页/API 不可用</td><td><span class="badge b-out">完全不可用</span></td><td class="mono">9 分钟</td></tr>
+        <tr><td>38</td><td class="mono">2025-05-13</td><td>二</td><td>DeepSeek 网页 &amp; APP 不可用</td><td><span class="badge b-out">完全不可用</span></td><td class="mono">1 小时</td></tr>
+        <tr><td>39</td><td class="mono">2025-05-28</td><td>三</td><td>DeepSeek 网页/API 不可用</td><td><span class="badge b-out">完全不可用</span></td><td class="mono">5 分钟</td></tr>
+        <tr><td>40</td><td class="mono">2025-07-01</td><td>二</td><td>DeepSeek V3 网页/API 不可用</td><td><span class="badge b-out">完全不可用</span></td><td class="mono">10 分钟</td></tr>
+        <tr><td>41</td><td class="mono">2025-07-02</td><td>三</td><td>DeepSeek 网页/API 性能异常</td><td><span class="badge b-deg">性能下降</span></td><td class="mono">1 小时</td></tr>
+        <tr><td>42</td><td class="mono">2025-07-30</td><td>三</td><td>DeepSeek 网页/API 性能下降</td><td><span class="badge b-deg">性能下降</span></td><td class="mono">2 小时</td></tr>
+        <tr><td>43</td><td class="mono">2025-08-11</td><td>一</td><td>DeepSeek 网页/API 不可用</td><td><span class="badge b-out">完全不可用</span></td><td class="mono">27 分钟</td></tr>
+        <tr><td>44</td><td class="mono">2025-11-03</td><td>一</td><td>DeepSeek 网页/API 性能下降</td><td><span class="badge b-deg">性能下降</span></td><td class="mono">24 分钟</td></tr>
+        <tr><td>45</td><td class="mono">2025-11-04</td><td>二</td><td>DeepSeek 网页不可用</td><td><span class="badge b-out">完全不可用</span></td><td class="mono">12 分钟</td></tr>
+        <tr><td>46</td><td class="mono">2025-11-25</td><td>二</td><td>DeepSeek 网页/API 性能异常</td><td><span class="badge b-deg">性能下降</span></td><td class="mono">32 分钟</td></tr>
+        <tr><td>47</td><td class="mono">2025-12-11</td><td>四</td><td>DeepSeek 网页/API 不可用</td><td><span class="badge b-out">完全不可用</span></td><td class="mono">30 分钟</td></tr>
+        <tr><td>48</td><td class="mono">2025-12-14</td><td>日</td><td>DeepSeek 网页/API 不可用</td><td><span class="badge b-out">完全不可用</span></td><td class="mono">34 分钟</td></tr>
+        <tr><td>49</td><td class="mono">2025-12-16</td><td>二</td><td>DeepSeek 网页/API 不可用</td><td><span class="badge b-out">完全不可用</span></td><td class="mono">35 分钟</td></tr>
+        <tr><td>50</td><td class="mono">2025-12-22</td><td>一</td><td>DeepSeek 网页/API 性能异常</td><td><span class="badge b-deg">性能下降</span></td><td class="mono">11 分钟</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:0.88rem;color:var(--muted)">年度小结：1–2 月 R1 发布期贡献了全年近半数故障（11 起）与全部两起超长事件；4、6、9、10 四个月零故障；下半年以分钟级短事件为主，类型结构开始向「性能下降」倾斜。</p>
+
+  <h3>8.3 2026 年（59 起故障，截至 10-15）</h3>
+  <div class="table-wrap" style="max-height:620px">
+    <table>
+      <thead><tr><th>#</th><th>日期</th><th>星期</th><th>事件</th><th>类型</th><th>持续</th></tr></thead>
+      <tbody>
+        <tr><td>51</td><td class="mono">2026-02-03</td><td>二</td><td>DeepSeek 网页/API 性能异常</td><td><span class="badge b-deg">性能下降</span></td><td class="mono">27 分钟</td></tr>
+        <tr><td>52</td><td class="mono">2026-02-06</td><td>五</td><td>DeepSeek 网页/API 性能异常</td><td><span class="badge b-deg">性能下降</span></td><td class="mono">1 小时</td></tr>
+        <tr><td>53</td><td class="mono">2026-02-06</td><td>五</td><td>DeepSeek 网页/API 性能异常</td><td><span class="badge b-deg">性能下降</span></td><td class="mono">6 分钟</td></tr>
+        <tr><td>54</td><td class="mono">2026-02-28</td><td>六</td><td>DeepSeek 网页/APP 性能异常</td><td><span class="badge b-deg">性能下降</span></td><td class="mono">50 分钟</td></tr>
+        <tr><td>55</td><td class="mono">2026-03-05</td><td>四</td><td>DeepSeek 网页不可用</td><td><span class="badge b-out">完全不可用</span></td><td class="mono">44 分钟</td></tr>
+        <tr><td>56</td><td class="mono">2026-03-10</td><td>二</td><td>DeepSeek 网页/APP 不可用</td><td><span class="badge b-out">完全不可用</span></td><td class="mono">1 小时</td></tr>
+        <tr><td>57</td><td class="mono">2026-03-18</td><td>三</td><td>DeepSeek 网页/APP 性能异常</td><td><span class="badge b-deg">性能下降</span></td><td class="mono">10 分钟</td></tr>
+        <tr><td>58</td><td class="mono">2026-03-29</td><td>日</td><td>DeepSeek 网页/APP 服务异常</td><td><span class="badge b-deg">性能下降</span></td><td class="mono">1 小时</td></tr>
+        <tr class="hl"><td>59</td><td class="mono">2026-03-30</td><td>一</td><td>DeepSeek 网页/APP 性能异常</td><td><span class="badge b-deg">性能下降</span></td><td class="mono dur-long">10 小时</td></tr>
+        <tr><td>60</td><td class="mono">2026-03-31</td><td>二</td><td>DeepSeek 网页/API 性能异常</td><td><span class="badge b-deg">性能下降</span></td><td class="mono">1 小时</td></tr>
+        <tr><td>61</td><td class="mono">2026-04-03</td><td>五</td><td>DeepSeek 网页/APP 服务异常</td><td><span class="badge b-deg">性能下降</span></td><td class="mono">13 分钟</td></tr>
+        <tr class="hl"><td>62</td><td class="mono">2026-04-20</td><td>一</td><td>DeepSeek Web/APP 快速模式性能异常</td><td><span class="badge b-deg">性能下降</span></td><td class="mono dur-long">3 小时</td></tr>
+        <tr><td>63</td><td class="mono">2026-04-22</td><td>三</td><td>DeepSeek API 异常</td><td><span class="badge b-deg">性能下降</span></td><td class="mono">1 小时</td></tr>
+        <tr><td>64</td><td class="mono">2026-05-06</td><td>三</td><td>DeepSeek 网页/API 性能异常</td><td><span class="badge b-deg">性能下降</span></td><td class="mono">6 分钟</td></tr>
+        <tr><td>65</td><td class="mono">2026-05-06</td><td>三</td><td>DeepSeek 网页/API 性能异常</td><td><span class="badge b-deg">性能下降</span></td><td class="mono">11 分钟</td></tr>
+        <tr><td>66</td><td class="mono">2026-05-08</td><td>五</td><td>DeepSeek 网页/API 不可用</td><td><span class="badge b-out">完全不可用</span></td><td class="mono">33 分钟</td></tr>
+        <tr><td>67</td><td class="mono">2026-05-21</td><td>四</td><td>DeepSeek 网页/API 性能下降</td><td><span class="badge b-deg">性能下降</span></td><td class="mono">20 分钟</td></tr>
+        <tr><td>68</td><td class="mono">2026-05-24</td><td>日</td><td>DeepSeek 网页端/API 不可用</td><td><span class="badge b-out">完全不可用</span></td><td class="mono">18 分钟</td></tr>
+        <tr><td>69</td><td class="mono">2026-05-28</td><td>四</td><td>DeepSeek 网页/API 性能下降</td><td><span class="badge b-deg">性能下降</span></td><td class="mono">11 分钟</td></tr>
+        <tr><td>70</td><td class="mono">2026-05-28</td><td>四</td><td>DeepSeek 网页/API 性能下降</td><td><span class="badge b-deg">性能下降</span></td><td class="mono">29 分钟</td></tr>
+        <tr><td>71</td><td class="mono">2026-06-09</td><td>二</td><td>DeepSeek 网页 性能下降</td><td><span class="badge b-deg">性能下降</span></td><td class="mono">49 分钟</td></tr>
+        <tr><td>72</td><td class="mono">2026-06-16</td><td>二</td><td>DeepSeek 网页/API 性能下降</td><td><span class="badge b-deg">性能下降</span></td><td class="mono">44 分钟</td></tr>
+        <tr><td>73</td><td class="mono">2026-06-25</td><td>四</td><td>DeepSeek API 性能下降</td><td><span class="badge b-deg">性能下降</span></td><td class="mono">12 分钟</td></tr>
+        <tr><td>74</td><td class="mono">2026-07-02</td><td>四</td><td>DeepSeek 网页/API 性能下降</td><td><span class="badge b-deg">性能下降</span></td><td class="mono">1 小时</td></tr>
+        <tr class="hl"><td>75</td><td class="mono">2026-07-22</td><td>三</td><td>DeepSeek 网页端搜索不可用</td><td><span class="badge b-fun">功能故障</span></td><td class="mono dur-long">3 小时</td></tr>
+        <tr><td>76</td><td class="mono">2026-07-24</td><td>五</td><td>DeepSeek API 性能下降</td><td><span class="badge b-deg">性能下降</span></td><td class="mono">18 分钟</td></tr>
+        <tr><td>77</td><td class="mono">2026-07-28</td><td>二</td><td>API 服务异常（部分不可用）</td><td><span class="badge b-par">部分中断</span></td><td class="mono">7 分钟</td></tr>
+        <tr><td>78</td><td class="mono">2026-07-29</td><td>三</td><td>搜索服务异常</td><td><span class="badge b-fun">功能故障</span></td><td class="mono">40 分钟</td></tr>
+        <tr><td>79</td><td class="mono">2026-07-30</td><td>四</td><td>DeepSeek 网页/API 性能下降</td><td><span class="badge b-deg">性能下降</span></td><td class="mono">5 分钟</td></tr>
+        <tr><td>80</td><td class="mono">2026-07-31</td><td>五</td><td>API 服务性能下降</td><td><span class="badge b-deg">性能下降</span></td><td class="mono">5 分钟</td></tr>
+        <tr><td>81</td><td class="mono">2026-07-31</td><td>五</td><td>DeepSeek 网页/API 性能下降</td><td><span class="badge b-deg">性能下降</span></td><td class="mono">7 分钟</td></tr>
+        <tr><td>82</td><td class="mono">2026-08-03</td><td>一</td><td>DeepSeek 网页/API 性能下降</td><td><span class="badge b-deg">性能下降</span></td><td class="mono">14 分钟</td></tr>
+        <tr class="hl"><td>83</td><td class="mono">2026-08-04</td><td>二</td><td>DeepSeek API 性能下降</td><td><span class="badge b-deg">性能下降</span></td><td class="mono dur-long">2 天</td></tr>
+        <tr><td>84</td><td class="mono">2026-08-04</td><td>二</td><td>DeepSeek API 性能下降</td><td><span class="badge b-deg">性能下降</span></td><td class="mono">1 小时</td></tr>
+        <tr><td>85</td><td class="mono">2026-08-04</td><td>二</td><td>DeepSeek API 性能下降</td><td><span class="badge b-deg">性能下降</span></td><td class="mono">36 分钟</td></tr>
+        <tr><td>86</td><td class="mono">2026-08-04</td><td>二</td><td>DeepSeek API 性能下降</td><td><span class="badge b-deg">性能下降</span></td><td class="mono">1 小时</td></tr>
+        <tr><td>87</td><td class="mono">2026-08-07</td><td>五</td><td>DeepSeek API 性能下降</td><td><span class="badge b-deg">性能下降</span></td><td class="mono">5 分钟</td></tr>
+        <tr><td>88</td><td class="mono">2026-08-07</td><td>五</td><td>DeepSeek 网页/API 性能下降</td><td><span class="badge b-deg">性能下降</span></td><td class="mono">19 分钟</td></tr>
+        <tr><td>89</td><td class="mono">2026-08-10</td><td>一</td><td>DeepSeek API 性能下降</td><td><span class="badge b-deg">性能下降</span></td><td class="mono">2 分钟</td></tr>
+        <tr><td>90</td><td class="mono">2026-08-10</td><td>一</td><td>DeepSeek API 性能下降</td><td><span class="badge b-deg">性能下降</span></td><td class="mono">6 分钟</td></tr>
+        <tr><td>91</td><td class="mono">2026-08-14</td><td>五</td><td>搜索服务异常</td><td><span class="badge b-fun">功能故障</span></td><td class="mono">6 分钟</td></tr>
+        <tr><td>92</td><td class="mono">2026-08-14</td><td>五</td><td>DeepSeek 网页/API 性能下降</td><td><span class="badge b-deg">性能下降</span></td><td class="mono">5 分钟</td></tr>
+        <tr><td>93</td><td class="mono">2026-08-18</td><td>二</td><td>搜索服务异常</td><td><span class="badge b-fun">功能故障</span></td><td class="mono">39 分钟</td></tr>
+        <tr><td>94</td><td class="mono">2026-08-19</td><td>三</td><td>DeepSeek API 性能下降</td><td><span class="badge b-deg">性能下降</span></td><td class="mono">7 分钟</td></tr>
+        <tr><td>95</td><td class="mono">2026-08-19</td><td>三</td><td>DeepSeek 网页/API 性能下降</td><td><span class="badge b-deg">性能下降</span></td><td class="mono">15 分钟</td></tr>
+        <tr><td>96</td><td class="mono">2026-08-21</td><td>五</td><td>DeepSeek 网页/API 性能下降</td><td><span class="badge b-deg">性能下降</span></td><td class="mono">25 分钟</td></tr>
+        <tr><td>97</td><td class="mono">2026-08-22</td><td>六</td><td>DeepSeek API 性能下降</td><td><span class="badge b-deg">性能下降</span></td><td class="mono">19 分钟</td></tr>
+        <tr><td>98</td><td class="mono">2026-09-02</td><td>三</td><td>DeepSeek 网页/API 部分中断</td><td><span class="badge b-par">部分中断</span></td><td class="mono">31 分钟</td></tr>
+        <tr><td>99</td><td class="mono">2026-09-15</td><td>二</td><td>DeepSeek 网页/API 性能下降</td><td><span class="badge b-deg">性能下降</span></td><td class="mono">8 分钟</td></tr>
+        <tr><td>100</td><td class="mono">2026-09-15</td><td>二</td><td>DeepSeek 网页/API 性能下降</td><td><span class="badge b-deg">性能下降</span></td><td class="mono">33 分钟</td></tr>
+        <tr class="hl"><td>101</td><td class="mono">2026-09-15</td><td>二</td><td>DeepSeek 网页/API 部分中断</td><td><span class="badge b-par">部分中断</span></td><td class="mono dur-long">3 小时</td></tr>
+        <tr><td>102</td><td class="mono">2026-09-17</td><td>四</td><td>DeepSeek 网页/API 性能下降</td><td><span class="badge b-deg">性能下降</span></td><td class="mono">7 分钟</td></tr>
+        <tr><td>103</td><td class="mono">2026-09-20</td><td>日</td><td>DeepSeek 网页/API 性能下降</td><td><span class="badge b-deg">性能下降</span></td><td class="mono">13 分钟</td></tr>
+        <tr><td>104</td><td class="mono">2026-09-23</td><td>三</td><td>DeepSeek 网页/API 性能下降</td><td><span class="badge b-deg">性能下降</span></td><td class="mono">9 分钟</td></tr>
+        <tr><td>105</td><td class="mono">2026-09-24</td><td>四</td><td>DeepSeek 网页/API 性能下降</td><td><span class="badge b-deg">性能下降</span></td><td class="mono">48 分钟</td></tr>
+        <tr><td>106</td><td class="mono">2026-10-02</td><td>五</td><td>DeepSeek 网页/API 性能下降</td><td><span class="badge b-deg">性能下降</span></td><td class="mono">1 小时</td></tr>
+        <tr><td>107</td><td class="mono">2026-10-08</td><td>四</td><td>DeepSeek 网页/API 性能下降</td><td><span class="badge b-deg">性能下降</span></td><td class="mono">3 分钟</td></tr>
+        <tr><td>108</td><td class="mono">2026-10-12</td><td>一</td><td>DeepSeek 网页 部分中断</td><td><span class="badge b-par">部分中断</span></td><td class="mono">11 分钟</td></tr>
+        <tr><td>109</td><td class="mono">2026-10-12</td><td>一</td><td>DeepSeek 网页/API 性能下降</td><td><span class="badge b-deg">性能下降</span></td><td class="mono">15 分钟</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:0.88rem;color:var(--muted)">年度小结：8 月 16 起创单月纪录，其中 15 起为 API/网页性能类事件；「部分中断」与「搜索故障」两类新事件形态首次出现；仅 4 起完全不可用且均 ≤1 小时，是三个年度中「最重事件」最轻的一年。</p>
+</section>
+
+<!-- ===== 09 结论 ===== -->
+<section id="s9">
+  <h2><span class="no">09</span>结论与建议</h2>
+
+  <h3>9.1 六项核心发现</h3>
+  <ul class="clean">
+    <li><strong>发现一（频率）：</strong>故障频率阶梯式上升——月均 1.9 起（2024）→ 2.3 起（2025）→ 6.2 起（2026，截至 10 月），2026 年 8 月的 16 起为全记录期峰值；自 2026 年 2 月起再无整月零故障；</li>
+    <li><strong>发现二（类型）：</strong>事件结构完成从「完全不可用」（2024 占 86%）向「性能下降」（2026 占 80%）的翻转；2026 年仅 4 起完全不可用，均短于 1 小时；</li>
+    <li><strong>发现三（时长）：</strong>持续时间极端右偏——中位数 23.5 分钟、88% 在 1 小时内恢复，但 3 起超 12 小时的长时性能异常（11 天 / 17 天 / 2 天）拉高了整体均值；</li>
+    <li class="warn"><strong>发现四（诱因）：</strong>全部超长事件与流量洪峰/容量压力高度相关（2025 年初 R1 发布、2026 年 8 月 API 高负载），而非常规运维事故——<mark class="key">流量爆发期是可靠性风险窗口</mark>；</li>
+    <li><strong>发现五（形态）：</strong>2026 年 7 月起新增「部分中断」「搜索服务故障」两类事件形态，故障面从「网页/API 整体」扩散到各功能组件，与产品功能扩张同步；</li>
+    <li><strong>发现六（节奏）：</strong>故障呈工作日偏向（周二、周三合计 40%，周末仅 11%），与变更/发布节奏吻合；单日最多 4 起（2026-08-04，周二）。</li>
+  </ul>
+
+  <h3>9.2 综合研判</h3>
+  <p>综合频率、类型与时长三条线索，2024 → 2026 年 DeepSeek 服务事件演变的合理推断是：<strong>绝对可靠性（不出大事故）在改善，相对可靠性（无感小波动）在承压</strong>。完全宕机从每年近 20 起降至 4 起、最长事件从 12 小时宕机降为 2 天降级，说明基础设施与容灾能力显著增强；而月均 6 起的短时性能下降，则反映了用户规模与调用量的持续高速增长对服务质量的常态化挤压。状态页记录粒度的细化（2024 年只记录达到「不可用」级的事件，2026 年连 2 分钟的性能下降也单独公告）也在统计上放大了这一趋势，但 8 月 4 日起 API 连续 2 天的降级表明高频记录并非全部来自「更爱报告」。</p>
+
+  <h3>9.3 对 API 使用方的建议</h3>
+  <ul class="clean">
+    <li><strong>为「分钟级抖动」设计：</strong>按每月约 6 起、单起中位 24 分钟的性能下降做容量冗余：设置合理的超时（≥60s）与指数退避重试，可将绝大多数 2026 年型事件对终端用户的影响降至无感；</li>
+    <li><strong>为「长尾降级」兜底：</strong>历史证明存在 2 天至 17 天级别的长时降级可能，批量/高并发业务应准备多供应商路由或降级队列，并将长任务的断点续跑能力纳入设计；</li>
+    <li><strong>关注发布与流量节点：</strong>新模型发布初期与公开流量洪峰（参照 2025 年 1–2 月）为高风险窗口，重要变更尽量避开；可订阅状态页 RSS/Webhook 以分钟级感知事件开始与恢复<sup><a href="#cite-2">[2]</a></sup>；</li>
+    <li><strong>SLA 校准：</strong>若以本历史数据为参照，可将内部 SLA 目标设定为「月度可用性 99.9% 量级（性能下降不计为不可用）」，并单独为「连续多日降级」制定应急预案。</li>
+  </ul>
+
+  <div class="callout">
+    <strong>后续跟踪：</strong>本报告数据截止 2026 年 10 月 15 日。2026 年 10 月后若 8 月型高频态势延续，则「高频短时降级常态化」的判断将进一步坐实；若回落至 ≤4 起/月，则 2026 年 7–9 月可视为一次阶段性容量危机后的消化期。
+  </div>
+</section>
+
+</main>
+
+<!-- ===== 来源 ===== -->
+<footer>
+  <div class="foot-inner">
+    <div class="sources">
+      <h2>数据来源</h2>
+      <ol>
+        <li id="cite-1">
+          <span class="src-title">DeepSeek Status，历史事件（Historical events）页。本报告全部事件的原始出处，按月查询参数逐月采集 2024-02 至 2026-10 共 33 个月记录。</span>
+          <a class="src-url" href="https://status.deepseek.com/history" target="_blank" rel="noopener">https://status.deepseek.com/history</a>
+        </li>
+        <li id="cite-2">
+          <span class="src-title">DeepSeek Status，当前状态页。用于核对事件恢复状态与组件命名。</span>
+          <a class="src-url" href="https://status.deepseek.com/" target="_blank" rel="noopener">https://status.deepseek.com/</a>
+        </li>
+        <li id="cite-3">
+          <span class="src-title">事件页：DeepSeek 网页/API 性能异常（2025-02-08，持续 17 天，记录期最长事件）。</span>
+          <a class="src-url" href="https://status.deepseek.com/incidents/2258210444252287" target="_blank" rel="noopener">https://status.deepseek.com/incidents/2258210444252287</a>
+        </li>
+        <li id="cite-4">
+          <span class="src-title">事件页：DeepSeek 网页/API 性能异常（2025-01-27，持续 11 天，R1 发布流量期）。</span>
+          <a class="src-url" href="https://status.deepseek.com/incidents/2328579188430287" target="_blank" rel="noopener">https://status.deepseek.com/incidents/2328579188430287</a>
+        </li>
+        <li id="cite-5">
+          <span class="src-title">事件页：DeepSeek 网页对话服务与 API 不可用（2024-05-10，持续 12 小时）。</span>
+          <a class="src-url" href="https://status.deepseek.com/incidents/4580379002115287" target="_blank" rel="noopener">https://status.deepseek.com/incidents/4580379002115287</a>
+        </li>
+        <li id="cite-6">
+          <span class="src-title">事件页：DeepSeek API 性能下降（2026-08-04，持续 2 天）。</span>
+          <a class="src-url" href="https://status.deepseek.com/incidents/6800501267287" target="_blank" rel="noopener">https://status.deepseek.com/incidents/6800501267287</a>
+        </li>
+        <li id="cite-7">
+          <span class="src-title">事件页：DeepSeek 网页/API 不可用（2024-11-27，持续 12 小时）。</span>
+          <a class="src-url" href="https://status.deepseek.com/incidents/3173004118562287" target="_blank" rel="noopener">https://status.deepseek.com/incidents/3173004118562287</a>
+        </li>
+      </ol>
+    </div>
+    <div class="foot-note">
+      说明：本报告为基于公开状态页数据的独立整理与分析，事件持续时间与影响范围均以官方标注为准；「类型分类」「阶段划分」「趋势研判」部分为报告方法论层面的归纳，不代表 DeepSeek 官方口径。数据截止 2026-10-15，2026 年 10 月仅含前 15 天记录。
+    </div>
+  </div>
+</footer>
+
+<!-- REQUIRED: ECharts library -->
+<script src="./_shared/js/echarts.min.js"></script>
+<script src="assets/charts.js"></script>
+</body>
+</html>
