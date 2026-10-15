@@ -18,7 +18,7 @@
                 '2026-01','2026-02','2026-03','2026-04','2026-05','2026-06','2026-07','2026-08','2026-09','2026-10'];
   var counts = [0,0,0,3,2,2,6,2,2,2,2,
                 10,1,3,0,2,0,3,1,0,0,3,4,
-                0,4,6,3,7,3,8,16,8,4];
+                0,4,6,3,7,3,8,16,8,5];
   // 3 个月移动平均
   var ma = months.map(function (_, i) {
     if (i < 2) { return null; }
@@ -72,7 +72,7 @@
       tooltip: { trigger: 'axis', appendToBody: true, textStyle: { fontFamily: fontFamily, fontSize: 12 } },
       legend: { top: 0, right: 0, itemWidth: 12, itemHeight: 8, textStyle: { color: muted, fontFamily: fontFamily, fontSize: 11 } },
       xAxis: {
-        type: 'category', data: ['2024 年(2-12月)', '2025 年(全年)', '2026 年(至10-15)'],
+        type: 'category', data: ['2024 年(2-12月)', '2025 年(全年)', '2026 年(至10-15, 含进行中)'],
         axisLabel: { color: ink, fontFamily: fontFamily, fontSize: 11, interval: 0 },
         axisLine: { lineStyle: { color: rule } }, axisTick: { show: false }
       },
@@ -83,13 +83,13 @@
       series: [
         {
           name: '故障总数', type: 'bar', barMaxWidth: 52,
-          data: [21, 27, 59],
+          data: [21, 27, 60],
           itemStyle: { color: accent, borderRadius: [3, 3, 0, 0] },
           label: { show: true, position: 'top', color: ink, fontFamily: fontFamily, fontWeight: 700, fontSize: 13 }
         },
         {
           name: '月均故障数', type: 'line', yAxisIndex: 1,
-          data: [1.9, 2.25, 6.2], symbol: 'circle', symbolSize: 7,
+          data: [1.9, 2.25, 6.3], symbol: 'circle', symbolSize: 7,
           lineStyle: { color: accent2, width: 2 }, itemStyle: { color: accent2 },
           label: { show: true, position: 'top', color: accent2, fontFamily: fontFamily, fontSize: 11, formatter: '{c} 起/月' }
         }
@@ -113,7 +113,7 @@
       },
       yAxis: { type: 'value', max: 24, interval: 6, axisLabel: baseText, splitLine: { lineStyle: { color: rule } } },
       series: [{
-        name: '故障数', type: 'bar', data: [18, 23, 20, 16, 18, 5, 7], barMaxWidth: 32,
+        name: '故障数', type: 'bar', data: [18, 23, 20, 17, 18, 5, 7], barMaxWidth: 32,
         itemStyle: {
           color: function (p) { return (p.dataIndex === 1 || p.dataIndex === 2) ? accent2 : accent; },
           borderRadius: [3, 3, 0, 0]
@@ -137,7 +137,7 @@
         textStyle: { color: muted, fontFamily: fontFamily, fontSize: 11 }
       },
       xAxis: {
-        type: 'category', data: ['2024 年（21 起）', '2025 年（27 起）', '2026 年（59 起）'],
+        type: 'category', data: ['2024 年（21 起）', '2025 年（27 起）', '2026 年（60 起）'],
         axisLabel: { color: ink, fontFamily: fontFamily, fontSize: 12, interval: 0 },
         axisLine: { lineStyle: { color: rule } }, axisTick: { show: false }
       },
@@ -145,7 +145,7 @@
       series: [
         { name: '完全不可用', type: 'bar', stack: 'total', data: [18, 19, 4], barMaxWidth: 90, itemStyle: { color: accent2 } },
         { name: '性能下降', type: 'bar', stack: 'total', data: [3, 7, 47], itemStyle: { color: warn } },
-        { name: '部分中断', type: 'bar', stack: 'total', data: [0, 0, 4], itemStyle: { color: accent } },
+        { name: '部分中断', type: 'bar', stack: 'total', data: [0, 0, 5], itemStyle: { color: accent } },
         { name: '功能故障', type: 'bar', stack: 'total', data: [0, 1, 4], itemStyle: { color: violet, borderRadius: [3, 3, 0, 0] } }
       ]
     });

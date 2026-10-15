@@ -161,7 +161,7 @@ footer .sources a { word-break:break-all; }
     <div class="meta-grid">
       <div class="meta-item"><div class="k">DATA SOURCE</div><div class="v">status.deepseek.com/history</div></div>
       <div class="meta-item"><div class="k">数据截止</div><div class="v">2026-10-15</div></div>
-      <div class="meta-item"><div class="k">事件总量</div><div class="v">109 起（故障 107 + 维护 2）</div></div>
+      <div class="meta-item"><div class="k">事件总量</div><div class="v">110 起（故障 108 + 维护 2）</div></div>
       <div class="meta-item"><div class="k">覆盖时长</div><div class="v">33 个月</div></div>
     </div>
   </div>
@@ -189,20 +189,20 @@ footer .sources a { word-break:break-all; }
   <h2><span class="no">01</span>执行摘要</h2>
 
   <div class="metric-grid">
-    <div class="metric"><div class="num">109</div><div class="lbl">事件总数</div><div class="sub">故障 107 起 + 计划维护 2 起</div></div>
-    <div class="metric"><div class="num green">100%</div><div class="lbl">事件闭环率</div><div class="sub">全部标记为已恢复/已完成</div></div>
-    <div class="metric"><div class="num amber">23.5<span style="font-size:1rem"> 分钟</span></div><div class="lbl">故障持续时间中位数</div><div class="sub">基于 107 起故障事件</div></div>
+    <div class="metric"><div class="num">110</div><div class="lbl">事件总数</div><div class="sub">故障 108 起 + 计划维护 2 起</div></div>
+    <div class="metric"><div class="num green">99.1%</div><div class="lbl">事件闭环率</div><div class="sub">107/108 已恢复 · 1 起进行中（10-15）</div></div>
+    <div class="metric"><div class="num amber">23.5<span style="font-size:1rem"> 分钟</span></div><div class="lbl">故障持续时间中位数</div><div class="sub">基于 107 起已恢复故障</div></div>
     <div class="metric"><div class="num">88%</div><div class="lbl">1 小时内恢复占比</div><div class="sub">94 / 107 起</div></div>
     <div class="metric"><div class="num red">17<span style="font-size:1rem"> 天</span></div><div class="lbl">最长持续事件</div><div class="sub">2025-02-08 网页/API 性能异常</div></div>
-    <div class="metric"><div class="num red">6.2<span style="font-size:1rem"> 起/月</span></div><div class="lbl">2026 年月均故障数</div><div class="sub">2025 年为 2.3 起/月</div></div>
+    <div class="metric"><div class="num red">6.3<span style="font-size:1rem"> 起/月</span></div><div class="lbl">2026 年月均故障数</div><div class="sub">2025 年为 2.3 起/月 · 60 起 / 9.5 个月</div></div>
   </div>
 
-  <p class="lead">本报告核查了 DeepSeek 官方状态页自 2024 年 2 月（状态页最早记录）至 2026 年 10 月 15 日的全部历史事件。<strong>共记录 109 起事件</strong>，其中故障（incidents）107 起、计划维护（maintenances）2 起，<strong>全部事件均已恢复或完成</strong>，无未闭环记录。</p>
+  <p class="lead">本报告核查了 DeepSeek 官方状态页自 2024 年 2 月（状态页最早记录）至 2026 年 10 月 15 日的全部历史事件。<strong>共记录 110 起事件</strong>，其中故障（incidents）108 起、计划维护（maintenances）2 起。108 起故障中 <strong>107 起已恢复</strong>，另有 <strong>1 起正在进行中</strong>——2026 年 10 月 15 日（报告更新当日）发生的网页/API 部分中断，截至最后一次数据核查仍未闭环。</p>
 
   <p>调查发现的<strong>核心结论</strong>是：DeepSeek 的服务事件呈「<mark class="key">频率显著上升、单起严重度明显下降</mark>」的演变轨迹——</p>
   <ul class="clean">
-    <li><strong>频率上升：</strong>月均故障数从 2024 年的 1.9 起、2025 年的 2.3 起，跃升至 2026 年的 6.2 起（截至 10 月 15 日），2026 年 8 月以 16 起创单月最高纪录；</li>
-    <li><strong>严重度下降：</strong>事件类型从以「完全不可用」为主（2024 年占 86%）转变为以「性能下降」为主（2026 年占 80%），2026 年全年完全不可用事件仅 4 起、且无超过 1 小时的宕机；</li>
+    <li><strong>频率上升：</strong>月均故障数从 2024 年的 1.9 起、2025 年的 2.3 起，跃升至 2026 年的 6.3 起（截至 10 月 15 日），2026 年 8 月以 16 起创单月最高纪录；</li>
+    <li><strong>严重度下降：</strong>事件类型从以「完全不可用」为主（2024 年占 86%）转变为以「性能下降」为主（2026 年占 78%），2026 年全年完全不可用事件仅 4 起、且无超过 1 小时的宕机；</li>
     <li><strong>恢复变快：</strong>故障持续时间中位数为 23.5 分钟，88% 的故障在 1 小时内恢复，P90 为 2 小时；</li>
     <li class="bad"><strong>长尾风险仍存：</strong>3 起超过 12 小时的超长性能异常（最长 17 天）均与流量洪峰或容量问题相关，集中出现在 2025 年初 R1 发布期与 2026 年 8 月。</li>
   </ul>
@@ -238,7 +238,8 @@ footer .sources a { word-break:break-all; }
   <ul class="clean">
     <li>「故障数」不含计划维护（仅 2024 年 7 月出现 2 起：API 升级与 deepseek-coder 版本更新）；</li>
     <li>持续时间以状态页官方标注的「共持续（Lasted）」为准；</li>
-    <li>2026 年 10 月仅统计至 10 月 15 日（半个月），月度对比中已作标注。</li>
+    <li>2026 年 10 月仅统计至 10 月 15 日（半个月），月度对比中已作标注；</li>
+    <li><strong>进行中事件</strong>计入故障总数与类型统计，但不计入持续时间统计（持续时间以「已恢复」为前提）。</li>
   </ul>
 
   <h3>2.4 数据局限性</h3>
@@ -262,7 +263,7 @@ footer .sources a { word-break:break-all; }
       <tbody>
         <tr><td class="mono">2024（2–12月）</td><td class="num">21</td><td class="num">2</td><td class="num">1.9</td><td><span class="badge b-out">完全不可用 86%</span></td><td class="mono">12 小时 ×2（05-10、11-27）</td></tr>
         <tr><td class="mono">2025（全年）</td><td class="num">27</td><td class="num">0</td><td class="num">2.3</td><td><span class="badge b-out">完全不可用 70%</span></td><td class="dur-long mono">17 天（02-08 性能异常）</td></tr>
-        <tr><td class="mono">2026（1–10.15）</td><td class="num">59</td><td class="num">0</td><td class="num red">6.2</td><td><span class="badge b-deg">性能下降 80%</span></td><td class="dur-long mono">2 天（08-04 API 性能下降）</td></tr>
+        <tr><td class="mono">2026（1–10.15）</td><td class="num">60</td><td class="num">0</td><td class="num red">6.3</td><td><span class="badge b-deg">性能下降 78%</span></td><td class="dur-long mono">2 天（08-04 API 性能下降）</td></tr>
       </tbody>
     </table>
   </div>
@@ -288,7 +289,7 @@ footer .sources a { word-break:break-all; }
   <ul class="clean">
     <li><strong>2024-02 ~ 2025-03（低位波动期）：</strong>月度故障数在 0–3 起之间波动，仅 2025 年 1 月因 R1 发布出现 10 起的尖峰；</li>
     <li><strong>2025-04 ~ 2026-01（平静期）：</strong>长达 10 个月故障数始终 ≤ 4 起，其中 4 个整月零故障，为全记录期最稳定阶段；</li>
-    <li><strong>2026-02 ~ 2026-10（高频常态化期）：</strong>月度故障数几乎逐月攀升，3 月 6 起、5 月 7 起、7 月 8 起、8 月 16 起、9 月 8 起——<mark class="key">高频短时性能下降成为常态</mark>，仅 1 月为整月零故障。</li>
+    <li><strong>2026-02 ~ 2026-10（高频常态化期）：</strong>月度故障数几乎逐月攀升，3 月 6 起、5 月 7 起、7 月 8 起、8 月 16 起、9 月 8 起，10 月前半月即达 5 起（其中 1 起截至 10-15 仍在进行中）——<mark class="key">高频短时性能下降成为常态</mark>，仅 1 月为整月零故障。</li>
   </ul>
 
   <div class="chart-grid2">
@@ -320,13 +321,13 @@ footer .sources a { word-break:break-all; }
   <div class="metric-grid">
     <div class="metric"><div class="num red">41</div><div class="lbl">完全不可用</div><div class="sub">2024:18 → 2025:19 → 2026:4</div></div>
     <div class="metric"><div class="num amber">57</div><div class="lbl">性能下降</div><div class="sub">2024:3 → 2025:7 → 2026:47</div></div>
-    <div class="metric"><div class="num">4</div><div class="lbl">部分中断</div><div class="sub">全部出现在 2026 年 7 月后</div></div>
+    <div class="metric"><div class="num">5</div><div class="lbl">部分中断</div><div class="sub">全部出现在 2026 年 7 月后 · 含 1 起进行中</div></div>
     <div class="metric"><div class="num" style="color:var(--violet)">5</div><div class="lbl">功能故障</div><div class="sub">登录/注册 1 起 + 搜索服务 4 起</div></div>
   </div>
 
   <h3>5.1 从「宕机」到「降级」的结构性转变</h3>
   <p><strong>2024 年是「宕机之年」：</strong>21 起故障中 18 起为完全不可用（86%），两次 12 小时宕机（5 月 10 日、11 月 27 日）和一次 9 小时 Coder 宕机（8 月 11 日）构成本年度最严重的三次事故；性能类事件仅 3 起（两次 API 报错率上升、一次服务不稳定）。</p>
-  <p><strong>2026 年是「降级之年」：</strong>59 起故障中 47 起为性能下降（80%），完全不可用仅 4 起（3 月 2 起、5 月 2 起，均未超过 1 小时）。同时出现了此前从未记录过的两类事件——<mark class="key">部分中断</mark>（4 起，7 月后密集出现）与<mark class="key">搜索服务故障</mark>（4 起），反映出故障来源随产品组件（APP、搜索、快速模式等）扩张而多元化。</p>
+  <p><strong>2026 年是「降级之年」：</strong>60 起故障中 47 起为性能下降（78%），完全不可用仅 4 起（3 月 2 起、5 月 2 起，均未超过 1 小时）。同时出现了此前从未记录过的两类事件——<mark class="key">部分中断</mark>（5 起，7 月后密集出现，其中 10-15 一起仍在进行中）与<mark class="key">搜索服务故障</mark>（4 起），反映出故障来源随产品组件（APP、搜索、快速模式等）扩张而多元化。</p>
   <p>2025 年则是二者的过渡带：上半年承接 2024 年的高占比宕机（R1 发布期 1 月出现 2 起 2 小时级宕机），下半年已明显转向分钟级性能事件。</p>
 
   <div class="callout">
@@ -339,9 +340,9 @@ footer .sources a { word-break:break-all; }
   <h2><span class="no">06</span>持续时间分析</h2>
 
   <figure class="chart-figure">
-    <figcaption>图 5 ｜ 故障持续时间分布（107 起故障）</figcaption>
+    <figcaption>图 5 ｜ 故障持续时间分布（107 起已恢复故障）</figcaption>
     <div id="chart-duration" style="width:100%;min-height:380px"></div>
-    <div class="chart-note">红色柱为超过 12 小时的超长事件（3 起），均未达「完全不可用」，属持续性性能异常。</div>
+    <div class="chart-note">红色柱为超过 12 小时的超长事件（3 起），均未达「完全不可用」，属持续性性能异常。2026-10-15 的部分中断事件因仍在进行中，未计入本图。</div>
   </figure>
 
   <div class="metric-grid">
@@ -421,13 +422,18 @@ footer .sources a { word-break:break-all; }
       <div class="tl-title">单日 4 起 + 2 天 API 降级，8 月以 16 起创单月纪录</div>
       <div class="tl-body">8 月 4 日单日记录 4 起 API 性能下降，其中一起持续 2 天；全月 16 起故障为记录期最高，且 15 起集中在 API 性能类事件。该月标志着高频短时降级的常态化。<sup><a href="#cite-6">[6]</a></sup></div>
     </div>
+    <div class="tl-item">
+      <div class="tl-date">2026-10-15（周四）· 进行中</div>
+      <div class="tl-title">网页/API 部分中断：记录期内首起未闭环事件</div>
+      <div class="tl-body">影响对话服务（Chatservice）与 DeepSeek V4.1 Flash API 服务等组件，状态先后经历「排查中（已持续 30 分钟）」与「已定位（Identified）」。截至本报告最后一次数据核查已持续 2 小时以上，是全部 108 起故障中唯一尚未恢复的事件。<sup><a href="#cite-8">[8]</a></sup></div>
+    </div>
   </div>
 </section>
 
 <!-- ===== 08 年度明细 ===== -->
 <section id="s8">
   <h2><span class="no">08</span>年度事件明细</h2>
-  <p>以下为全部 109 起事件的完整清单（按时间正序），与官方状态页逐月记录一一对应。红色底色行为持续 ≥3 小时的重大事件；灰色行为计划维护。</p>
+  <p>以下为全部 110 起事件的完整清单（按时间正序），与官方状态页逐月记录一一对应。红色底色行为持续 ≥3 小时的重大事件；灰色行为计划维护；末行为仍在进行中的事件。</p>
 
   <h3>8.1 2024 年（21 起故障 + 2 起维护）</h3>
   <div class="table-wrap" style="max-height:520px">
@@ -499,7 +505,7 @@ footer .sources a { word-break:break-all; }
   </div>
   <p style="font-size:0.88rem;color:var(--muted)">年度小结：1–2 月 R1 发布期贡献了全年近半数故障（11 起）与全部两起超长事件；4、6、9、10 四个月零故障；下半年以分钟级短事件为主，类型结构开始向「性能下降」倾斜。</p>
 
-  <h3>8.3 2026 年（59 起故障，截至 10-15）</h3>
+  <h3>8.3 2026 年（60 起故障，截至 10-15）</h3>
   <div class="table-wrap" style="max-height:620px">
     <table>
       <thead><tr><th>#</th><th>日期</th><th>星期</th><th>事件</th><th>类型</th><th>持续</th></tr></thead>
@@ -563,10 +569,11 @@ footer .sources a { word-break:break-all; }
         <tr><td>107</td><td class="mono">2026-10-08</td><td>四</td><td>DeepSeek 网页/API 性能下降</td><td><span class="badge b-deg">性能下降</span></td><td class="mono">3 分钟</td></tr>
         <tr><td>108</td><td class="mono">2026-10-12</td><td>一</td><td>DeepSeek 网页 部分中断</td><td><span class="badge b-par">部分中断</span></td><td class="mono">11 分钟</td></tr>
         <tr><td>109</td><td class="mono">2026-10-12</td><td>一</td><td>DeepSeek 网页/API 性能下降</td><td><span class="badge b-deg">性能下降</span></td><td class="mono">15 分钟</td></tr>
+        <tr class="hl"><td>110</td><td class="mono">2026-10-15</td><td>四</td><td>DeepSeek 网页/API 部分中断</td><td><span class="badge b-par">部分中断</span></td><td class="mono dur-long">进行中 · 已 ≥2 小时</td></tr>
       </tbody>
     </table>
   </div>
-  <p style="font-size:0.88rem;color:var(--muted)">年度小结：8 月 16 起创单月纪录，其中 15 起为 API/网页性能类事件；「部分中断」与「搜索故障」两类新事件形态首次出现；仅 4 起完全不可用且均 ≤1 小时，是三个年度中「最重事件」最轻的一年。</p>
+  <p style="font-size:0.88rem;color:var(--muted)">年度小结：8 月 16 起创单月纪录，其中 15 起为 API/网页性能类事件；「部分中断」与「搜索故障」两类新事件形态首次出现；仅 4 起完全不可用且均 ≤1 小时，是三个年度中「最重事件」最轻的一年。10 月 15 日（数据截止当日）新发生的部分中断事件截至最后一次核查仍未恢复，为本记录期首起未闭环事件。</p>
 </section>
 
 <!-- ===== 09 结论 ===== -->
@@ -575,8 +582,8 @@ footer .sources a { word-break:break-all; }
 
   <h3>9.1 六项核心发现</h3>
   <ul class="clean">
-    <li><strong>发现一（频率）：</strong>故障频率阶梯式上升——月均 1.9 起（2024）→ 2.3 起（2025）→ 6.2 起（2026，截至 10 月），2026 年 8 月的 16 起为全记录期峰值；自 2026 年 2 月起再无整月零故障；</li>
-    <li><strong>发现二（类型）：</strong>事件结构完成从「完全不可用」（2024 占 86%）向「性能下降」（2026 占 80%）的翻转；2026 年仅 4 起完全不可用，均短于 1 小时；</li>
+    <li><strong>发现一（频率）：</strong>故障频率阶梯式上升——月均 1.9 起（2024）→ 2.3 起（2025）→ 6.3 起（2026，截至 10 月 15 日），2026 年 8 月的 16 起为全记录期峰值；自 2026 年 2 月起再无整月零故障；</li>
+    <li><strong>发现二（类型）：</strong>事件结构完成从「完全不可用」（2024 占 86%）向「性能下降」（2026 占 78%）的翻转；2026 年仅 4 起完全不可用，均短于 1 小时；</li>
     <li><strong>发现三（时长）：</strong>持续时间极端右偏——中位数 23.5 分钟、88% 在 1 小时内恢复，但 3 起超 12 小时的长时性能异常（11 天 / 17 天 / 2 天）拉高了整体均值；</li>
     <li class="warn"><strong>发现四（诱因）：</strong>全部超长事件与流量洪峰/容量压力高度相关（2025 年初 R1 发布、2026 年 8 月 API 高负载），而非常规运维事故——<mark class="key">流量爆发期是可靠性风险窗口</mark>；</li>
     <li><strong>发现五（形态）：</strong>2026 年 7 月起新增「部分中断」「搜索服务故障」两类事件形态，故障面从「网页/API 整体」扩散到各功能组件，与产品功能扩张同步；</li>
@@ -595,7 +602,7 @@ footer .sources a { word-break:break-all; }
   </ul>
 
   <div class="callout">
-    <strong>后续跟踪：</strong>本报告数据截止 2026 年 10 月 15 日。2026 年 10 月后若 8 月型高频态势延续，则「高频短时降级常态化」的判断将进一步坐实；若回落至 ≤4 起/月，则 2026 年 7–9 月可视为一次阶段性容量危机后的消化期。
+    <strong>后续跟踪：</strong>本报告数据截止 2026 年 10 月 15 日，且当日新发生的「网页/API 部分中断」仍在进行中（已持续 2 小时以上），是记录期首起未闭环事件——其最终持续时长将影响 2026 年的时长统计。2026 年 10 月后若 8 月型高频态势延续，则「高频短时降级常态化」的判断将进一步坐实；若回落至 ≤4 起/月，则 2026 年 7–9 月可视为一次阶段性容量危机后的消化期。
   </div>
 </section>
 
@@ -635,10 +642,14 @@ footer .sources a { word-break:break-all; }
           <span class="src-title">事件页：DeepSeek 网页/API 不可用（2024-11-27，持续 12 小时）。</span>
           <a class="src-url" href="https://status.deepseek.com/incidents/3173004118562287" target="_blank" rel="noopener">https://status.deepseek.com/incidents/3173004118562287</a>
         </li>
+        <li id="cite-8">
+          <span class="src-title">事件页：DeepSeek 网页/API 部分中断（2026-10-15，进行中，报告期内首起未闭环事件）。</span>
+          <a class="src-url" href="https://status.deepseek.com/incidents/7116348214287" target="_blank" rel="noopener">https://status.deepseek.com/incidents/7116348214287</a>
+        </li>
       </ol>
     </div>
     <div class="foot-note">
-      说明：本报告为基于公开状态页数据的独立整理与分析，事件持续时间与影响范围均以官方标注为准；「类型分类」「阶段划分」「趋势研判」部分为报告方法论层面的归纳，不代表 DeepSeek 官方口径。数据截止 2026-10-15，2026 年 10 月仅含前 15 天记录。
+      说明：本报告为基于公开状态页数据的独立整理与分析，事件持续时间与影响范围均以官方标注为准；「类型分类」「阶段划分」「趋势研判」部分为报告方法论层面的归纳，不代表 DeepSeek 官方口径。数据截止 2026-10-15，2026 年 10 月仅含前 15 天记录；其中 2026-10-15 的「网页/API 部分中断」在最后一次数据核查时仍在进行中（已持续 ≥2 小时），持续时间统计暂不将其计入。
     </div>
   </div>
 </footer>
