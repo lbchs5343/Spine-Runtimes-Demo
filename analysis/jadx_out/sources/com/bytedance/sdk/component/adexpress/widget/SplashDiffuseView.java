@@ -1,0 +1,104 @@
+package com.bytedance.sdk.component.adexpress.widget;
+
+import android.animation.Animator;
+import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
+import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.LinearGradient;
+import android.graphics.Paint;
+import android.graphics.Shader;
+import android.util.AttributeSet;
+import android.view.View;
+import android.view.animation.PathInterpolator;
+import com.bytedance.sdk.openadsdk.TTAdConstant;
+
+/* loaded from: classes.dex */
+public class SplashDiffuseView extends View {
+    private static int ox = 50;
+
+    /* renamed from: d, reason: collision with root package name */
+    private int f1825d;
+    private Paint dq;
+    private ObjectAnimator p;
+
+    public SplashDiffuseView(Context context) {
+        this(context, null);
+    }
+
+    public SplashDiffuseView(Context context, AttributeSet attributeSet) {
+        this(context, attributeSet, -1);
+    }
+
+    public SplashDiffuseView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.f1825d = 10;
+        ox();
+    }
+
+    private void ox() {
+        Paint paint = new Paint();
+        this.dq = paint;
+        paint.setAntiAlias(true);
+        this.dq.setColor(Color.parseColor("#FFFFFFFF"));
+        this.dq.setStyle(Paint.Style.STROKE);
+        this.dq.setStrokeWidth(18.0f);
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this, "alpha", 1.0f, TTAdConstant.ASPECT_CORNER_RADIUS_DEFAULT);
+        this.p = ofFloat;
+        ofFloat.setDuration(200L);
+    }
+
+    public void d() {
+        clearAnimation();
+    }
+
+    public void dq() {
+        int min = ((int) Math.min(getMeasuredWidth() / 2.0f, getMeasuredHeight() / 2.0f)) - 18;
+        ox = min;
+        ValueAnimator ofInt = ValueAnimator.ofInt(10, min);
+        ofInt.setInterpolator(new PathInterpolator(TTAdConstant.ASPECT_CORNER_RADIUS_DEFAULT, 0.2f, 0.3f, 1.0f));
+        ofInt.setDuration(800L);
+        ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.bytedance.sdk.component.adexpress.widget.SplashDiffuseView.1
+            @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+            public void onAnimationUpdate(ValueAnimator valueAnimator) {
+                SplashDiffuseView.this.f1825d = ((Integer) valueAnimator.getAnimatedValue()).intValue();
+                SplashDiffuseView.this.invalidate();
+            }
+        });
+        ofInt.addListener(new Animator.AnimatorListener() { // from class: com.bytedance.sdk.component.adexpress.widget.SplashDiffuseView.2
+            @Override // android.animation.Animator.AnimatorListener
+            public void onAnimationCancel(Animator animator) {
+            }
+
+            @Override // android.animation.Animator.AnimatorListener
+            public void onAnimationEnd(Animator animator) {
+                SplashDiffuseView.this.p.start();
+            }
+
+            @Override // android.animation.Animator.AnimatorListener
+            public void onAnimationRepeat(Animator animator) {
+            }
+
+            @Override // android.animation.Animator.AnimatorListener
+            public void onAnimationStart(Animator animator) {
+                SplashDiffuseView.this.setVisibility(0);
+                SplashDiffuseView.this.setAlpha(1.0f);
+            }
+        });
+        ofInt.start();
+    }
+
+    @Override // android.view.View
+    public void invalidate() {
+        if (hasWindowFocus()) {
+            super.invalidate();
+        }
+    }
+
+    @Override // android.view.View
+    public void onDraw(Canvas canvas) {
+        this.dq.setShader(new LinearGradient(getMeasuredWidth() / 2, TTAdConstant.ASPECT_CORNER_RADIUS_DEFAULT, getMeasuredWidth() / 2, getMeasuredHeight(), -1, 16777215, Shader.TileMode.CLAMP));
+        canvas.drawCircle(getMeasuredWidth() / 2.0f, getMeasuredHeight() / 2.0f, this.f1825d, this.dq);
+    }
+}

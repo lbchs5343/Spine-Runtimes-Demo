@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/find_layout" android:background="@android:color/transparent" android:layout_width="match_parent" android:layout_height="@dimen/dp_48" android:paddingStart="@dimen/dp_16"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <EditText android:textColorHint="@color/gray" android:id="@id/find_text" android:background="@android:color/transparent" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="@string/webview_search_hint" android:singleLine="true" android:layout_centerVertical="true" android:imeOptions="actionSearch" android:layout_toStartOf="@id/match_result" />
+    <TextView android:id="@id/match_result" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:layout_centerVertical="true" android:layout_marginStart="@dimen/dp_8" android:layout_marginEnd="@dimen/dp_8" android:layout_toStartOf="@id/last" />
+    <ImageView android:id="@id/last" android:src="@drawable/ic_find_previous" android:contentDescription="@string/find_previous_match" android:layout_toStartOf="@id/next" style="@style/ManifestSearchIcon" />
+    <ImageView android:id="@id/next" android:src="@drawable/ic_find_next" android:contentDescription="@string/find_next_match" android:layout_toStartOf="@id/close" style="@style/ManifestSearchIcon" />
+    <ImageView android:id="@id/close" android:src="@drawable/ic_find_close" android:contentDescription="@string/close" android:layout_alignParentEnd="true" style="@style/ManifestSearchIcon" />
+</RelativeLayout>

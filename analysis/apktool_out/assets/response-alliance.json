@@ -1,0 +1,29 @@
+{
+  "code": 0,
+  "message": "Success",
+  "data": {
+    "header": "Useful Apps",
+    "allianceArray": [
+      {
+        "name": "Dev Tools",
+        "packageName": "cn.trinea.android.developertools",
+        "iconUrl": "https://www.trinea.cn/wp-content/uploads/2017/04/dev-tools.png",
+        "version": "9.2.0",
+        "versionCode": "9200",
+        "url": "",
+        "attraction": "Powerful and Essential Tool for Android Developer.",
+        "desc": "This can be used to \n1. Decompile other apps\n2. Layout inspector for other apps\n3. View the activity history\n4. Color picker like PS's eyedropper \n5. View manifest of any apps\n6. Pull apk of other apps\n7. Pull so of other apps\n8. View info of any apps\n10. More advanced features later."
+      },
+      {
+        "name": "New Second",
+        "packageName": "com.codekk.newsecond",
+        "iconUrl": "https://codekk.com/images/new-second.jpg",
+        "version": "8.6.1",
+        "versionCode": "861",
+        "url": "",
+        "attraction": "High-precision time and professional timing tools",
+        "desc": "High-precision time display and professional timing tools. Features include millisecond-level clocking, powerful segmented timing, and more. Essential for online shopping sprees, daily life and studies, sports training"
+      }
+    ]
+  }
+}

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView android:id="@id/new_second_scroll" android:paddingTop="16.0dp" android:paddingBottom="8.0dp" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="24.0dp" android:paddingEnd="24.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <TextView android:textAppearance="?textAppearanceBodyLarge" android:textColor="?colorOnSurface" android:id="@id/new_second_message" android:layout_width="match_parent" android:layout_height="wrap_content" android:textIsSelectable="true" />
+        <ImageView android:id="@id/new_second_image" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" android:src="@drawable/new_second" android:scaleType="fitCenter" android:adjustViewBounds="true" android:maxHeight="240.0dp" android:importantForAccessibility="no" />
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

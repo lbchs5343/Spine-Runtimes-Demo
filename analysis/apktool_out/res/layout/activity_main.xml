@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include layout="@layout/view_toolbar" />
+    <TextView android:gravity="left" android:id="@id/tip" android:padding="@dimen/default_padding_horizontal" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/toolbar" android:layout_centerHorizontal="true" android:textIsSelectable="true" style="@style/BigBlackBoldFontDefaultPadding" />
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/content_layout" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_above="@id/foot_layout" android:layout_below="@id/toolbar">
+        <androidx.recyclerview.widget.RecyclerView android:id="@id/recycler_view" android:scrollbars="none" android:layout_width="match_parent" android:layout_height="match_parent" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/foot_layout" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true">
+        <androidx.coordinatorlayout.widget.CoordinatorLayout android:id="@id/snackbar_layout" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_above="@id/alayout" android:layout_centerHorizontal="true" />
+        <include android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" layout="@layout/layout_ga" />
+    </LinearLayout>
+</RelativeLayout>

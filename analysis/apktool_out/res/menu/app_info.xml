@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:icon="@drawable/menu_manifest" android:id="@id/to_manifest" android:background="?android:selectableItemBackground" android:title="@string/app_info_view_manifest" app:iconTint="?colorOnSurface" app:showAsAction="always" />
+    <item android:icon="@drawable/menu_about" android:id="@id/about" android:title="@string/about" app:iconTint="?colorOnSurface" app:showAsAction="always" />
+</menu>

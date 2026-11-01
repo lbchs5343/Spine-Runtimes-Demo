@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:backgroundTint="@android:color/transparent" android:backgroundTintMode="src_in" style="@style/DividerTransparentView"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:layout_width="match_parent" android:layout_weight="5.0" android:backgroundTint="@android:color/transparent" android:backgroundTintMode="src_in" style="@style/DividerTransparentView" />
+    <View android:layout_width="2.0dp" style="@style/DividerTransparentView" />
+    <View android:layout_width="match_parent" android:layout_weight="2.0" style="@style/DividerGrayView" />
+</LinearLayout>

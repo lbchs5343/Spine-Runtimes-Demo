@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.nononsenseapps.filepicker.EmptyDirectoryLayout android:gravity="center" android:orientation="vertical" android:padding="32.0dp" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:gravity="center" android:id="@id/nnf_empty_title" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/nnf_empty_folder" style="@style/BigBlackFont" />
+    <TextView android:gravity="center" android:id="@id/nnf_empty_hint" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" android:text="@string/nnf_empty_hidden_hint" style="@style/SmallGrayFont" />
+</com.nononsenseapps.filepicker.EmptyDirectoryLayout>

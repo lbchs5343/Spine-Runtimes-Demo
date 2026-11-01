@@ -1,0 +1,30 @@
+.class public interface abstract Lcom/bytedance/sdk/openadsdk/core/video/d/dq$dq;
+.super Ljava/lang/Object;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/bytedance/sdk/openadsdk/core/video/d/dq;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x609
+    name = "dq"
+.end annotation
+
+
+# virtual methods
+.method public abstract d()V
+.end method
+
+.method public abstract dq()V
+.end method
+
+.method public abstract dq(ILjava/lang/String;)V
+.end method
+
+.method public abstract dq(JJ)V
+.end method
+
+.method public abstract ox()V
+.end method

@@ -1,0 +1,69 @@
+.class final Lcom/ss/android/socialbase/downloader/iw/kk$1;
+.super Ljava/lang/Object;
+
+# interfaces
+.implements Ljava/util/Comparator;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/ss/android/socialbase/downloader/iw/kk;->dq(Ljava/util/List;)Ljava/lang/String;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x9
+    name = null
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Ljava/lang/Object;",
+        "Ljava/util/Comparator<",
+        "Lcom/ss/android/socialbase/downloader/iw/kk;",
+        ">;"
+    }
+.end annotation
+
+
+# direct methods
+.method public constructor <init>()V
+    .locals 0
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
+    .locals 0
+
+    check-cast p1, Lcom/ss/android/socialbase/downloader/iw/kk;
+
+    check-cast p2, Lcom/ss/android/socialbase/downloader/iw/kk;
+
+    invoke-virtual {p0, p1, p2}, Lcom/ss/android/socialbase/downloader/iw/kk$1;->dq(Lcom/ss/android/socialbase/downloader/iw/kk;Lcom/ss/android/socialbase/downloader/iw/kk;)I
+
+    move-result p1
+
+    return p1
+.end method
+
+.method public dq(Lcom/ss/android/socialbase/downloader/iw/kk;Lcom/ss/android/socialbase/downloader/iw/kk;)I
+    .locals 2
+
+    invoke-virtual {p1}, Lcom/ss/android/socialbase/downloader/iw/kk;->ox()J
+
+    move-result-wide v0
+
+    invoke-virtual {p2}, Lcom/ss/android/socialbase/downloader/iw/kk;->ox()J
+
+    move-result-wide p1
+
+    sub-long/2addr v0, p1
+
+    long-to-int p1, v0
+
+    return p1
+.end method

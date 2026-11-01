@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/loading_layout" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:background="@drawable/bg_decompile_progress_card" android:paddingLeft="@dimen/dp_20" android:paddingTop="@dimen/dp_16" android:paddingRight="@dimen/dp_20" android:paddingBottom="@dimen/dp_16" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dp_24" android:layout_marginRight="@dimen/dp_24" android:elevation="@dimen/dp_2" android:layout_marginHorizontal="@dimen/dp_24" android:paddingHorizontal="@dimen/dp_20" android:paddingVertical="@dimen/dp_16">
+        <TextView android:textSize="@dimen/sp_15" android:textColor="?android:textColorPrimary" android:gravity="center_horizontal" android:id="@id/tip_msg" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/dp_12" android:lineSpacingExtra="@dimen/dp_4" android:textIsSelectable="true" />
+        <com.google.android.material.progressindicator.LinearProgressIndicator android:id="@id/progress_bar" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/dp_12" android:indeterminate="true" app:trackCornerRadius="@dimen/dp_2" app:trackThickness="@dimen/dp_4" />
+        <TextView android:textSize="@dimen/sp_13" android:textColor="?android:textColorSecondary" android:gravity="center_horizontal" android:id="@id/tip" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/loading" android:lineSpacingExtra="@dimen/dp_2" android:breakStrategy="simple" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/container" android:background="@color/colorLIBackground" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <c.b.ab android:id="@id/ab" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" app:defaultBackgroundColor="@android:color/transparent" app:highLightBackgroundColor="@android:color/transparent" app:highLightLineColor="@color/colorLILight" app:normalBackgroundColor="@android:color/transparent" app:normalLineColor="@color/colorLICommon" />
+    <TextView android:textSize="@dimen/sp_20" android:textColor="@color/lightGray" android:gravity="center" android:layout_gravity="center" android:id="@id/tips" android:paddingLeft="@dimen/dp_4" android:paddingRight="@dimen/dp_4" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:text="@string/content_disabled_request_permission" android:paddingHorizontal="@dimen/dp_4" style="@style/BigBlackBoldFont" />
+    <RelativeLayout android:gravity="center_horizontal" android:layout_gravity="center" android:id="@id/content" android:background="@drawable/window_bg" android:padding="6.0dp" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dp_24" android:layout_marginRight="@dimen/dp_24" android:layout_marginHorizontal="@dimen/dp_24">
+        <a.v.DragRelativeLayout android:gravity="center_vertical" android:id="@id/header" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <TextView android:gravity="center" android:id="@id/title" android:paddingLeft="@dimen/dp_32" android:paddingTop="@dimen/dp_8" android:paddingBottom="@dimen/dp_8" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_toLeftOf="@id/close" android:layout_centerVertical="true" android:breakStrategy="simple" android:paddingVertical="@dimen/dp_8" style="@style/WindowMiddleFont" />
+            <ImageView android:id="@id/close" android:paddingRight="@dimen/dp_4" android:layout_width="@dimen/dp_32" android:layout_height="@dimen/dp_28" android:src="@drawable/close" android:layout_alignParentRight="true" android:layout_centerVertical="true" app:tint="@android:color/white" style="@style/SelectableItemBackground" />
+        </a.v.DragRelativeLayout>
+        <include android:id="@id/divider" android:layout_width="match_parent" android:layout_height="@dimen/dp_1" android:layout_below="@id/header" layout="@layout/view_divider_gray" />
+        <a.v.RecyclerViewWithMaxHeight android:id="@id/content_scroll" android:scrollbars="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/divider" />
+        <include android:id="@id/divider2" android:layout_width="match_parent" android:layout_height="@dimen/dp_1" android:layout_below="@id/content_scroll" layout="@layout/view_divider_gray" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/navigation" android:layout_width="match_parent" android:layout_height="@dimen/dp_36" android:weightSum="4.0" android:minHeight="@dimen/dp_36" android:layout_below="@id/divider2">
+            <LinearLayout android:gravity="center" android:id="@id/outer" android:layout_width="match_parent" android:layout_height="@dimen/dp_36" android:layout_weight="1.0" android:contentDescription="@string/li_cd_inspect_parent" style="@style/SelectableItemBackground">
+                <ImageView android:layout_gravity="center" android:layout_width="@dimen/liNavigationWidth" android:layout_height="@dimen/liNavigationWidth" android:src="@drawable/up" app:tint="@android:color/white" />
+            </LinearLayout>
+            <LinearLayout android:gravity="center" android:id="@id/last" android:layout_width="match_parent" android:layout_height="@dimen/dp_36" android:layout_weight="1.0" android:contentDescription="@string/li_cd_inspect_last" style="@style/SelectableItemBackground">
+                <ImageView android:layout_gravity="center" android:layout_width="@dimen/liNavigationWidth" android:layout_height="@dimen/liNavigationWidth" android:src="@drawable/left" app:tint="@android:color/white" />
+            </LinearLayout>
+            <LinearLayout android:gravity="center" android:id="@id/next" android:layout_width="match_parent" android:layout_height="@dimen/dp_36" android:layout_weight="1.0" android:contentDescription="@string/li_cd_inspect_next" style="@style/SelectableItemBackground">
+                <ImageView android:layout_gravity="center" android:layout_width="@dimen/liNavigationWidth" android:layout_height="@dimen/liNavigationWidth" android:src="@drawable/right" app:tint="@android:color/white" />
+            </LinearLayout>
+            <LinearLayout android:gravity="center" android:id="@id/inner" android:layout_width="match_parent" android:layout_height="@dimen/dp_36" android:layout_weight="1.0" android:contentDescription="@string/li_cd_inspect_first_child" style="@style/SelectableItemBackground">
+                <ImageView android:layout_gravity="center" android:layout_width="@dimen/liNavigationWidth" android:layout_height="@dimen/liNavigationWidth" android:src="@drawable/down" app:tint="@android:color/white" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+    <include android:layout_gravity="bottom" android:layout_width="match_parent" android:layout_height="wrap_content" layout="@layout/layout_snackbar" />
+</FrameLayout>

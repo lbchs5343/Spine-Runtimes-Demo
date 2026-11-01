@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@color/lighterGray2" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include layout="@layout/view_toolbar" />
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/recycler_view" android:scrollbars="vertical" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_above="@id/snackbar_layout" android:layout_below="@id/toolbar" />
+    <TextView android:textSize="@dimen/sp_20" android:gravity="center" android:id="@id/tips" android:paddingLeft="@dimen/dp_4" android:paddingRight="@dimen/dp_4" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:text="@string/content_disabled_request_permission" android:layout_above="@id/snackbar_layout" android:layout_below="@id/toolbar" android:paddingHorizontal="@dimen/dp_4" style="@style/BigBlackBoldFont" />
+    <include layout="@layout/layout_snackbar" />
+</RelativeLayout>

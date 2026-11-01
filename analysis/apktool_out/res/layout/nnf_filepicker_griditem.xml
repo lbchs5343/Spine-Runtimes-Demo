@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/nnf_item_container" android:background="@drawable/nnf_filepicker_item_background" android:padding="10.0dp" android:focusable="true" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_margin="4.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/item_icon" android:layout_width="40.0dp" android:layout_height="40.0dp" android:importantForAccessibility="no" app:srcCompat="@drawable/nnf_ic_folder_black_48dp" app:tint="?nnf_dir_icon_color" />
+    <TextView android:ellipsize="end" android:gravity="center" android:id="@id/name" android:layout_width="match_parent" android:layout_height="wrap_content" android:maxLines="1" style="@style/BigBlackFont" />
+    <TextView android:ellipsize="end" android:gravity="center" android:id="@id/size" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4.0dp" android:maxLines="1" android:singleLine="true" style="@style/SmallGrayFont" />
+    <TextView android:ellipsize="end" android:gravity="center" android:id="@id/nnf_secondary_details" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:maxLines="1" android:singleLine="true" style="@style/SmallGrayFont" />
+    <CheckBox android:id="@id/checkbox" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+</LinearLayout>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:contentDescription="@string/daf"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <f.a.a android:id="@id/direction" android:layout_width="@dimen/dp_36" android:layout_height="@dimen/dp_36" android:layout_centerHorizontal="true" />
+    <Switch android:id="@id/current_size" android:layout_width="wrap_content" android:layout_height="@dimen/dp_12" android:checked="true" android:layout_below="@id/direction" android:layout_centerHorizontal="true" android:layoutDirection="rtl" />
+    <LinearLayout android:gravity="center_horizontal" android:layout_gravity="center_horizontal" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@id/current_size">
+        <TextView android:gravity="center" android:id="@id/down" android:background="?android:selectableItemBackground" android:layout_width="@dimen/dp_28" android:layout_height="@dimen/dp_28" android:text="-" style="@style/BigBlackFont" />
+        <SeekBar android:id="@id/seek_bar" android:layout_width="@dimen/fm_ope_width" android:layout_height="@dimen/dp_28" android:max="100" android:progress="@integer/fm_default_font_size_sp" />
+        <TextView android:gravity="center" android:id="@id/up" android:background="?android:selectableItemBackground" android:layout_width="@dimen/dp_28" android:layout_height="@dimen/dp_28" android:text="+" style="@style/BigBlackBoldFont" />
+    </LinearLayout>
+</RelativeLayout>

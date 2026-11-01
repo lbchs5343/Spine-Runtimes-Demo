@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:icon="@drawable/menu_share" android:id="@id/share" android:title="@string/share" app:iconTint="?colorOnSurface" app:showAsAction="always" />
+    <item android:id="@id/find" android:visible="false" android:title="@string/find" app:showAsAction="never" />
+    <item android:id="@id/refresh" android:title="@string/refresh" app:showAsAction="never" />
+    <item android:id="@id/shortcut" android:title="@string/create_shortcut" app:showAsAction="never" />
+    <item android:id="@id/copy_link" android:title="@string/copy_link" app:showAsAction="never" />
+    <item android:id="@id/zoom" android:checked="false" android:title="@string/allow_zoom" android:checkable="true" app:showAsAction="never" />
+    <item android:id="@id/wrap" android:checked="false" android:title="@string/file_viewer_wrap" android:checkable="true" app:showAsAction="never" />
+    <item android:id="@id/line_number" android:checked="true" android:title="@string/file_viewer_line_number" android:checkable="true" app:showAsAction="never" />
+    <item android:id="@id/open_with_other_app" android:title="@string/open_with_other_app" app:showAsAction="never" />
+</menu>

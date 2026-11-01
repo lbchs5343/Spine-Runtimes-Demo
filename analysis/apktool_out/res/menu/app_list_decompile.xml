@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:icon="@drawable/menu_mode_list" android:id="@id/layout_mode" android:background="?android:selectableItemBackground" android:title="@string/list_layout_mode" app:iconTint="?colorOnSurface" app:showAsAction="always" />
+    <item android:icon="@drawable/menu_system_app" android:id="@id/show_system_app" android:checked="false" android:title="@string/app_list_show_system_app" android:checkable="true" app:iconTint="?colorOnSurface" app:showAsAction="collapseActionView" />
+    <item android:id="@id/show_recently_used_app" android:checked="false" android:visible="false" android:title="@string/app_list_show_recently_used_app" android:checkable="true" app:showAsAction="collapseActionView" />
+    <item android:id="@id/skip_well_known_lib" android:checked="true" android:title="@string/decompile_skip_well_known_lib" android:checkable="true" app:showAsAction="collapseActionView" />
+    <item android:id="@id/allow_media_scan" android:checked="false" android:title="@string/decompile_allow_media_scan" android:checkable="true" app:showAsAction="collapseActionView" />
+    <group android:id="@id/decompile" android:checkableBehavior="single">
+        <item android:id="@id/decompile_all" android:title="@string/decompile_all" />
+        <item android:id="@id/decompile_code" android:title="@string/decompile_code" />
+        <item android:id="@id/decompile_res" android:title="@string/decompile_res" />
+    </group>
+</menu>

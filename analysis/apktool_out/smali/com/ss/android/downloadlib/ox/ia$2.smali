@@ -1,0 +1,118 @@
+.class Lcom/ss/android/downloadlib/ox/ia$2;
+.super Ljava/lang/Object;
+
+# interfaces
+.implements Ljava/lang/Runnable;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/ss/android/downloadlib/ox/ia;->ox(Lcom/ss/android/downloadad/api/dq/d;J)V
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x1
+    name = null
+.end annotation
+
+
+# instance fields
+.field final synthetic d:Lcom/ss/android/downloadad/api/dq/d;
+
+.field final synthetic dq:I
+
+.field final synthetic ox:Lcom/ss/android/downloadlib/ox/ia;
+
+
+# direct methods
+.method public constructor <init>(Lcom/ss/android/downloadlib/ox/ia;ILcom/ss/android/downloadad/api/dq/d;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/ss/android/downloadlib/ox/ia$2;->ox:Lcom/ss/android/downloadlib/ox/ia;
+
+    iput p2, p0, Lcom/ss/android/downloadlib/ox/ia$2;->dq:I
+
+    iput-object p3, p0, Lcom/ss/android/downloadlib/ox/ia$2;->d:Lcom/ss/android/downloadad/api/dq/d;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public run()V
+    .locals 4
+
+    invoke-static {}, Lcom/ss/android/downloadlib/addownload/no;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/ss/android/socialbase/downloader/downloader/Downloader;->getInstance(Landroid/content/Context;)Lcom/ss/android/socialbase/downloader/downloader/Downloader;
+
+    move-result-object v0
+
+    iget v1, p0, Lcom/ss/android/downloadlib/ox/ia$2;->dq:I
+
+    invoke-virtual {v0, v1}, Lcom/ss/android/socialbase/downloader/downloader/Downloader;->getDownloadInfo(I)Lcom/ss/android/socialbase/downloader/model/DownloadInfo;
+
+    move-result-object v0
+
+    new-instance v1, Lorg/json/JSONObject;
+
+    invoke-direct {v1}, Lorg/json/JSONObject;-><init>()V
+
+    const/4 v2, 0x2
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    const-string v3, "ttdownloader_type"
+
+    invoke-static {v1, v3, v2}, Lcom/ss/android/downloadlib/mn/mp;->dq(Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/Object;)V
+
+    invoke-static {v0, v1}, Lcom/ss/android/downloadlib/mn/iw;->ox(Lcom/ss/android/socialbase/downloader/model/DownloadInfo;Lorg/json/JSONObject;)V
+
+    iget-object v0, p0, Lcom/ss/android/downloadlib/ox/ia$2;->d:Lcom/ss/android/downloadad/api/dq/d;
+
+    invoke-static {v0}, Lcom/ss/android/downloadlib/mn/mp;->d(Lcom/ss/android/downloadad/api/dq/d;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/16 v0, 0x3ea
+
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v0
+
+    const-string v2, "error_code"
+
+    invoke-static {v1, v2, v0}, Lcom/ss/android/downloadlib/mn/mp;->dq(Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/Object;)V
+
+    goto :goto_0
+
+    :cond_0
+    iget-object v0, p0, Lcom/ss/android/downloadlib/ox/ia$2;->ox:Lcom/ss/android/downloadlib/ox/ia;
+
+    iget v2, p0, Lcom/ss/android/downloadlib/ox/ia$2;->dq:I
+
+    iget-object v3, p0, Lcom/ss/android/downloadlib/ox/ia$2;->d:Lcom/ss/android/downloadad/api/dq/d;
+
+    invoke-static {v0, v2, v3, v1}, Lcom/ss/android/downloadlib/ox/ia;->dq(Lcom/ss/android/downloadlib/ox/ia;ILcom/ss/android/downloadad/api/dq/d;Lorg/json/JSONObject;)V
+
+    :goto_0
+    invoke-static {}, Lcom/ss/android/downloadlib/p/dq;->dq()Lcom/ss/android/downloadlib/p/dq;
+
+    move-result-object v0
+
+    const-string v2, "download_notification_try_show"
+
+    iget-object v3, p0, Lcom/ss/android/downloadlib/ox/ia$2;->d:Lcom/ss/android/downloadad/api/dq/d;
+
+    invoke-virtual {v0, v2, v1, v3}, Lcom/ss/android/downloadlib/p/dq;->d(Ljava/lang/String;Lorg/json/JSONObject;Lcom/ss/android/downloadad/api/dq/dq;)V
+
+    return-void
+.end method

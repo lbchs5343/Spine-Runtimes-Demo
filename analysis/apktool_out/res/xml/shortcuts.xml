@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut android:icon="@drawable/codekk_op" android:enabled="true">
+        <intent android:targetPackage="cn.trinea.android.developertools" android:mimeType="trinea/android-tool" android:action="android.intent.action.VIEW" android:data="codekk_op:op_source_short_dynamic_base" android:targetClass="c.b.a" />
+    </shortcut>
+    <shortcut android:icon="@drawable/adec" android:enabled="true">
+        <intent android:targetPackage="cn.trinea.android.developertools" android:mimeType="trinea/android-tool" android:action="android.intent.action.VIEW" android:data="layout_bounds" android:targetClass="c.b.a" />
+    </shortcut>
+</shortcuts>

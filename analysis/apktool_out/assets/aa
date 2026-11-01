@@ -1,0 +1,158 @@
+{
+    "cmb.pb/android.widget.TextView":
+    {
+        "className": "android.widget.TextView",
+        "packageName": "cmb.pb",
+        "regex": "跳过\\s*\\(*\\s*\\d*\\S*\\s*\\)*"
+    },
+    "cn.wps.moffice_eng/android.widget.TextView":
+    {
+        "className": "android.widget.TextView",
+        "packageName": "cn.wps.moffice_eng",
+        "regex": "跳过\\s*\\(*\\s*\\d*\\S\\s*\\)*"
+    },
+    "com.alibaba.android.rimet/com.alibaba.android.rimet.biz.SplashActivity":
+    {
+        "className": "com.alibaba.android.rimet.biz.SplashActivity",
+        "packageName": "com.alibaba.android.rimet",
+        "regex": "跳过\\s*\\(*\\s*\\d*\\S*\\s*\\)*"
+    },
+    "com.chinaideal.bkclient.tabmain/com.chinaideal.bkclient.tabmain.WelComeAc":
+    {
+        "className": "com.chinaideal.bkclient.tabmain.WelComeAc",
+        "packageName": "com.chinaideal.bkclient.tabmain",
+        "regex": "\\(*\\s*\\d*\\S\\s*\\)*\\s*跳过"
+    },
+    "com.dianping.v1/com.dianping.main.guide.SplashScreenActivity":
+    {
+        "className": "com.dianping.main.guide.SplashScreenActivity",
+        "packageName": "com.dianping.v1",
+        "regex": "\\(*\\s*\\d*\\S\\s*\\)*\\s*跳过"
+    },
+    "com.duokan.reader/android.widget.TextView":
+    {
+        "className": "android.widget.TextView",
+        "packageName": "com.duokan.reader",
+        "regex": "跳过\\s*\\(*\\s*\\d*\\S*\\s*\\)*"
+    },
+    "com.enniu.fund/com.enniu.fund.activities.SplashActivity":
+    {
+        "className": "com.enniu.fund.activities.SplashActivity",
+        "packageName": "com.enniu.fund",
+        "regex": "跳过\\s*\\(*\\s*\\d*\\S*\\s*\\)*"
+    },
+    "com.iqianjin.client/android.widget.TextView":
+    {
+        "className": "android.widget.TextView",
+        "packageName": "com.iqianjin.client",
+        "regex": "跳过\\s*\\(*\\s*\\d*\\S\\s*\\)*"
+    },
+    "com.jd.jrapp/android.widget.Button":
+    {
+        "className": "android.widget.Button",
+        "packageName": "com.jd.jrapp",
+        "regex": "跳过广告\\s*\\(*\\s*\\d*\\S*\\s*\\)*"
+    },
+    "com.jd.jrapp/com.jd.jrapp.bm.zhyy.login.ui.LoginActivity":
+    {
+        "className": "com.jd.jrapp.bm.zhyy.login.ui.LoginActivity",
+        "packageName": "com.jd.jrapp",
+        "regex": "跳过\\s*\\(*\\s*\\d*\\S*\\s*\\)*"
+    },
+    "com.jindan.p2p/com.jindan.p2p.view.SplashActivity":
+    {
+        "className": "com.jindan.p2p.view.SplashActivity",
+        "packageName": "com.jindan.p2p",
+        "regex": "跳过\\s*\\(*\\s*\\d*\\S*\\s*\\)*"
+    },
+    "com.jingdong.app.reader/com.jingdong.app.reader.main_activity.view.MainActivity":
+    {
+        "className": "com.jingdong.app.reader.main_activity.view.MainActivity",
+        "packageName": "com.jingdong.app.reader",
+        "regex": "跳过\\s*\\(*\\s*\\d*\\S*\\s*\\)*"
+    },
+    "com.netease.blockchain/android.widget.TextView":
+    {
+        "className": "android.widget.TextView",
+        "packageName": "com.netease.blockchain",
+        "regex": "跳过\\s*\\(*\\s*\\d*\\S\\s*\\)*"
+    },
+    "com.netease.cloudmusic/android.widget.TextView":
+    {
+        "className": "android.widget.TextView",
+        "packageName": "com.netease.cloudmusic",
+        "regex": "跳过\\s*\\(*\\s*\\d*\\S*\\s*\\)*"
+    },
+    "com.qingqikeji.blackhorse.passenger/android.widget.TextView":
+    {
+        "className": "android.widget.TextView",
+        "packageName": "com.qingqikeji.blackhorse.passenger",
+        "regex": "\\(*\\s*\\d*\\S\\s*\\)*\\s*跳过"
+    },
+    "com.qingqikeji.blackhorse.passenger/com.qingqikeji.blackhorse.BlackHorseActivity":
+    {
+        "className": "com.qingqikeji.blackhorse.BlackHorseActivity",
+        "packageName": "com.qingqikeji.blackhorse.passenger",
+        "regex": "\\(*\\s*\\d*\\S\\s*\\)*\\s*跳过"
+    },
+    "com.shoujinwang.shoujinlicai/android.widget.Button":
+    {
+        "className": "android.widget.Button",
+        "packageName": "com.shoujinwang.shoujinlicai",
+        "regex": "跳过\\s*\\(*\\s*\\d*\\S\\s*\\)*"
+    },
+    "com.shoujinwang.shoujinlicai/com.shoujinwang.shoujinlicai.SplashActivity":
+    {
+        "className": "com.shoujinwang.shoujinlicai.SplashActivity",
+        "packageName": "com.shoujinwang.shoujinlicai",
+        "regex": "跳过\\s*\\(*\\s*\\d*\\S\\s*\\)*"
+    },
+    "com.taou.maimai/android.widget.Button":
+    {
+        "className": "android.widget.Button",
+        "packageName": "com.taou.maimai",
+        "regex": "跳过\\s*\\(*\\s*\\d*\\S*\\s*\\)*"
+    },
+    "com.tencent.android.qqdownloader/com.tencent.assistant.activity.SplashImplActivity":
+    {
+        "className": "com.tencent.assistant.activity.SplashImplActivity",
+        "packageName": "com.tencent.android.qqdownloader",
+        "regex": "跳过\\s*\\(*\\s*\\d*\\S\\s*\\)*"
+    },
+    "com.zd.zhaohuaxishi/android.widget.TextView":
+    {
+        "className": "android.widget.TextView",
+        "packageName": "com.zd.zhaohuaxishi",
+        "regex": "跳过\\s*\\(*\\s*\\d*\\S\\s*\\)*"
+    },
+    "com.zd.zhaohuaxishi/com.zd.zhaohuaxishi.activity.SplashActivity":
+    {
+        "className": "com.zd.zhaohuaxishi.activity.SplashActivity",
+        "packageName": "com.zd.zhaohuaxishi",
+        "regex": "跳过\\s*\\(*\\s*\\d*\\S\\s*\\)*"
+    },
+    "com.zhihu.android/android.widget.TextView":
+    {
+        "className": "android.widget.TextView",
+        "packageName": "com.zhihu.android",
+        "regex": "跳过广告\\s*\\(*\\s*\\d*\\S\\s*\\)*"
+    },
+    "com.zhihu.android/com.zhihu.android.app.ui.activity.QAHostActivity":
+    {
+        "className": "com.zhihu.android.app.ui.activity.QAHostActivity",
+        "packageName": "com.zhihu.android",
+        "regex": "跳过广告\\s*\\(*\\s*\\d*\\S\\s*\\)*"
+    },
+    "com.autonavi.minimap/com.autonavi.map.activity.SplashActivity":
+    {
+        "className": "com.autonavi.map.activity.SplashActivity",
+        "packageName": "com.autonavi.minimap",
+        "regex": "跳过\\s*\\(*\\s*\\d*\\S*\\s*\\)*"
+    },
+    "com.dianping.v1/com.dianping.main.guide.guidance.GuidanceNewActivity":
+    {
+        "className": "com.dianping.main.guide.guidance.GuidanceNewActivity",
+        "packageName": "com.dianping.v1",
+        "regex": "跳过\\s*\\(*\\s*\\d*\\S*\\s*\\)*"
+    }
+}

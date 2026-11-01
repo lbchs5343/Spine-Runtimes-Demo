@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:background="@android:color/white" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/icon" android:layout_width="@dimen/dp_32" android:layout_height="@dimen/dp_32" android:src="@mipmap/ic_launcher" android:contentDescription="@string/image_content" android:layout_marginStart="@dimen/dp_16" android:layout_marginEnd="@dimen/dp_8" />
+    <TextView android:textSize="@dimen/sp_18" android:id="@id/name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/donation_app_name" android:layout_alignTop="@id/icon" android:layout_alignBottom="@id/icon" android:layout_marginEnd="@dimen/dp_16" android:layout_toEndOf="@id/icon" style="@style/BigBlackFont" />
+    <a.v.ScrollViewWithMaxHeight android:id="@id/desc_layout" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_8" android:layout_marginBottom="@dimen/dp_4" android:layout_below="@id/icon" android:layout_marginStart="@dimen/dp_16" android:layout_marginEnd="@dimen/dp_16">
+        <TextView android:id="@id/desc" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/donation_app_desc" android:lineSpacingExtra="@dimen/dp_3" android:breakStrategy="simple" style="@style/MiddleGrayFont" />
+    </a.v.ScrollViewWithMaxHeight>
+</RelativeLayout>

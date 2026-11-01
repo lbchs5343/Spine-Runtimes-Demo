@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/nnf_item_container" android:background="@drawable/nnf_filepicker_item_background" android:paddingTop="@dimen/dp_4" android:paddingBottom="@dimen/dp_4" android:focusable="true" android:nextFocusLeft="@id/nnf_button_cancel" android:nextFocusRight="@id/nnf_button_ok" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_2" android:layout_marginBottom="@dimen/dp_2" android:minHeight="@dimen/nnf_filepicker_item_min_height"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:layout_gravity="center_vertical" android:id="@id/item_icon" android:visibility="visible" android:layout_width="@dimen/dp_48" android:layout_height="@dimen/dp_48" android:layout_marginLeft="@dimen/dp_8" android:layout_marginRight="@dimen/dp_8" android:scaleType="center" android:adjustViewBounds="true" android:alpha="0.8" app:srcCompat="@drawable/nnf_ic_folder_black_48dp" app:tint="?nnf_dir_icon_color" />
+    <LinearLayout android:orientation="vertical" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0">
+        <TextView android:ellipsize="end" android:id="@id/name" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/nnf_name" android:maxLines="1" style="@style/BigBlackFont" />
+        <TextView android:ellipsize="end" android:id="@id/size" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4.0dp" android:maxLines="1" style="@style/SmallGrayFont" />
+    </LinearLayout>
+</LinearLayout>

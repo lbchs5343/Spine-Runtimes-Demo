@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:gravity="center_horizontal" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include layout="@layout/view_toolbar" />
+    <include android:background="@android:color/transparent" android:visibility="gone" android:layout_width="match_parent" android:layout_height="@dimen/dp_48" android:layout_below="@id/toolbar" layout="@layout/layout_search" />
+    <a.a.ab android:id="@id/web_view" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_above="@id/alayout" android:layout_below="@id/find_layout" />
+    <ProgressBar android:id="@id/progress_bar" android:layout_width="match_parent" android:layout_height="@dimen/dp_2" android:max="@integer/max_progress" android:layout_below="@id/toolbar" style="?android:progressBarStyleHorizontal" />
+    <include android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" layout="@layout/layout_ga" />
+</RelativeLayout>

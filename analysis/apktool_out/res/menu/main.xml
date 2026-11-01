@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:icon="@drawable/menu_vip" android:id="@id/donation_version" android:title="@string/donation_version" app:iconTint="?colorOnSurface" app:showAsAction="always" />
+    <item android:icon="@drawable/menu_op" android:id="@id/open_project" android:title="@string/open_project" app:iconTint="?colorOnSurface" app:showAsAction="always" />
+    <item android:icon="@drawable/menu_hot" android:id="@id/alliance" android:visible="false" android:title="@string/alliance" app:iconTint="?colorOnSurface" app:showAsAction="always" />
+    <item android:icon="@drawable/menu_share" android:id="@id/share" android:visible="false" android:title="@string/share" app:iconTint="?colorOnSurface" app:showAsAction="always" />
+    <item android:icon="@drawable/setting" android:id="@id/setting" android:title="@string/setting" app:iconTint="?colorOnSurface" app:showAsAction="always" />
+    <item android:icon="@drawable/menu_about" android:id="@id/about" android:visible="false" android:title="@string/about" app:iconTint="?colorOnSurface" />
+</menu>

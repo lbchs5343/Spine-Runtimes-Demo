@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include layout="@layout/view_toolbar" />
+    <include android:background="@android:color/transparent" android:visibility="gone" android:layout_width="match_parent" android:layout_height="@dimen/dp_48" android:layout_below="@id/toolbar" layout="@layout/layout_search" />
+    <include android:layout_width="match_parent" android:layout_height="match_parent" android:layout_above="@id/snackbar_layout" android:layout_below="@id/find_layout" layout="@layout/view_progress_webview_center" />
+    <include layout="@layout/layout_snackbar" />
+</RelativeLayout>

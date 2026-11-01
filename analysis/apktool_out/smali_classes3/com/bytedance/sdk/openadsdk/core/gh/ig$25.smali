@@ -1,0 +1,90 @@
+.class Lcom/bytedance/sdk/openadsdk/core/gh/ig$25;
+.super Ljava/lang/Object;
+
+# interfaces
+.implements Lcom/bytedance/sdk/openadsdk/no/dq/dq;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/bytedance/sdk/openadsdk/core/gh/ig;->d(Lcom/bytedance/sdk/openadsdk/core/r/j;Ljava/lang/String;)V
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x1
+    name = null
+.end annotation
+
+
+# instance fields
+.field final synthetic d:Ljava/lang/String;
+
+.field final synthetic dq:Lcom/bytedance/sdk/openadsdk/core/r/j;
+
+.field final synthetic ox:Lcom/bytedance/sdk/openadsdk/core/gh/ig;
+
+
+# direct methods
+.method public constructor <init>(Lcom/bytedance/sdk/openadsdk/core/gh/ig;Lcom/bytedance/sdk/openadsdk/core/r/j;Ljava/lang/String;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/bytedance/sdk/openadsdk/core/gh/ig$25;->ox:Lcom/bytedance/sdk/openadsdk/core/gh/ig;
+
+    iput-object p2, p0, Lcom/bytedance/sdk/openadsdk/core/gh/ig$25;->dq:Lcom/bytedance/sdk/openadsdk/core/r/j;
+
+    iput-object p3, p0, Lcom/bytedance/sdk/openadsdk/core/gh/ig$25;->d:Ljava/lang/String;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public dq()Lcom/bytedance/sdk/openadsdk/core/gh/dq/dq;
+    .locals 4
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/Exception;
+        }
+    .end annotation
+
+    invoke-static {}, Lcom/bytedance/sdk/openadsdk/core/gh/dq/ox;->d()Lcom/bytedance/sdk/openadsdk/core/gh/dq/ox;
+
+    move-result-object v0
+
+    const-string v1, "uttie_close"
+
+    invoke-virtual {v0, v1}, Lcom/bytedance/sdk/openadsdk/core/gh/dq/ox;->dq(Ljava/lang/String;)Lcom/bytedance/sdk/openadsdk/core/gh/dq/ox;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/bytedance/sdk/openadsdk/core/gh/ig$25;->dq:Lcom/bytedance/sdk/openadsdk/core/r/j;
+
+    if-eqz v1, :cond_0
+
+    invoke-virtual {v1}, Lcom/bytedance/sdk/openadsdk/core/r/j;->el()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/bytedance/sdk/openadsdk/core/gh/dq/ox;->iw(Ljava/lang/String;)Lcom/bytedance/sdk/openadsdk/core/gh/dq/ox;
+
+    :cond_0
+    new-instance v1, Lorg/json/JSONObject;
+
+    invoke-direct {v1}, Lorg/json/JSONObject;-><init>()V
+
+    const-string v2, "uttie_url"
+
+    iget-object v3, p0, Lcom/bytedance/sdk/openadsdk/core/gh/ig$25;->d:Ljava/lang/String;
+
+    invoke-virtual {v1, v2, v3}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+
+    invoke-virtual {v1}, Lorg/json/JSONObject;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/bytedance/sdk/openadsdk/core/gh/dq/ox;->d(Ljava/lang/String;)Lcom/bytedance/sdk/openadsdk/core/gh/dq/ox;
+
+    return-object v0
+.end method

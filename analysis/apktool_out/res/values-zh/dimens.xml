@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="liOperateItemWidth">70.0dp</dimen>
+    <dimen name="liUINodeItemWidth">80.0dp</dimen>
+</resources>

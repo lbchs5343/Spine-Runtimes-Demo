@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:paddingTop="8.0dp" android:paddingBottom="24.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="8.0dp" android:paddingEnd="8.0dp">
+        <TextView android:textAppearance="@style/TextAppearance.Material3.BodySmall" android:textColor="?colorOnSurfaceVariant" android:id="@id/shizuku_guide_intro" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/shizuku_guide_intro" android:alpha="0.72" android:layout_marginStart="16.0dp" android:layout_marginEnd="16.0dp" />
+        <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16.0dp" android:paddingStart="16.0dp" android:paddingEnd="16.0dp">
+            <TextView android:textAppearance="@style/TextAppearance.Material3.BodyLarge" android:textColor="?colorOnSurface" android:id="@id/shizuku_guide_body" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/shizuku_guide_body_install" android:accessibilityLiveRegion="polite" />
+            <TextView android:textAppearance="@style/TextAppearance.Material3.BodySmall" android:textColor="?colorOnSurfaceVariant" android:id="@id/shizuku_guide_hint" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" />
+            <TextView android:textAppearance="@style/TextAppearance.Material3.BodySmall" android:textColor="?colorOnSurfaceVariant" android:id="@id/shizuku_guide_reboot" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" android:text="@string/shizuku_guide_reboot" />
+            <com.google.android.material.button.MaterialButton android:id="@id/shizuku_guide_primary" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16.0dp" android:minHeight="56.0dp" android:text="@string/shizuku_guide_action_install" android:textAllCaps="false" style="@style/Widget.Material3.Button" />
+            <com.google.android.material.button.MaterialButton android:textColor="?colorOnSurface" android:id="@id/shizuku_disable" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="48.0dp" android:text="@string/shizuku_guide_action_disable" android:textAllCaps="false" style="@style/Widget.Material3.Button.TextButton" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

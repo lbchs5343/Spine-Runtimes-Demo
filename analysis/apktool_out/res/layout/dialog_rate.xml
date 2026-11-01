@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@style/AboutPadding"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:id="@id/desc" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_12" android:layout_marginBottom="@dimen/dp_12" android:text="@string/about_rate_desc" style="@style/MiddleGrayFont" />
+    <LinearLayout android:orientation="horizontal" android:paddingRight="@dimen/dp_8" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_2" android:layout_below="@id/desc" android:layout_alignParentRight="true">
+        <TextView android:textColor="@color/gray" android:gravity="center" android:id="@id/cancel" android:background="?android:selectableItemBackground" android:paddingLeft="@dimen/dp_12" android:paddingTop="@dimen/dp_8" android:paddingRight="@dimen/dp_12" android:paddingBottom="@dimen/dp_8" android:focusable="true" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/alert_dialog_cancel" style="@style/MiddleNormalFont" />
+        <TextView android:textColor="@color/colorPrimary" android:gravity="center" android:id="@id/go" android:background="?android:selectableItemBackground" android:paddingLeft="@dimen/dp_12" android:paddingTop="@dimen/dp_8" android:paddingRight="@dimen/dp_12" android:paddingBottom="@dimen/dp_8" android:focusable="true" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/about_rate_go" style="@style/MiddleNormalFont" />
+    </LinearLayout>
+</RelativeLayout>

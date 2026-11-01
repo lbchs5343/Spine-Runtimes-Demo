@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:theme="@style/SettingThemeOverlay" android:background="?settingPageBackgroundColor" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:theme="@style/SettingToolbarThemeOverlay" layout="@layout/view_toolbar" />
+    <RelativeLayout android:id="@id/icon_layout" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_8" android:layout_marginBottom="@dimen/dp_8" android:layout_below="@id/toolbar">
+        <ImageView android:layout_gravity="center_horizontal" android:id="@id/icon" android:layout_width="@dimen/dp_48" android:layout_height="@dimen/dp_48" android:layout_centerHorizontal="true" android:layout_centerVertical="true" android:importantForAccessibility="no" />
+    </RelativeLayout>
+    <FrameLayout android:clipChildren="true" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginBottom="8.0dp" android:layout_above="@id/alayout" android:layout_below="@id/icon_layout">
+        <androidx.recyclerview.widget.RecyclerView android:id="@id/keyValueRV" android:paddingBottom="12.0dp" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="match_parent" android:paddingStart="12.0dp" android:paddingEnd="12.0dp" />
+        <androidx.appcompat.widget.AppCompatTextView android:gravity="center_vertical" android:id="@id/pinned_section_title" android:background="?settingPageBackgroundColor" android:visibility="invisible" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="48.0dp" android:paddingStart="4.0dp" android:paddingEnd="4.0dp" style="@style/SettingSectionTitle" />
+    </FrameLayout>
+    <include android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" layout="@layout/layout_ga" />
+</RelativeLayout>

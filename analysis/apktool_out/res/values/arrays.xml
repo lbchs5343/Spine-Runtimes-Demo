@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="decompile_menu">
+        <item>@string/bbb</item>
+        <item>@string/decompile_open_dest_folder</item>
+    </string-array>
+    <string-array name="decompile_menu2">
+        <item>@string/decompile_view_compiled_files</item>
+        <item>@string/decompile_recompile</item>
+        <item>@string/decompile_open_dest_folder</item>
+    </string-array>
+    <string-array name="file_operation">
+        <item>@string/view</item>
+        <item>@string/share</item>
+        <item>@string/copy_path</item>
+    </string-array>
+    <string-array name="file_operation_gp">
+        <item>@string/view</item>
+        <item>@string/copy_path</item>
+    </string-array>
+    <string-array name="manifest_save_menus">
+        <item>@string/manifest_save_text</item>
+        <item>@string/manifest_save_html</item>
+    </string-array>
+    <string-array name="view_component_menu">
+        <item>@string/open</item>
+        <item>@string/copy_component_name</item>
+        <item>@string/copy_component_path</item>
+    </string-array>
+</resources>

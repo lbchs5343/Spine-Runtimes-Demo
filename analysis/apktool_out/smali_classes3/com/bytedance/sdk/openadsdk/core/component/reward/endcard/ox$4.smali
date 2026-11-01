@@ -1,0 +1,36 @@
+.class final Lcom/bytedance/sdk/openadsdk/core/component/reward/endcard/ox$4;
+.super Ljava/lang/Object;
+
+# interfaces
+.implements Lcom/bytedance/sdk/openadsdk/q/mn$dq;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/bytedance/sdk/openadsdk/core/component/reward/endcard/ox;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x9
+    name = null
+.end annotation
+
+
+# direct methods
+.method public constructor <init>()V
+    .locals 0
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public dq(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
+    .locals 0
+
+    invoke-static {p1, p2, p3}, Lcom/bytedance/sdk/component/utils/ig;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    return-void
+.end method

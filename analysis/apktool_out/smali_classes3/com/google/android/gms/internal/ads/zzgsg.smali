@@ -1,0 +1,36 @@
+.class public final Lcom/google/android/gms/internal/ads/zzgsg;
+.super Lcom/google/android/gms/internal/ads/zzgyr;
+.source "SourceFile"
+
+# interfaces
+.implements Lcom/google/android/gms/internal/ads/zzhaj;
+
+
+# virtual methods
+.method public final zza(I)Lcom/google/android/gms/internal/ads/zzgsg;
+    .locals 1
+
+    invoke-virtual {p0}, Lcom/google/android/gms/internal/ads/zzgyr;->f()V
+
+    iget-object v0, p0, Lcom/google/android/gms/internal/ads/zzgyr;->e:Lcom/google/android/gms/internal/ads/zzgyx;
+
+    check-cast v0, Lcom/google/android/gms/internal/ads/zzgsi;
+
+    invoke-static {v0, p1}, Lcom/google/android/gms/internal/ads/zzgsi;->a(Lcom/google/android/gms/internal/ads/zzgsi;I)V
+
+    return-object p0
+.end method
+
+.method public final zzb(Lcom/google/android/gms/internal/ads/zzgsl;)Lcom/google/android/gms/internal/ads/zzgsg;
+    .locals 1
+
+    invoke-virtual {p0}, Lcom/google/android/gms/internal/ads/zzgyr;->f()V
+
+    iget-object v0, p0, Lcom/google/android/gms/internal/ads/zzgyr;->e:Lcom/google/android/gms/internal/ads/zzgyx;
+
+    check-cast v0, Lcom/google/android/gms/internal/ads/zzgsi;
+
+    invoke-static {v0, p1}, Lcom/google/android/gms/internal/ads/zzgsi;->b(Lcom/google/android/gms/internal/ads/zzgsi;Lcom/google/android/gms/internal/ads/zzgsl;)V
+
+    return-object p0
+.end method

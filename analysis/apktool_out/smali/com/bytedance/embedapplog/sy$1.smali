@@ -1,0 +1,93 @@
+.class Lcom/bytedance/embedapplog/sy$1;
+.super Ljava/lang/Object;
+
+# interfaces
+.implements Lcom/bytedance/embedapplog/o$d;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/bytedance/embedapplog/sy;->dq()Lcom/bytedance/embedapplog/o$d;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x1
+    name = null
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Ljava/lang/Object;",
+        "Lcom/bytedance/embedapplog/o$d<",
+        "Lcom/bytedance/embedapplog/q;",
+        "Ljava/lang/String;",
+        ">;"
+    }
+.end annotation
+
+
+# instance fields
+.field final synthetic dq:Lcom/bytedance/embedapplog/sy;
+
+
+# direct methods
+.method public constructor <init>(Lcom/bytedance/embedapplog/sy;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/bytedance/embedapplog/sy$1;->dq:Lcom/bytedance/embedapplog/sy;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public d(Landroid/os/IBinder;)Lcom/bytedance/embedapplog/q;
+    .locals 0
+
+    invoke-static {p1}, Lcom/bytedance/embedapplog/q$dq;->dq(Landroid/os/IBinder;)Lcom/bytedance/embedapplog/q;
+
+    move-result-object p1
+
+    return-object p1
+.end method
+
+.method public synthetic dq(Landroid/os/IBinder;)Ljava/lang/Object;
+    .locals 0
+
+    invoke-virtual {p0, p1}, Lcom/bytedance/embedapplog/sy$1;->d(Landroid/os/IBinder;)Lcom/bytedance/embedapplog/q;
+
+    move-result-object p1
+
+    return-object p1
+.end method
+
+.method public bridge synthetic dq(Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 0
+
+    check-cast p1, Lcom/bytedance/embedapplog/q;
+
+    invoke-virtual {p0, p1}, Lcom/bytedance/embedapplog/sy$1;->dq(Lcom/bytedance/embedapplog/q;)Ljava/lang/String;
+
+    move-result-object p1
+
+    return-object p1
+.end method
+
+.method public dq(Lcom/bytedance/embedapplog/q;)Ljava/lang/String;
+    .locals 0
+
+    if-nez p1, :cond_0
+
+    const/4 p1, 0x0
+
+    return-object p1
+
+    :cond_0
+    invoke-interface {p1}, Lcom/bytedance/embedapplog/q;->dq()Ljava/lang/String;
+
+    move-result-object p1
+
+    return-object p1
+.end method

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:icon="@drawable/small_window" android:id="@id/small_window" android:title="@string/window_viewer_small_window" app:showAsAction="always" />
+    <item android:id="@id/small_window_default" android:checked="false" android:title="@string/window_viewer_small_window_default" android:checkable="true" app:showAsAction="collapseActionView" />
+    <item android:id="@id/show_icon" android:checked="true" android:title="@string/window_viewer_show_icon" android:checkable="true" app:showAsAction="collapseActionView" />
+    <item android:id="@id/show_name" android:checked="true" android:title="@string/window_viewer_show_name" android:checkable="true" app:showAsAction="collapseActionView" />
+    <item android:id="@id/show_title" android:checked="false" android:title="@string/window_viewer_show_title" android:checkable="true" app:showAsAction="collapseActionView" />
+    <item android:id="@id/show_time" android:checked="false" android:title="@string/window_viewer_show_time" android:checkable="true" app:showAsAction="collapseActionView" />
+    <item android:id="@id/operate" android:title="@string/window_viewer_operate_stop" app:showAsAction="collapseActionView" />
+    <item android:id="@id/clear" android:title="@string/window_viewer_clear" app:showAsAction="collapseActionView" />
+</menu>

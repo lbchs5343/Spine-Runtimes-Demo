@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:theme="@style/DebugAccessStatusThemeOverlay" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:paddingTop="8.0dp" android:paddingBottom="24.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="8.0dp" android:paddingEnd="8.0dp">
+        <TextView android:textAppearance="@style/TextAppearance.Material3.BodySmall" android:textColor="?colorOnSurfaceVariant" android:id="@id/debug_access_choice_intro" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/shizuku_guide_intro" android:alpha="0.72" android:layout_marginStart="16.0dp" android:layout_marginEnd="16.0dp" />
+        <LinearLayout android:orientation="vertical" android:paddingBottom="0.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="0.0dp">
+            <com.google.android.material.card.MaterialCardView android:id="@id/debug_access_shizuku_row" android:focusable="true" android:clickable="true" android:layout_width="match_parent" android:layout_height="wrap_content" app:cardBackgroundColor="@android:color/transparent" app:cardCornerRadius="12.0dp" app:cardElevation="0.0dp" app:strokeWidth="0.0dp">
+                <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:padding="16.0dp" android:descendantFocusability="blocksDescendants" android:layout_width="match_parent" android:layout_height="wrap_content">
+                    <LinearLayout android:orientation="vertical" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0" android:importantForAccessibility="noHideDescendants">
+                        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:baselineAligned="false">
+                            <TextView android:textAppearance="@style/TextAppearance.Material3.BodyLarge" android:textColor="?colorOnSurface" android:id="@id/debug_access_shizuku_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/debug_access_choice_shizuku" />
+                            <FrameLayout android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0" android:layout_marginStart="8.0dp">
+                                <TextView android:id="@id/debug_access_shizuku_status" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@style/DebugAccessStatusLabel" />
+                            </FrameLayout>
+                        </LinearLayout>
+                        <TextView android:textAppearance="@style/TextAppearance.Material3.BodySmall" android:textColor="?colorOnSurfaceVariant" android:id="@id/debug_access_shizuku_summary" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4.0dp" android:text="@string/debug_access_choice_shizuku_summary" />
+                    </LinearLayout>
+                    <com.google.android.material.radiobutton.MaterialRadioButton android:id="@id/debug_access_shizuku_radio" android:focusable="false" android:layout_width="48.0dp" android:layout_height="48.0dp" android:importantForAccessibility="no" android:layout_marginStart="8.0dp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView android:id="@id/debug_access_accessibility_row" android:focusable="true" android:clickable="true" android:layout_width="match_parent" android:layout_height="wrap_content" app:cardBackgroundColor="@android:color/transparent" app:cardCornerRadius="12.0dp" app:cardElevation="0.0dp" app:strokeWidth="0.0dp">
+                <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:padding="16.0dp" android:descendantFocusability="blocksDescendants" android:layout_width="match_parent" android:layout_height="wrap_content">
+                    <LinearLayout android:orientation="vertical" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0" android:importantForAccessibility="noHideDescendants">
+                        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:baselineAligned="false">
+                            <TextView android:textAppearance="@style/TextAppearance.Material3.BodyLarge" android:textColor="?colorOnSurface" android:id="@id/debug_access_accessibility_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/debug_access_choice_accessibility" />
+                            <FrameLayout android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0" android:layout_marginStart="8.0dp">
+                                <TextView android:id="@id/debug_access_accessibility_status" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@style/DebugAccessStatusLabel" />
+                            </FrameLayout>
+                        </LinearLayout>
+                        <TextView android:textAppearance="@style/TextAppearance.Material3.BodySmall" android:textColor="?colorOnSurfaceVariant" android:id="@id/debug_access_accessibility_summary" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4.0dp" android:text="@string/debug_access_choice_accessibility_summary" />
+                    </LinearLayout>
+                    <com.google.android.material.radiobutton.MaterialRadioButton android:id="@id/debug_access_accessibility_radio" android:focusable="false" android:layout_width="48.0dp" android:layout_height="48.0dp" android:importantForAccessibility="no" android:layout_marginStart="8.0dp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+            <TextView android:textAppearance="@style/TextAppearance.Material3.BodySmall" android:textColor="?colorOnSurfaceVariant" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" android:text="@string/debug_access_choice_footer" android:layout_marginStart="16.0dp" android:layout_marginEnd="16.0dp" />
+            <com.google.android.material.button.MaterialButton android:id="@id/debug_access_confirm" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16.0dp" android:minHeight="56.0dp" android:text="@string/debug_access_choice_continue" android:textAllCaps="false" android:layout_marginStart="16.0dp" android:layout_marginEnd="16.0dp" style="@style/Widget.Material3.Button" />
+            <com.google.android.material.button.MaterialButton android:textColor="?colorOnSurface" android:id="@id/debug_access_cancel" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="48.0dp" android:text="@android:string/cancel" android:textAllCaps="false" android:layout_marginStart="16.0dp" android:layout_marginEnd="16.0dp" style="@style/Widget.Material3.Button.TextButton" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

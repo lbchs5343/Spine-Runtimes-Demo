@@ -1,0 +1,46 @@
+package com.bytedance.sdk.openadsdk.core.component.reward.ox;
+
+import android.app.Activity;
+import com.bytedance.sdk.openadsdk.core.component.reward.ox.d;
+import com.bytedance.sdk.openadsdk.core.r.j;
+import com.bytedance.sdk.openadsdk.core.r.xi;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+/* loaded from: classes3.dex */
+public class mn extends dq {
+    public mn(Activity activity, j jVar, xi xiVar) {
+        super(activity, jVar, xiVar);
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.component.reward.ox.dq, com.bytedance.sdk.openadsdk.core.component.reward.ox.d
+    public d.dq d(o oVar) {
+        return ox(oVar);
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.component.reward.ox.d
+    public String dq() {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("alert_title", "参与互动可以领取福利");
+        } catch (JSONException e2) {
+            e2.printStackTrace();
+        }
+        return jSONObject.toString();
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.component.reward.ox.d
+    public float ia() {
+        return 0.85f;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.component.reward.ox.d
+    public boolean iw() {
+        return this.iw;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.component.reward.ox.d
+    public int mn() {
+        return 4;
+    }
+}

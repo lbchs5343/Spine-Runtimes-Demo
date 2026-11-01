@@ -1,0 +1,29 @@
+{
+  "code": 0,
+  "message": "Success",
+  "data": {
+    "header": "实用 App",
+    "allianceArray": [
+      {
+        "name": "开发助手",
+        "packageName": "cn.trinea.android.developertools",
+        "iconUrl": "https://www.trinea.cn/wp-content/uploads/2017/04/dev-tools.png",
+        "version": "9.2.0",
+        "versionCode": "9200",
+        "url": "",
+        "attraction": "强大的开发工具。布局查看、反编译、Apk 提取、自动化调试等等",
+        "desc": "可用于\n1. 查看其他 App 页面布局及各控件的属性\n2. 查看历史 Activity 信息\n3. 屏幕取色\n4. 查看其他应用 Manifest 信息\n5. 反编译其他 App\n6. 提取其他应用 Apk 文件\n7. 提取其他应用 so 文件\n8. 无广告\n9. 后续更多的专业功能"
+      },
+      {
+        "name": "新秒",
+        "packageName": "com.codekk.newsecond",
+        "iconUrl": "https://codekk.com/images/new-second.jpg",
+        "version": "8.6.1",
+        "versionCode": "861",
+        "url": "",
+        "attraction": "高精度时间与专业计时工具。悬浮窗时钟、通知栏显秒、强大分段计时",
+        "desc": "高精度时间显示与专业计时工具。毫秒级时钟、强大分段计时等，电商抢购、生活学习、运动训练、实验记录必备，为您提供极致的时间掌控力"
+      }
+    ]
+  }
+}

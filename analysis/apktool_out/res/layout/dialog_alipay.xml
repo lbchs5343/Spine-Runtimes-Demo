@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cn.trinea.android.lib.view.DialogContentLayout android:orientation="vertical" android:padding="24.0dp" android:focusableInTouchMode="true" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textAppearance="@style/TextAppearance.Material3.HeadlineSmall" android:textColor="?colorOnSurface" android:textColorLink="?colorPrimary" android:id="@id/title" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/pay_with_alipay" />
+    <a.v.ScrollViewWithMaxHeight android:id="@id/desc_layout" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16.0dp">
+        <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <TextView android:textAppearance="@style/TextAppearance.Material3.BodyMedium" android:textColor="?colorOnSurfaceVariant" android:textColorLink="?colorPrimary" android:id="@id/desc" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/donation_no_code_desc" android:textIsSelectable="true" />
+            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16.0dp">
+                <TextView android:textAppearance="@style/TextAppearance.Material3.BodyMedium" android:textColor="?colorOnSurfaceVariant" android:textColorLink="?colorPrimary" android:id="@id/account_wechat" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="@string/account_wechat_text" android:layout_weight="1.0" android:textIsSelectable="true" />
+                <com.google.android.material.button.MaterialButton android:id="@id/purchase_wechat" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/donation_code_purchase_wechat" android:layout_marginStart="8.0dp" style="@style/AppDialogButton" />
+            </LinearLayout>
+            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16.0dp">
+                <TextView android:textAppearance="@style/TextAppearance.Material3.BodyMedium" android:textColor="?colorOnSurfaceVariant" android:textColorLink="?colorPrimary" android:id="@id/account_alipay" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="@string/account_alipay_text" android:layout_weight="1.0" android:textIsSelectable="true" />
+                <com.google.android.material.button.MaterialButton android:id="@id/purchase_alipay" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/donation_code_purchase_alipay" android:layout_marginStart="8.0dp" style="@style/AppDialogButton" />
+            </LinearLayout>
+            <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16.0dp" android:hint="@string/donation_code_hint">
+                <com.google.android.material.textfield.TextInputEditText android:id="@id/code" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="48.0dp" android:singleLine="true" android:digits="0123456789abcdefghigklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" android:inputType="textVisiblePassword" android:imeOptions="actionDone" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+    </a.v.ScrollViewWithMaxHeight>
+    <cn.trinea.android.lib.view.DialogActionLayout android:gravity="end" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16.0dp">
+        <com.google.android.material.button.MaterialButton android:id="@id/cancel" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/donation_version_cancel" style="@style/AppDialogButton" />
+        <com.google.android.material.button.MaterialButton android:id="@id/paste" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/paste" style="@style/AppDialogButton" />
+        <com.google.android.material.button.MaterialButton android:id="@id/active" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/donation_code_redeem" style="@style/AppDialogButton" />
+    </cn.trinea.android.lib.view.DialogActionLayout>
+</cn.trinea.android.lib.view.DialogContentLayout>

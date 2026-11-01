@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cn.trinea.android.lib.view.DialogContentLayout android:orientation="vertical" android:paddingTop="24.0dp" android:paddingBottom="16.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="24.0dp" android:paddingEnd="24.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textColor="?colorOnSurface" android:id="@id/title" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/pay_with_not_alipay" style="@style/SettingSelectionDialogTitle" />
+    <a.v.ScrollViewWithMaxHeight android:id="@id/desc_layout" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16.0dp">
+        <TextView android:textAppearance="@style/TextAppearance.Material3.BodyMedium" android:textColor="?colorOnSurfaceVariant" android:textColorLink="?colorPrimary" android:id="@id/desc" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/china_not_alipay_tips" android:textIsSelectable="true" />
+    </a.v.ScrollViewWithMaxHeight>
+    <cn.trinea.android.lib.view.DialogActionLayout android:gravity="end" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16.0dp">
+        <com.google.android.material.button.MaterialButton android:id="@id/cancel" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/alert_dialog_cancel" style="@style/AppDialogButton" />
+        <com.google.android.material.button.MaterialButton android:id="@id/copy_wechat" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/copy_wechat" style="@style/AppDialogButton" />
+        <com.google.android.material.button.MaterialButton android:id="@id/copy_alipay" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/copy_alipay" style="@style/AppDialogButton" />
+    </cn.trinea.android.lib.view.DialogActionLayout>
+</cn.trinea.android.lib.view.DialogContentLayout>

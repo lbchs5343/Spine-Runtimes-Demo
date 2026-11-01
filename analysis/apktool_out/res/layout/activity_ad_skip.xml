@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="?colorSurface" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include layout="@layout/view_toolbar" />
+    <LinearLayout android:orientation="vertical" android:background="?colorSurface" android:paddingBottom="@dimen/dp_8" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/toolbar">
+        <TextView android:textColor="?colorOnSurfaceVariant" android:gravity="center_vertical" android:id="@id/ad_info_tv" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="@dimen/dp_48" android:paddingStart="@dimen/dp_16" android:paddingEnd="@dimen/dp_16" />
+        <include layout="@layout/view_divider" />
+        <androidx.appcompat.widget.SwitchCompat android:id="@id/auto_skip" android:checked="true" android:text="@string/ad_auto_skip" style="@style/SettingRowSwitch" />
+        <include layout="@layout/view_divider" />
+        <androidx.appcompat.widget.SwitchCompat android:id="@id/auto_identify" android:checked="true" android:text="@string/ad_auto_identify" style="@style/SettingRowSwitch" />
+        <include layout="@layout/view_divider" />
+        <androidx.appcompat.widget.SwitchCompat android:id="@id/show_skiped_tips" android:checked="true" android:text="@string/ad_show_skiped_tips" style="@style/SettingRowSwitch" />
+        <include layout="@layout/view_divider" />
+        <TextView android:textColor="?colorOnSurfaceVariant" android:id="@id/ad_page_list_tip" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="@dimen/dp_48" android:paddingStart="@dimen/dp_16" android:paddingEnd="@dimen/dp_16" />
+        <androidx.recyclerview.widget.RecyclerView android:id="@id/ad_page_list" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/dp_16" android:paddingEnd="@dimen/dp_16" />
+    </LinearLayout>
+</LinearLayout>

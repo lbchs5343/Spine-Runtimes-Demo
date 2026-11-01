@@ -1,0 +1,23 @@
+package com.google.android.gms.internal.ads;
+
+import java.util.concurrent.Executor;
+
+/* loaded from: classes3.dex */
+public final class zzcuu implements zzhfx {
+
+    /* renamed from: a, reason: collision with root package name */
+    public final zzhgp f5711a;
+
+    /* renamed from: b, reason: collision with root package name */
+    public final zzhgp f5712b;
+
+    public zzcuu(zzhgp zzhgpVar, zzhgp zzhgpVar2) {
+        this.f5711a = zzhgpVar;
+        this.f5712b = zzhgpVar2;
+    }
+
+    @Override // com.google.android.gms.internal.ads.zzhgp, com.google.android.gms.internal.ads.zzhgo
+    public final /* bridge */ /* synthetic */ Object zzb() {
+        return new zzded((zzdav) this.f5711a.zzb(), (Executor) this.f5712b.zzb());
+    }
+}

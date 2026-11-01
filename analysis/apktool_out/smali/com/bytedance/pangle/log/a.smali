@@ -1,0 +1,162 @@
+.class public final Lcom/bytedance/pangle/log/a;
+.super Ljava/lang/Object;
+
+
+# instance fields
+.field private a:Ljava/lang/String;
+
+.field private b:Ljava/lang/String;
+
+.field private c:Ljava/lang/String;
+
+.field private d:J
+
+.field private e:J
+
+
+# direct methods
+.method private constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    .locals 2
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/bytedance/pangle/log/a;->a:Ljava/lang/String;
+
+    iput-object p2, p0, Lcom/bytedance/pangle/log/a;->b:Ljava/lang/String;
+
+    iput-object p3, p0, Lcom/bytedance/pangle/log/a;->c:Ljava/lang/String;
+
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+
+    move-result-wide p1
+
+    iput-wide p1, p0, Lcom/bytedance/pangle/log/a;->e:J
+
+    iput-wide p1, p0, Lcom/bytedance/pangle/log/a;->d:J
+
+    iget-object p1, p0, Lcom/bytedance/pangle/log/a;->a:Ljava/lang/String;
+
+    new-instance p2, Ljava/lang/StringBuilder;
+
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
+
+    iget-object v0, p0, Lcom/bytedance/pangle/log/a;->b:Ljava/lang/String;
+
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    const-string v1, " watcher["
+
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v0, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string p3, "]-start"
+
+    invoke-virtual {v0, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p3
+
+    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p2
+
+    invoke-static {p1, p2}, Lcom/bytedance/pangle/log/ZeusLogger;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method public static a(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/bytedance/pangle/log/a;
+    .locals 1
+
+    new-instance v0, Lcom/bytedance/pangle/log/a;
+
+    invoke-direct {v0, p0, p1, p2}, Lcom/bytedance/pangle/log/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    return-object v0
+.end method
+
+
+# virtual methods
+.method public final a()J
+    .locals 4
+
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+
+    move-result-wide v0
+
+    iget-wide v2, p0, Lcom/bytedance/pangle/log/a;->d:J
+
+    sub-long/2addr v0, v2
+
+    return-wide v0
+.end method
+
+.method public final a(Ljava/lang/String;)J
+    .locals 10
+
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+
+    move-result-wide v0
+
+    iget-wide v2, p0, Lcom/bytedance/pangle/log/a;->e:J
+
+    sub-long/2addr v0, v2
+
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+
+    move-result-wide v2
+
+    iget-wide v4, p0, Lcom/bytedance/pangle/log/a;->d:J
+
+    sub-long/2addr v2, v4
+
+    iget-object v4, p0, Lcom/bytedance/pangle/log/a;->a:Ljava/lang/String;
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    iget-object v6, p0, Lcom/bytedance/pangle/log/a;->b:Ljava/lang/String;
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v6, p0, Lcom/bytedance/pangle/log/a;->c:Ljava/lang/String;
+
+    const-string v7, "]-"
+
+    const-string v8, " cost="
+
+    const-string v9, " watcher["
+
+    invoke-static {v9, v6, v7, p1, v8}, Lg/tn;->o(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
+
+    invoke-virtual {p1, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    const-string v0, ", total="
+
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p1, v2, v3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-virtual {v5, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-static {v4, p1}, Lcom/bytedance/pangle/log/ZeusLogger;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    return-wide v2
+.end method

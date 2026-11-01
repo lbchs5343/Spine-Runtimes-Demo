@@ -1,0 +1,74 @@
+.class Lcom/ss/android/socialbase/downloader/network/d$dq;
+.super Landroid/os/Handler;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/ss/android/socialbase/downloader/network/d;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x1
+    name = "dq"
+.end annotation
+
+
+# instance fields
+.field final synthetic dq:Lcom/ss/android/socialbase/downloader/network/d;
+
+
+# direct methods
+.method public constructor <init>(Lcom/ss/android/socialbase/downloader/network/d;Landroid/os/Looper;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/ss/android/socialbase/downloader/network/d$dq;->dq:Lcom/ss/android/socialbase/downloader/network/d;
+
+    invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public d()V
+    .locals 1
+
+    const/4 v0, 0x1
+
+    invoke-virtual {p0, v0}, Landroid/os/Handler;->removeMessages(I)V
+
+    return-void
+.end method
+
+.method public dq()V
+    .locals 1
+
+    const/4 v0, 0x1
+
+    invoke-virtual {p0, v0}, Landroid/os/Handler;->sendEmptyMessage(I)Z
+
+    return-void
+.end method
+
+.method public handleMessage(Landroid/os/Message;)V
+    .locals 3
+
+    iget p1, p1, Landroid/os/Message;->what:I
+
+    const/4 v0, 0x1
+
+    if-eq p1, v0, :cond_0
+
+    return-void
+
+    :cond_0
+    iget-object p1, p0, Lcom/ss/android/socialbase/downloader/network/d$dq;->dq:Lcom/ss/android/socialbase/downloader/network/d;
+
+    invoke-virtual {p1}, Lcom/ss/android/socialbase/downloader/network/d;->iw()V
+
+    const-wide/16 v1, 0x3e8
+
+    invoke-virtual {p0, v0, v1, v2}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
+
+    return-void
+.end method

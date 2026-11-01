@@ -1,0 +1,47 @@
+package com.google.android.gms.internal.ads;
+
+import android.os.Bundle;
+import android.os.IInterface;
+import android.os.RemoteException;
+import g.bjq;
+import g.cbz;
+import java.util.List;
+
+/* loaded from: classes3.dex */
+public interface zzbgn extends IInterface {
+    double zzb() throws RemoteException;
+
+    Bundle zzc() throws RemoteException;
+
+    cbz zzd() throws RemoteException;
+
+    zzbfr zze() throws RemoteException;
+
+    zzbfy zzf() throws RemoteException;
+
+    bjq zzg() throws RemoteException;
+
+    bjq zzh() throws RemoteException;
+
+    String zzi() throws RemoteException;
+
+    String zzj() throws RemoteException;
+
+    String zzk() throws RemoteException;
+
+    String zzl() throws RemoteException;
+
+    String zzm() throws RemoteException;
+
+    String zzn() throws RemoteException;
+
+    List zzo() throws RemoteException;
+
+    void zzp() throws RemoteException;
+
+    void zzq(Bundle bundle) throws RemoteException;
+
+    void zzr(Bundle bundle) throws RemoteException;
+
+    boolean zzs(Bundle bundle) throws RemoteException;
+}

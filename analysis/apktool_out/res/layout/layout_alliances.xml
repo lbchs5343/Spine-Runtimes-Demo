@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:theme="@style/UsefulAppsThemeOverlay" android:orientation="vertical" android:id="@id/alliances_layout" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/promotion_list" android:visibility="gone" android:scrollbars="none" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/dp_8" />
+    <RelativeLayout android:id="@id/brother_layout" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <RelativeLayout android:id="@id/brother_header" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" style="@style/AllianceHeader">
+            <TextView android:textColor="?colorOnSurfaceVariant" android:gravity="start|center" android:id="@id/brother_text" android:layout_width="wrap_content" android:layout_height="@dimen/dp_48" android:paddingStart="@dimen/dp_16" android:layout_alignParentStart="true" style="@style/AllianceHeaderText" />
+            <com.google.android.material.button.MaterialButton android:id="@id/brother_more" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="@dimen/dp_48" android:minWidth="48.0dp" android:text="@string/more" android:layout_alignParentEnd="true" style="@style/Widget.Material3.Button.TextButton" />
+        </RelativeLayout>
+        <com.google.android.material.progressindicator.CircularProgressIndicator android:id="@id/brother_progress_bar" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_8" android:layout_marginBottom="@dimen/dp_8" android:indeterminate="true" android:layout_below="@id/brother_header" android:layout_centerHorizontal="true" app:indicatorSize="@dimen/dp_32" app:trackThickness="@dimen/dp_4" />
+        <cn.trinea.android.lib.alliance.view.UsefulAppsRecyclerView android:id="@id/brother_list" android:background="@drawable/setting_section_background" android:visibility="gone" android:scrollbars="vertical" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/brother_header" />
+    </RelativeLayout>
+</LinearLayout>

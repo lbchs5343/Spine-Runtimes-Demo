@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:theme="@style/SettingThemeOverlay" android:background="?settingPageBackgroundColor" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include android:theme="@style/SettingToolbarThemeOverlay" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_alignParentTop="true" layout="@layout/view_toolbar" />
+    <ScrollView android:id="@id/setting_scroll" android:background="?settingPageBackgroundColor" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginBottom="@dimen/dp_8" android:layout_above="@id/alayout" android:layout_below="@id/toolbar">
+        <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+            <LinearLayout android:orientation="vertical" android:layout_width="0.0dp" android:layout_height="wrap_content" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" app:layout_constraintWidth_max="720.0dp">
+                <LinearLayout android:id="@id/general_group" style="@style/SettingSection">
+                    <TextView android:text="@string/set_general" android:accessibilityHeading="true" style="@style/SettingSectionTitle" />
+                    <LinearLayout style="@style/SettingSectionContent">
+                        <RelativeLayout android:id="@id/language_row" style="@style/SettingInteractiveRow">
+                            <TextView android:id="@id/language_tv" android:text="@string/setting_language" style="@style/SettingRowKey" />
+                            <TextView android:id="@id/language_value" android:layout_toEndOf="@id/language_tv" style="@style/SettingSelectionValue" />
+                        </RelativeLayout>
+                        <RelativeLayout android:id="@id/dark_mode_row" style="@style/SettingInteractiveRow">
+                            <TextView android:id="@id/dark_mode_tv" android:text="@string/setting_dark_mode" style="@style/SettingRowKey" />
+                            <TextView android:id="@id/dark_mode_value" android:layout_toEndOf="@id/dark_mode_tv" style="@style/SettingSelectionValue" />
+                        </RelativeLayout>
+                        <RelativeLayout android:id="@id/quick_settings_tiles_row" style="@style/SettingInteractiveRow">
+                            <TextView android:text="@string/quick_settings_tiles" style="@style/SettingNavigationRowTitle" />
+                        </RelativeLayout>
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout android:id="@id/app_list_group" style="@style/SettingSection">
+                    <TextView android:id="@id/app_list_settings_tv" android:text="@string/bab" android:accessibilityHeading="true" style="@style/SettingSectionTitle" />
+                    <LinearLayout style="@style/SettingSectionContent">
+                        <RelativeLayout android:id="@id/app_list_layout_mode_row" style="@style/SettingInteractiveRow">
+                            <TextView android:id="@id/app_list_layout_mode_tv" android:text="@string/list_layout_mode" android:paddingStart="@dimen/dp_16" style="@style/SettingRowKey" />
+                            <TextView android:id="@id/app_list_layout_mode_value" android:layout_toEndOf="@id/app_list_layout_mode_tv" style="@style/SettingSelectionValue" />
+                        </RelativeLayout>
+                        <RelativeLayout style="@style/SettingInteractiveRow">
+                            <androidx.appcompat.widget.SwitchCompat android:id="@id/app_list_show_system_app_switch" android:text="@string/app_list_show_system_app" style="@style/SettingRowSwitch" />
+                        </RelativeLayout>
+                        <RelativeLayout style="@style/SettingInteractiveRow">
+                            <androidx.appcompat.widget.SwitchCompat android:id="@id/app_list_show_recently_switch" android:text="@string/app_list_show_recently_used_app" style="@style/SettingRowSwitch" />
+                        </RelativeLayout>
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout android:id="@id/features_group" style="@style/SettingSection">
+                    <TextView android:text="@string/setting_features" android:accessibilityHeading="true" style="@style/SettingSectionTitle" />
+                    <LinearLayout style="@style/SettingSectionContent">
+                        <RelativeLayout android:id="@id/debug_access_method_row" style="@style/SettingInteractiveRow">
+                            <TextView android:id="@id/debug_access_method_title" android:text="@string/debug_access_method" style="@style/SettingNavigationRowTitle" />
+                        </RelativeLayout>
+                        <RelativeLayout android:id="@id/shizuku_authorization_row" style="@style/SettingInteractiveRow">
+                            <TextView android:id="@id/shizuku_authorization_title" android:text="@string/shizuku_authorization_title" style="@style/SettingNavigationRowTitle" />
+                        </RelativeLayout>
+                        <RelativeLayout android:id="@id/open_project_group" style="@style/SettingInteractiveRow">
+                            <TextView android:text="@string/open_project" style="@style/SettingNavigationRowTitle" />
+                        </RelativeLayout>
+                        <RelativeLayout android:id="@id/record_activity_group" style="@style/SettingInteractiveRow">
+                            <TextView android:text="@string/aac" style="@style/SettingNavigationRowTitle" />
+                        </RelativeLayout>
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout android:id="@id/view_layout_group" style="@style/SettingSection">
+                    <TextView android:text="@string/cac" android:accessibilityHeading="true" style="@style/SettingSectionTitle" />
+                    <LinearLayout style="@style/SettingSectionContent">
+                        <RelativeLayout style="@style/SettingInteractiveRow">
+                            <androidx.appcompat.widget.SwitchCompat android:id="@id/view_layout_auto_hide_switch" android:text="@string/operate_window_auto_hide" style="@style/SettingRowSwitch" />
+                        </RelativeLayout>
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout android:id="@id/decompile_group" style="@style/SettingSection">
+                    <TextView android:text="@string/bbb" android:accessibilityHeading="true" style="@style/SettingSectionTitle" />
+                    <LinearLayout style="@style/SettingSectionContent">
+                        <RelativeLayout style="@style/SettingInteractiveRow">
+                            <androidx.appcompat.widget.SwitchCompat android:id="@id/decompile_skip_well_known_lib_switch" android:text="@string/decompile_skip_well_known_lib" style="@style/SettingRowSwitch" />
+                        </RelativeLayout>
+                        <RelativeLayout android:id="@id/decompile_allow_media_scan_row" style="@style/SettingInteractiveRow">
+                            <androidx.appcompat.widget.SwitchCompat android:id="@id/decompile_allow_media_scan_switch" android:text="@string/decompile_allow_media_scan" style="@style/SettingRowSwitch" />
+                        </RelativeLayout>
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout android:id="@id/text_copy_group" style="@style/SettingSection">
+                    <TextView android:text="@string/cc" android:accessibilityHeading="true" style="@style/SettingSectionTitle" />
+                    <LinearLayout style="@style/SettingSectionContent">
+                        <RelativeLayout style="@style/SettingInteractiveRow">
+                            <androidx.appcompat.widget.SwitchCompat android:id="@id/text_copy_auto_hide_switch" android:text="@string/operate_window_auto_hide" style="@style/SettingRowSwitch" />
+                        </RelativeLayout>
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout style="@style/SettingSection">
+                    <TextView android:text="@string/setting_other" android:accessibilityHeading="true" style="@style/SettingSectionTitle" />
+                    <LinearLayout style="@style/SettingSectionContent">
+                        <RelativeLayout android:id="@id/about_group" style="@style/SettingInteractiveRow">
+                            <TextView android:text="@string/about" style="@style/SettingNavigationRowTitle" />
+                        </RelativeLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+    <include android:id="@id/alayout" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" layout="@layout/layout_ga" />
+</RelativeLayout>

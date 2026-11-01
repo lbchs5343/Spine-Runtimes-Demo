@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:theme="@style/SettingThemeOverlay" android:background="?settingPageBackgroundColor" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include android:theme="@style/SettingToolbarThemeOverlay" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_alignParentTop="true" layout="@layout/view_toolbar" />
+    <ScrollView android:background="?settingPageBackgroundColor" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginBottom="@dimen/dp_8" android:layout_above="@id/alayout" android:layout_below="@id/toolbar">
+        <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+            <LinearLayout android:orientation="vertical" android:layout_width="0.0dp" android:layout_height="wrap_content" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" app:layout_constraintWidth_max="720.0dp">
+                <LinearLayout style="@style/SettingSection">
+                    <TextView android:text="@string/op_update_noti" style="@style/SettingSectionTitle" />
+                    <LinearLayout style="@style/SettingSectionContent">
+                        <RelativeLayout style="@style/SettingInteractiveRow">
+                            <androidx.appcompat.widget.SwitchCompat android:id="@id/op_update_check_switch" android:text="@string/op_update_check" style="@style/SettingRowSwitch" />
+                        </RelativeLayout>
+                        <RelativeLayout android:id="@id/op_update_frequency_row" style="@style/SettingInteractiveRow">
+                            <TextView android:id="@id/op_update_frequency_tv" android:text="@string/op_update_frequency" style="@style/SettingRowKey" />
+                            <TextView android:id="@id/op_update_frequency_value" android:layout_toEndOf="@id/op_update_frequency_tv" style="@style/SettingSelectionValue" />
+                        </RelativeLayout>
+                        <RelativeLayout android:id="@id/op_update_noti_period_row" style="@style/SettingInteractiveRow">
+                            <TextView android:id="@id/op_update_noti_period_tv" android:text="@string/op_update_notification_period" style="@style/SettingRowKey" />
+                            <TextView android:id="@id/op_update_noti_period_value" android:layout_toEndOf="@id/op_update_noti_period_tv" style="@style/SettingSelectionValue" />
+                        </RelativeLayout>
+                        <RelativeLayout android:visibility="gone" style="@style/SettingRow">
+                            <TextView android:text="@string/op_update_notification_mode" style="@style/SettingRowSingleKey" />
+                        </RelativeLayout>
+                        <RelativeLayout android:visibility="gone" style="@style/SettingInteractiveRow">
+                            <androidx.appcompat.widget.SwitchCompat android:id="@id/op_update_noti_mode_bar_switch" android:text="@string/op_update_noti_mode_bar" style="@style/SettingRowSwitch" />
+                        </RelativeLayout>
+                        <RelativeLayout android:visibility="gone" style="@style/SettingInteractiveRow">
+                            <androidx.appcompat.widget.SwitchCompat android:id="@id/op_update_noti_mode_app_switch" android:text="@string/op_update_noti_mode_inapp" style="@style/SettingRowSwitch" />
+                        </RelativeLayout>
+                        <RelativeLayout android:visibility="gone" style="@style/SettingInteractiveRow">
+                            <androidx.appcompat.widget.SwitchCompat android:id="@id/op_update_noti_mode_desk_switch" android:text="@string/op_update_noti_mode_desk" style="@style/SettingRowSwitch" />
+                        </RelativeLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+    <include android:id="@id/alayout" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" layout="@layout/layout_ga" />
+</RelativeLayout>

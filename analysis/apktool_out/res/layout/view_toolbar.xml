@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.appbar.MaterialToolbar android:id="@id/toolbar" android:background="?colorSurface" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="?actionBarSize" app:buttonGravity="center_vertical" app:navigationIconTint="?colorOnSurface" app:titleTextColor="?colorOnSurface" style="?toolbarStyle"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" />

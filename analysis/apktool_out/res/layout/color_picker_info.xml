@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@drawable/bg_color_picker_info" android:paddingTop="20.0dp" android:paddingBottom="12.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="24.0dp" android:paddingEnd="24.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:id="@id/title" style="@style/ColorInfoDialogTitle" />
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12.0dp">
+        <View android:id="@id/color_swatch" android:background="@drawable/bg_color_picker_swatch" android:layout_width="48.0dp" android:layout_height="48.0dp" android:importantForAccessibility="no" />
+        <TextView android:id="@id/color" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0" android:layout_marginStart="16.0dp" style="@style/ColorInfoColorValue" />
+        <ImageView android:id="@id/copy_color" style="@style/CopyButton" />
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12.0dp" android:weightSum="2.0">
+        <LinearLayout android:layout_width="0.0dp" android:layout_weight="1.0" style="@style/ColorInfoGroup">
+            <LinearLayout style="@style/ColorInfoGroupHeader">
+                <TextView android:layout_width="0.0dp" android:text="@string/dab_argb" android:layout_weight="1.0" style="@style/ColorInfoSectionTitle" />
+                <ImageView android:id="@id/copy_argb" style="@style/CopyButton" />
+            </LinearLayout>
+            <TextView android:id="@id/a" style="@style/ColorInfoText" />
+            <TextView android:id="@id/r" style="@style/ColorInfoText" />
+            <TextView android:id="@id/g" style="@style/ColorInfoText" />
+            <TextView android:id="@id/b" style="@style/ColorInfoText" />
+        </LinearLayout>
+        <Space android:layout_width="8.0dp" android:layout_height="1.0dp" />
+        <LinearLayout android:layout_width="0.0dp" android:layout_weight="1.0" style="@style/ColorInfoGroup">
+            <LinearLayout style="@style/ColorInfoGroupHeader">
+                <TextView android:layout_width="0.0dp" android:text="@string/dab_cmyk" android:layout_weight="1.0" style="@style/ColorInfoSectionTitle" />
+                <ImageView android:id="@id/copy_cmyk" style="@style/CopyButton" />
+            </LinearLayout>
+            <TextView android:id="@id/c" style="@style/ColorInfoText" />
+            <TextView android:id="@id/m" style="@style/ColorInfoText" />
+            <TextView android:id="@id/y" style="@style/ColorInfoText" />
+            <TextView android:id="@id/k" style="@style/ColorInfoText" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:layout_width="match_parent" android:layout_marginTop="8.0dp" style="@style/ColorInfoGroup">
+        <LinearLayout style="@style/ColorInfoGroupHeader">
+            <TextView android:id="@id/coordinate" android:layout_width="0.0dp" android:text="@string/coordinate" android:layout_weight="1.0" style="@style/ColorInfoSectionTitle" />
+            <ImageView android:id="@id/copy_coordinate" style="@style/CopyButton" />
+        </LinearLayout>
+        <TextView android:id="@id/cx" style="@style/ColorInfoText" />
+        <TextView android:id="@id/cy" style="@style/ColorInfoText" />
+    </LinearLayout>
+    <LinearLayout android:gravity="end|center" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <TextView android:id="@id/share" android:text="@string/share" style="@style/ColorInfoActionButton" />
+        <TextView android:id="@id/copy" android:text="@string/copy" style="@style/ColorInfoActionButton" />
+    </LinearLayout>
+</LinearLayout>

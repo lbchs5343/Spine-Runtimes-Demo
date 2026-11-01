@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cn.trinea.android.lib.view.DialogContentLayout android:orientation="vertical" android:padding="24.0dp" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <ImageView android:id="@id/icon" android:layout_width="32.0dp" android:layout_height="32.0dp" android:contentDescription="@string/image_content" android:layout_marginEnd="16.0dp" />
+        <TextView android:textAppearance="@style/TextAppearance.Material3.HeadlineSmall" android:textColor="?colorOnSurface" android:textColorLink="?colorPrimary" android:id="@id/name" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/donation_app_name" />
+    </LinearLayout>
+    <a.v.ScrollViewWithMaxHeight android:id="@id/desc_layout" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16.0dp">
+        <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <TextView android:textAppearance="@style/TextAppearance.Material3.BodyMedium" android:textColor="?colorOnSurfaceVariant" android:textColorLink="?colorPrimary" android:id="@id/desc" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/donation_app_desc" />
+            <com.google.android.material.button.MaterialButton android:id="@id/membership_agreement" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/membership_agreement" style="@style/AppDialogButton" />
+        </LinearLayout>
+    </a.v.ScrollViewWithMaxHeight>
+    <cn.trinea.android.lib.view.DialogActionLayout android:gravity="end" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16.0dp">
+        <com.google.android.material.button.MaterialButton android:id="@id/cancel" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/donation_version_cancel" style="@style/AppDialogButton" />
+        <com.google.android.material.button.MaterialButton android:id="@id/use_alipay" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/pay_with_alipay" style="@style/AppDialogButton" />
+        <com.google.android.material.button.MaterialButton android:id="@id/t" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/donation_version_t" style="@style/AppDialogButton" />
+        <com.google.android.material.button.MaterialButton android:id="@id/purchase" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/donation_version_ok" style="@style/AppDialogButton" />
+    </cn.trinea.android.lib.view.DialogActionLayout>
+</cn.trinea.android.lib.view.DialogContentLayout>

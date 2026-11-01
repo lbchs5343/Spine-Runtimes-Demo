@@ -1,0 +1,262 @@
+.class public final Lg/gen;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+# interfaces
+.implements Lg/uw;
+.implements Landroid/content/DialogInterface$OnClickListener;
+
+
+# instance fields
+.field public l:Ljava/lang/CharSequence;
+
+.field public final synthetic m:Lg/erv;
+
+.field public n:Lg/fpl;
+
+.field public o:Lg/brk;
+
+
+# direct methods
+.method public constructor <init>(Lg/erv;)V
+    .locals 0
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lg/gen;->m:Lg/erv;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final _cg(Ljava/lang/CharSequence;)V
+    .locals 0
+
+    iput-object p1, p0, Lg/gen;->l:Ljava/lang/CharSequence;
+
+    return-void
+.end method
+
+.method public final a(Landroid/graphics/drawable/Drawable;)V
+    .locals 1
+
+    const-string p1, "AppCompatSpinner"
+
+    const-string v0, "Cannot set popup background for MODE_DIALOG, ignoring"
+
+    invoke-static {p1, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+.end method
+
+.method public final b(II)V
+    .locals 4
+
+    iget-object v0, p0, Lg/gen;->o:Lg/brk;
+
+    if-nez v0, :cond_0
+
+    return-void
+
+    :cond_0
+    new-instance v0, Lg/gqc;
+
+    iget-object v1, p0, Lg/gen;->m:Lg/erv;
+
+    invoke-virtual {v1}, Lg/erv;->getPopupContext()Landroid/content/Context;
+
+    move-result-object v2
+
+    invoke-direct {v0, v2}, Lg/gqc;-><init>(Landroid/content/Context;)V
+
+    iget-object v2, v0, Lg/gqc;->z:Ljava/lang/Object;
+
+    check-cast v2, Lg/die;
+
+    iget-object v3, p0, Lg/gen;->l:Ljava/lang/CharSequence;
+
+    if-eqz v3, :cond_1
+
+    iput-object v3, v2, Lg/die;->f:Ljava/lang/CharSequence;
+
+    :cond_1
+    iget-object v3, p0, Lg/gen;->o:Lg/brk;
+
+    invoke-virtual {v1}, Landroid/widget/AdapterView;->getSelectedItemPosition()I
+
+    move-result v1
+
+    iput-object v3, v2, Lg/die;->t:Landroid/widget/ListAdapter;
+
+    iput-object p0, v2, Lg/die;->y:Landroid/content/DialogInterface$OnClickListener;
+
+    iput v1, v2, Lg/die;->w:I
+
+    const/4 v1, 0x1
+
+    iput-boolean v1, v2, Lg/die;->l:Z
+
+    invoke-virtual {v0}, Lg/gqc;->r()Lg/fpl;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lg/gen;->n:Lg/fpl;
+
+    iget-object v0, v0, Lg/fpl;->j:Lg/bgn;
+
+    iget-object v0, v0, Lg/bgn;->s:Landroidx/appcompat/app/AlertController$RecycleListView;
+
+    invoke-virtual {v0, p1}, Landroid/view/View;->setTextDirection(I)V
+
+    invoke-virtual {v0, p2}, Landroid/view/View;->setTextAlignment(I)V
+
+    iget-object p1, p0, Lg/gen;->n:Lg/fpl;
+
+    invoke-virtual {p1}, Landroid/app/Dialog;->show()V
+
+    return-void
+.end method
+
+.method public final c()Ljava/lang/CharSequence;
+    .locals 1
+
+    iget-object v0, p0, Lg/gen;->l:Ljava/lang/CharSequence;
+
+    return-object v0
+.end method
+
+.method public final d()I
+    .locals 1
+
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
+.method public final dismiss()V
+    .locals 1
+
+    iget-object v0, p0, Lg/gen;->n:Lg/fpl;
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Lg/aoz;->dismiss()V
+
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lg/gen;->n:Lg/fpl;
+
+    :cond_0
+    return-void
+.end method
+
+.method public final e()Landroid/graphics/drawable/Drawable;
+    .locals 1
+
+    const/4 v0, 0x0
+
+    return-object v0
+.end method
+
+.method public final f()I
+    .locals 1
+
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
+.method public final h(Landroid/widget/ListAdapter;)V
+    .locals 0
+
+    check-cast p1, Lg/brk;
+
+    iput-object p1, p0, Lg/gen;->o:Lg/brk;
+
+    return-void
+.end method
+
+.method public final i(I)V
+    .locals 1
+
+    const-string p1, "AppCompatSpinner"
+
+    const-string v0, "Cannot set vertical offset for MODE_DIALOG, ignoring"
+
+    invoke-static {p1, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+.end method
+
+.method public final isShowing()Z
+    .locals 1
+
+    iget-object v0, p0, Lg/gen;->n:Lg/fpl;
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Landroid/app/Dialog;->isShowing()Z
+
+    move-result v0
+
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
+.method public final j(I)V
+    .locals 1
+
+    const-string p1, "AppCompatSpinner"
+
+    const-string v0, "Cannot set horizontal (original) offset for MODE_DIALOG, ignoring"
+
+    invoke-static {p1, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+.end method
+
+.method public final k(I)V
+    .locals 1
+
+    const-string p1, "AppCompatSpinner"
+
+    const-string v0, "Cannot set horizontal offset for MODE_DIALOG, ignoring"
+
+    invoke-static {p1, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+.end method
+
+.method public final onClick(Landroid/content/DialogInterface;I)V
+    .locals 3
+
+    iget-object p1, p0, Lg/gen;->m:Lg/erv;
+
+    invoke-virtual {p1, p2}, Landroid/widget/AdapterView;->setSelection(I)V
+
+    invoke-virtual {p1}, Landroid/widget/AdapterView;->getOnItemClickListener()Landroid/widget/AdapterView$OnItemClickListener;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lg/gen;->o:Lg/brk;
+
+    invoke-virtual {v0, p2}, Lg/brk;->getItemId(I)J
+
+    move-result-wide v0
+
+    const/4 v2, 0x0
+
+    invoke-virtual {p1, v2, p2, v0, v1}, Landroid/widget/AdapterView;->performItemClick(Landroid/view/View;IJ)Z
+
+    :cond_0
+    invoke-virtual {p0}, Lg/gen;->dismiss()V
+
+    return-void
+.end method

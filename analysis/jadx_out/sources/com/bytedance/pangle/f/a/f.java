@@ -1,0 +1,32 @@
+package com.bytedance.pangle.f.a;
+
+/* loaded from: classes.dex */
+public final class f {
+
+    /* renamed from: a, reason: collision with root package name */
+    int[] f1413a;
+
+    /* renamed from: b, reason: collision with root package name */
+    int[] f1414b;
+
+    private static final int a(int[] iArr, int i) {
+        int i2 = iArr[i / 4];
+        return (i % 4) / 2 == 0 ? i2 & 65535 : i2 >>> 16;
+    }
+
+    public final String a(int i) {
+        int[] iArr;
+        if (i < 0 || (iArr = this.f1413a) == null || i >= iArr.length) {
+            return null;
+        }
+        int i2 = iArr[i];
+        int a2 = a(this.f1414b, i2);
+        StringBuilder sb = new StringBuilder(a2);
+        while (a2 != 0) {
+            i2 += 2;
+            sb.append((char) a(this.f1414b, i2));
+            a2--;
+        }
+        return sb.toString();
+    }
+}

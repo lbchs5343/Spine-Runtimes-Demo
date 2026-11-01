@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/container" android:background="@color/colorLIBackground" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <c.b.ab android:id="@id/ab" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" app:defaultBackgroundColor="@android:color/transparent" app:highLightBackgroundColor="@android:color/transparent" app:highLightLineColor="@color/colorLILight" app:normalBackgroundColor="@android:color/transparent" app:normalLineColor="@color/colorLICommon" />
+    <TextView android:textSize="@dimen/sp_20" android:textColor="@color/lightGray" android:gravity="center" android:layout_gravity="center" android:id="@id/tips" android:paddingLeft="@dimen/dp_4" android:paddingRight="@dimen/dp_4" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/content_disabled_request_permission" style="@style/BigBlackBoldFont" />
+    <RelativeLayout android:gravity="center_horizontal" android:layout_gravity="center" android:id="@id/content" android:background="@drawable/window_bg" android:padding="6.0dp" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dp_24" android:layout_marginRight="@dimen/dp_24">
+        <RelativeLayout android:gravity="center_vertical" android:id="@id/header" android:paddingLeft="@dimen/dp_8" android:paddingRight="@dimen/dp_8" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <TextView android:textSize="@dimen/sp_16" android:textStyle="normal" android:textColor="@color/lightGray" android:gravity="center" android:id="@id/title" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dp_32" android:layout_marginTop="@dimen/dp_8" android:layout_marginBottom="@dimen/dp_8" android:text="@string/tc_viewer_title" android:layout_toLeftOf="@id/reorder" android:layout_centerVertical="true" />
+            <ImageView android:id="@id/reorder" android:padding="@dimen/dp_4" android:layout_width="@dimen/dp_28" android:layout_height="@dimen/dp_28" android:layout_marginLeft="@dimen/dp_8" android:src="@drawable/reorder" android:layout_toLeftOf="@id/deduplication" android:layout_centerVertical="true" style="@style/SelectableItemBackground" />
+            <ImageView android:id="@id/deduplication" android:padding="@dimen/dp_3" android:layout_width="@dimen/dp_28" android:layout_height="@dimen/dp_28" android:layout_marginLeft="@dimen/dp_8" android:src="@drawable/deduplication" android:layout_toLeftOf="@id/close" android:layout_centerVertical="true" style="@style/SelectableItemBackground" />
+            <ImageView android:id="@id/close" android:layout_width="@dimen/dp_28" android:layout_height="@dimen/dp_28" android:layout_marginLeft="@dimen/dp_8" android:src="@drawable/close" android:layout_alignParentRight="true" android:layout_centerVertical="true" style="@style/SelectableItemBackground" />
+        </RelativeLayout>
+        <include android:id="@id/divider" android:layout_width="match_parent" android:layout_height="@dimen/dp_1" android:layout_below="@id/header" layout="@layout/view_divider_gray" />
+        <a.v.ScrollViewWithMaxHeight android:id="@id/content_scroll" android:paddingLeft="@dimen/dp_16" android:paddingTop="@dimen/dp_8" android:paddingBottom="@dimen/dp_2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/divider">
+            <TextView android:id="@id/content_tv" android:layout_width="match_parent" android:layout_height="wrap_content" android:lineSpacingExtra="@dimen/dp_12" android:textIsSelectable="true" style="@style/WindowMiddleFont" />
+        </a.v.ScrollViewWithMaxHeight>
+        <LinearLayout android:gravity="center_vertical" android:layout_gravity="right" android:orientation="horizontal" android:id="@id/menu" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/dp_8" android:layout_marginBottom="@dimen/dp_4" android:layout_below="@id/content_scroll" android:layout_alignParentRight="true">
+            <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/translate" android:visibility="gone" android:layout_width="@dimen/dp_44" android:layout_height="wrap_content" android:layout_marginRight="@dimen/dp_12" android:contentDescription="@string/translate" style="@style/SelectableItemBackground">
+                <ImageView android:layout_width="@dimen/dp_32" android:layout_height="@dimen/dp_32" android:src="@drawable/translate" />
+                <TextView android:gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/translate" style="@style/WindowMiddleFont" />
+            </LinearLayout>
+            <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/share" android:layout_width="@dimen/dp_44" android:layout_height="wrap_content" android:layout_marginRight="@dimen/dp_12" android:contentDescription="@string/share" style="@style/SelectableItemBackground">
+                <ImageView android:layout_width="@dimen/dp_28" android:layout_height="@dimen/dp_28" android:src="@drawable/menu_share" />
+                <TextView android:gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/share" style="@style/WindowSmallFont" />
+            </LinearLayout>
+            <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/copy" android:layout_width="@dimen/dp_44" android:layout_height="wrap_content" android:contentDescription="@string/copy" style="@style/SelectableItemBackground">
+                <ImageView android:padding="1.0px" android:layout_width="@dimen/dp_28" android:layout_height="@dimen/dp_28" android:src="@drawable/copy" />
+                <TextView android:gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/copy" style="@style/WindowSmallFont" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+    <include android:layout_gravity="bottom" android:layout_width="match_parent" android:layout_height="wrap_content" layout="@layout/layout_snackbar" />
+</FrameLayout>

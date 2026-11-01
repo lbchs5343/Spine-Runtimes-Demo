@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <bool name="abc_action_bar_embed_tabs">true</bool>
+    <bool name="abc_config_actionMenuItemAllCaps">true</bool>
+    <bool name="about_reward">false</bool>
+    <bool name="allow_op_update_default">false</bool>
+    <bool name="enable_system_alarm_service_default">true</bool>
+    <bool name="enable_system_foreground_service_default">true</bool>
+    <bool name="enable_system_job_service_default">false</bool>
+    <bool name="google_play_privacy_policy_enabled">true</bool>
+    <bool name="is_pro_version">false</bool>
+    <bool name="is_show_version_desc">true</bool>
+    <bool name="mtrl_btn_textappearance_all_caps">true</bool>
+    <bool name="shizuku_provider_enabled">false</bool>
+    <bool name="tool_name_filter_space">false</bool>
+    <bool name="workmanager_test_configuration">false</bool>
+</resources>

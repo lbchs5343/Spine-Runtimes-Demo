@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:id="@id/nnf_view_group" android:checkableBehavior="single">
+        <item android:id="@id/nnf_grid" android:title="@string/nnf_grid" />
+        <item android:id="@id/nnf_list" android:title="@string/nnf_list" />
+    </group>
+    <group android:id="@id/nnf_sort_group" android:checkableBehavior="single">
+        <item android:id="@id/nnf_sort_name" android:title="@string/nnf_sort_name" />
+        <item android:id="@id/nnf_sort_size" android:title="@string/nnf_sort_size" />
+        <item android:id="@id/nnf_sort_modified" android:title="@string/nnf_sort_modified" />
+        <item android:id="@id/nnf_sort_type" android:title="@string/nnf_sort_type" />
+    </group>
+    <group android:id="@id/nnf_direction_group" android:checkableBehavior="single">
+        <item android:id="@id/nnf_ascending" android:title="@string/nnf_ascending" />
+        <item android:id="@id/nnf_descending" android:title="@string/nnf_descending" />
+    </group>
+</menu>

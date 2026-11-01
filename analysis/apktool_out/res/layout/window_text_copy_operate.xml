@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:gravity="center_vertical" android:background="@drawable/bg_m3_translucent_window" android:layout_width="match_parent" android:layout_height="wrap_content" android:contentDescription="@string/cc"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <a.v.DragLinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/container" android:padding="6.0dp" android:descendantFocusability="blocksDescendants" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <ImageView android:id="@id/inspect" android:padding="@dimen/dp_3" android:layout_width="@dimen/dp_36" android:layout_height="@dimen/dp_28" android:src="@drawable/cc_gray" android:contentDescription="@string/tx_cd_view_text" app:tint="@android:color/white" style="@style/SelectableItemBackground" />
+        <ImageView android:id="@id/find" android:layout_width="@dimen/dp_36" android:layout_height="@dimen/dp_28" android:src="@drawable/menu_search" android:contentDescription="@string/manifest_search" app:tint="@android:color/white" style="@style/SelectableItemBackground" />
+        <ImageView android:id="@id/close" android:visibility="gone" android:layout_width="@dimen/dp_36" android:layout_height="@dimen/dp_28" android:src="@drawable/close" android:contentDescription="@string/tc_close_tips" app:tint="@android:color/white" style="@style/SelectableItemBackground" />
+        <ImageView android:id="@id/exit" android:layout_width="@dimen/dp_36" android:layout_height="@dimen/dp_28" android:src="@drawable/close" android:contentDescription="@string/exit" app:tint="@android:color/white" style="@style/SelectableItemBackground" />
+        <ImageView android:id="@id/more" android:visibility="gone" android:layout_width="@dimen/dp_28" android:layout_height="@dimen/dp_28" android:src="@drawable/more" android:contentDescription="@string/more" style="@style/SelectableItemBackground" />
+    </a.v.DragLinearLayout>
+</RelativeLayout>

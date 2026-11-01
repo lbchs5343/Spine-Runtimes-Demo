@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:gravity="center_vertical" android:background="?selectableItemBackground" android:focusable="true" android:clickable="true" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="@dimen/dp_32" android:paddingStart="@dimen/dp_20" android:paddingEnd="@dimen/dp_8" style="@style/DefaultPaddingVertical"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent" android:minWidth="@dimen/min_key_tv_width" android:layout_centerVertical="true" android:layout_toStartOf="@id/action" android:layout_alignParentStart="true">
+        <TextView android:gravity="start|center" android:id="@id/text" android:layout_width="match_parent" android:layout_height="wrap_content" android:textIsSelectable="true" style="@style/MiddleNormalFont" />
+        <TextView android:gravity="start|center" android:id="@id/desc" android:layout_width="match_parent" android:layout_height="wrap_content" android:textIsSelectable="true" style="@style/SmallGrayFont" />
+    </LinearLayout>
+    <ImageView android:id="@id/action" android:background="?android:selectableItemBackground" android:layout_width="@dimen/dp_48" android:layout_height="@dimen/dp_32" android:src="@drawable/download_black" android:layout_centerVertical="true" android:paddingStart="@dimen/dp_8" android:paddingEnd="@dimen/dp_8" android:layout_alignParentEnd="true" />
+</RelativeLayout>

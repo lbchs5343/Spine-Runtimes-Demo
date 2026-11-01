@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:padding="16.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:fillViewport="true"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <ImageView android:id="@id/color_preview" android:background="@drawable/color_circle_bg" android:layout_width="60.0dp" android:layout_height="60.0dp" android:layout_marginEnd="16.0dp" />
+            <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <TextView android:textColor="?colorOnSurface" android:id="@id/color_name" android:layout_width="match_parent" android:layout_height="wrap_content" />
+                <TextView android:textColor="?colorOnSurfaceVariant" android:id="@id/color_value" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4.0dp" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:padding="16.0dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <TextView android:textSize="14.0sp" android:textStyle="bold" android:textColor="?colorOnSurfaceVariant" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8.0dp" android:text="@string/select_color" />
+            <a.v.GridViewWithMaxHeight android:gravity="center" android:id="@id/color_grid" android:layout_width="match_parent" android:layout_height="wrap_content" android:horizontalSpacing="8.0dp" android:verticalSpacing="8.0dp" android:stretchMode="columnWidth" android:columnWidth="48.0dp" android:numColumns="5" />
+        </LinearLayout>
+        <RelativeLayout android:gravity="center_vertical" android:paddingLeft="16.0dp" android:paddingRight="16.0dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <TextView android:textSize="14.0sp" android:textStyle="bold" android:textColor="?colorOnSurfaceVariant" android:id="@id/custom_color_input_tips" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/color_custom_label" android:layout_centerVertical="true" android:layout_alignParentStart="true" />
+            <EditText android:textSize="14.0sp" android:textColor="?colorOnSurface" android:textColorHint="?colorOnSurfaceVariant" android:id="@id/custom_color_input" android:padding="6.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minHeight="48.0dp" android:hint="@string/color_hex_example" android:singleLine="true" android:layout_centerVertical="true" android:inputType="text" android:imeOptions="actionDone" android:layout_marginEnd="8.0dp" android:layout_toStartOf="@id/custom_color_clear" android:layout_toEndOf="@id/custom_color_input_tips" />
+            <TextView android:textColor="?colorOnSurfaceVariant" android:gravity="center" android:id="@id/custom_color_clear" android:background="?android:selectableItemBackground" android:paddingLeft="@dimen/dp_12" android:paddingTop="@dimen/dp_6" android:paddingRight="@dimen/dp_12" android:paddingBottom="@dimen/dp_6" android:focusable="true" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minHeight="48.0dp" android:text="@string/clear" android:layout_centerVertical="true" android:layout_alignParentEnd="true" />
+        </RelativeLayout>
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/opacity_layout" android:paddingLeft="16.0dp" android:paddingTop="12.0dp" android:paddingRight="16.0dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <TextView android:textSize="14.0sp" android:textStyle="bold" android:textColor="?colorOnSurfaceVariant" android:id="@id/opacity_tips" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/color_opacity_label" />
+            <SeekBar android:id="@id/opacity_seekbar" android:layout_width="0.0dp" android:layout_height="wrap_content" android:max="100" android:progress="100" android:layout_weight="1.0" />
+            <TextView android:textSize="14.0sp" android:textColor="?colorOnSurfaceVariant" android:gravity="end" android:id="@id/opacity_value" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minWidth="44.0dp" android:text="@string/color_opacity_full" android:maxLines="1" />
+        </LinearLayout>
+        <LinearLayout android:gravity="end" android:orientation="horizontal" android:paddingLeft="@dimen/dp_8" android:paddingRight="@dimen/dp_8" android:paddingBottom="@dimen/dp_4" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <Button android:textSize="14.0sp" android:id="@id/btn_reset" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/reset_default" android:textAllCaps="false" style="?android:buttonBarButtonStyle" />
+            <Button android:textSize="14.0sp" android:id="@id/btn_cancel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/close" android:textAllCaps="false" android:layout_marginStart="8.0dp" style="?android:buttonBarButtonStyle" />
+            <Button android:textSize="14.0sp" android:id="@id/btn_confirm" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/confirm" android:textAllCaps="false" android:layout_marginStart="8.0dp" style="?android:buttonBarButtonStyle" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

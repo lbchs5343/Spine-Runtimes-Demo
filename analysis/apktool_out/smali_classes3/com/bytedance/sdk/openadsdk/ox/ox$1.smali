@@ -1,0 +1,66 @@
+.class Lcom/bytedance/sdk/openadsdk/ox/ox$1;
+.super Ljava/lang/Object;
+
+# interfaces
+.implements Lcom/bytedance/sdk/openadsdk/ox/dq$dq;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/bytedance/sdk/openadsdk/ox/ox;->dq(Lcom/bykv/vk/openvk/api/proto/EventListener;)V
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x1
+    name = null
+.end annotation
+
+
+# instance fields
+.field final synthetic d:Lcom/bytedance/sdk/openadsdk/ox/ox;
+
+.field final synthetic dq:Lcom/bykv/vk/openvk/api/proto/EventListener;
+
+
+# direct methods
+.method public constructor <init>(Lcom/bytedance/sdk/openadsdk/ox/ox;Lcom/bykv/vk/openvk/api/proto/EventListener;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/bytedance/sdk/openadsdk/ox/ox$1;->d:Lcom/bytedance/sdk/openadsdk/ox/ox;
+
+    iput-object p2, p0, Lcom/bytedance/sdk/openadsdk/ox/ox$1;->dq:Lcom/bykv/vk/openvk/api/proto/EventListener;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public d()V
+    .locals 3
+
+    iget-object v0, p0, Lcom/bytedance/sdk/openadsdk/ox/ox$1;->dq:Lcom/bykv/vk/openvk/api/proto/EventListener;
+
+    const/4 v1, 0x1
+
+    const/4 v2, 0x0
+
+    invoke-interface {v0, v1, v2}, Lcom/bykv/vk/openvk/api/proto/EventListener;->onEvent(ILcom/bykv/vk/openvk/api/proto/Result;)Lcom/bykv/vk/openvk/api/proto/ValueSet;
+
+    return-void
+.end method
+
+.method public dq()V
+    .locals 3
+
+    iget-object v0, p0, Lcom/bytedance/sdk/openadsdk/ox/ox$1;->dq:Lcom/bykv/vk/openvk/api/proto/EventListener;
+
+    const/4 v1, 0x0
+
+    const/4 v2, 0x0
+
+    invoke-interface {v0, v1, v2}, Lcom/bykv/vk/openvk/api/proto/EventListener;->onEvent(ILcom/bykv/vk/openvk/api/proto/Result;)Lcom/bykv/vk/openvk/api/proto/ValueSet;
+
+    return-void
+.end method

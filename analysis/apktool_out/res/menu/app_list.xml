@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:icon="@drawable/menu_mode_list" android:id="@id/layout_mode" android:background="?android:selectableItemBackground" android:title="@string/list_layout_mode" app:iconTint="?colorOnSurface" app:showAsAction="always" />
+    <item android:icon="@drawable/ic_system_apps" android:id="@id/show_system_app" android:checked="false" android:title="@string/app_list_show_system_app" android:checkable="true" app:iconTint="?colorOnSurface" app:showAsAction="collapseActionView" />
+    <item android:id="@id/show_recently_used_app" android:checked="false" android:title="@string/app_list_show_recently_used_app" android:checkable="true" app:showAsAction="collapseActionView" />
+</menu>

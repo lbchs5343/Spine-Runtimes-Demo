@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" style="@style/ContentDataRow"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:gravity="start|center" android:id="@id/key" android:layout_width="wrap_content" android:layout_height="match_parent" android:minWidth="@dimen/min_key_tv_width" android:textIsSelectable="true" android:layout_marginStart="@dimen/dp_16" style="@style/MiddleNormalFont" />
+    <TextView android:gravity="start|center" android:id="@id/value" android:layout_width="match_parent" android:layout_height="match_parent" android:textIsSelectable="true" android:layout_marginStart="@dimen/dp_8" android:layout_marginEnd="@dimen/default_margin_horizontal" style="@style/MiddleNormalFont" />
+</LinearLayout>

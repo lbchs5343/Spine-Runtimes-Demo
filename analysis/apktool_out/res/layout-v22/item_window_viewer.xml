@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:paddingLeft="@dimen/dp_36" android:paddingTop="@dimen/dp_8" android:paddingRight="@dimen/dp_16" android:paddingBottom="@dimen/dp_8" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="@dimen/dp_32"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:id="@id/title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:breakStrategy="simple" />
+    <TextView android:id="@id/class_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@id/title" android:breakStrategy="simple" />
+    <TextView android:textSize="12.0sp" android:id="@id/time" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="@dimen/dp_16" android:layout_below="@id/class_name" android:layout_alignParentRight="true" />
+</RelativeLayout>

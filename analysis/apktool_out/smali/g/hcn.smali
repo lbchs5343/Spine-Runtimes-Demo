@@ -1,0 +1,344 @@
+.class public Lg/hcn;
+.super Lg/cqo;
+.source "SourceFile"
+
+# interfaces
+.implements Landroid/view/View$OnClickListener;
+
+
+# instance fields
+.field public a:Lg/fei;
+
+.field public b:Landroid/widget/TextView;
+
+.field public c:Landroid/app/Activity;
+
+
+# direct methods
+.method public constructor <init>()V
+    .locals 0
+
+    invoke-direct {p0}, Landroid/app/DialogFragment;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final onClick(Landroid/view/View;)V
+    .locals 1
+
+    iget-object v0, p0, Lg/hcn;->a:Lg/fei;
+
+    invoke-virtual {v0}, Lg/fei;->b()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    invoke-virtual {p1}, Landroid/view/View;->getId()I
+
+    move-result p1
+
+    iget-object v0, p0, Lg/hcn;->b:Landroid/widget/TextView;
+
+    invoke-virtual {v0}, Landroid/view/View;->getId()I
+
+    move-result v0
+
+    if-ne p1, v0, :cond_1
+
+    invoke-virtual {p0}, Lg/cqo;->dismissAllowingStateLoss()V
+
+    :cond_1
+    :goto_0
+    return-void
+.end method
+
+.method public final onCreateDialog(Landroid/os/Bundle;)Landroid/app/Dialog;
+    .locals 2
+
+    invoke-super {p0, p1}, Landroid/app/DialogFragment;->onCreateDialog(Landroid/os/Bundle;)Landroid/app/Dialog;
+
+    move-result-object p1
+
+    if-eqz p1, :cond_0
+
+    invoke-virtual {p1}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p1}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
+
+    move-result-object v0
+
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Landroid/view/Window;->requestFeature(I)Z
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p1, v0}, Landroid/app/Dialog;->setCanceledOnTouchOutside(Z)V
+
+    :cond_0
+    return-object p1
+.end method
+
+.method public final onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
+    .locals 1
+
+    const p3, 0x7f0c0047
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p1, p3, p2, v0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+
+    move-result-object p1
+
+    return-object p1
+.end method
+
+.method public final onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
+    .locals 4
+
+    invoke-super {p0, p1, p2}, Landroid/app/DialogFragment;->onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
+
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object p2
+
+    iput-object p2, p0, Lg/hcn;->c:Landroid/app/Activity;
+
+    const p2, 0x7f090196
+
+    invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object p2
+
+    check-cast p2, Landroid/widget/ImageView;
+
+    invoke-virtual {p0}, Landroid/app/Fragment;->getArguments()Landroid/os/Bundle;
+
+    move-result-object v0
+
+    const-string v1, "icon"
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, v1, v2}, Landroid/os/BaseBundle;->getInt(Ljava/lang/String;I)I
+
+    move-result v0
+
+    const/16 v3, 0x8
+
+    if-nez v0, :cond_0
+
+    invoke-virtual {p2, v3}, Landroid/widget/ImageView;->setVisibility(I)V
+
+    goto :goto_0
+
+    :cond_0
+    invoke-virtual {p0}, Landroid/app/Fragment;->getArguments()Landroid/os/Bundle;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getInt(Ljava/lang/String;)I
+
+    move-result v0
+
+    invoke-virtual {p2, v0}, Landroid/widget/ImageView;->setImageResource(I)V
+
+    :goto_0
+    const p2, 0x7f090359
+
+    invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object p2
+
+    check-cast p2, Landroid/widget/TextView;
+
+    invoke-virtual {p0}, Landroid/app/Fragment;->getArguments()Landroid/os/Bundle;
+
+    move-result-object v0
+
+    const-string v1, "title"
+
+    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    invoke-virtual {p2, v3}, Landroid/view/View;->setVisibility(I)V
+
+    goto :goto_1
+
+    :cond_1
+    invoke-virtual {p2, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    :goto_1
+    const p2, 0x7f0900d9
+
+    invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object p2
+
+    check-cast p2, Landroid/widget/TextView;
+
+    invoke-virtual {p0}, Landroid/app/Fragment;->getArguments()Landroid/os/Bundle;
+
+    move-result-object v0
+
+    const-string v1, "message"
+
+    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p2, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    const p2, 0x7f09024e
+
+    invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object p2
+
+    check-cast p2, Landroid/widget/TextView;
+
+    iput-object p2, p0, Lg/hcn;->b:Landroid/widget/TextView;
+
+    invoke-virtual {p2, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    const p2, 0x7f0900f9
+
+    invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object p2
+
+    check-cast p2, Landroid/widget/Switch;
+
+    iget-object v0, p0, Lg/hcn;->c:Landroid/app/Activity;
+
+    const-string v1, "datetrinea"
+
+    invoke-static {v0, v1, v2}, Lg/cro;->an(Landroid/content/Context;Ljava/lang/String;Z)Z
+
+    move-result v0
+
+    invoke-virtual {p2, v0}, Landroid/widget/Switch;->setChecked(Z)V
+
+    new-instance v0, Lg/ceo;
+
+    const/4 v1, 0x0
+
+    invoke-direct {v0, p0, p2, v1}, Lg/ceo;-><init>(Lg/hcn;Landroid/widget/Switch;I)V
+
+    invoke-virtual {p2, v0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    const p2, 0x7f0901b5
+
+    invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object p2
+
+    check-cast p2, Landroid/widget/Switch;
+
+    iget-object v0, p0, Lg/hcn;->c:Landroid/app/Activity;
+
+    const-string v1, "immature"
+
+    invoke-static {v0, v1, v2}, Lg/cro;->an(Landroid/content/Context;Ljava/lang/String;Z)Z
+
+    move-result v0
+
+    invoke-virtual {p2, v0}, Landroid/widget/Switch;->setChecked(Z)V
+
+    new-instance v0, Lg/ceo;
+
+    const/4 v1, 0x1
+
+    invoke-direct {v0, p0, p2, v1}, Lg/ceo;-><init>(Lg/hcn;Landroid/widget/Switch;I)V
+
+    invoke-virtual {p2, v0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    const p2, 0x7f09006d
+
+    invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object p2
+
+    check-cast p2, Landroid/widget/Switch;
+
+    iget-object v0, p0, Lg/hcn;->c:Landroid/app/Activity;
+
+    const-string v1, "al_or_ways"
+
+    invoke-static {v0, v1, v2}, Lg/cro;->an(Landroid/content/Context;Ljava/lang/String;Z)Z
+
+    move-result v0
+
+    invoke-virtual {p2, v0}, Landroid/widget/Switch;->setChecked(Z)V
+
+    new-instance v0, Lg/ceo;
+
+    const/4 v1, 0x2
+
+    invoke-direct {v0, p0, p2, v1}, Lg/ceo;-><init>(Lg/hcn;Landroid/widget/Switch;I)V
+
+    invoke-virtual {p2, v0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    const p2, 0x7f0900db
+
+    invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object p1
+
+    check-cast p1, La/v/ScrollViewWithMaxHeight;
+
+    iget-object p2, p0, Lg/hcn;->c:Landroid/app/Activity;
+
+    invoke-static {p2}, Lg/fso;->ag(Landroid/content/Context;)[I
+
+    move-result-object p2
+
+    const/4 v0, 0x1
+
+    aget p2, p2, v0
+
+    div-int/lit8 p2, p2, 0x3
+
+    invoke-virtual {p1, p2}, La/v/ScrollViewWithMaxHeight;->setMaxHeight(I)La/v/ScrollViewWithMaxHeight;
+
+    invoke-virtual {p1, v2}, Landroid/view/View;->setScrollbarFadingEnabled(Z)V
+
+    new-instance p2, Landroid/os/Handler;
+
+    invoke-direct {p2}, Landroid/os/Handler;-><init>()V
+
+    new-instance v0, Lg/aat;
+
+    const/4 v1, 0x4
+
+    invoke-direct {v0, p1, v1}, Lg/aat;-><init>(La/v/ScrollViewWithMaxHeight;I)V
+
+    const-wide/16 v1, 0x3e8
+
+    invoke-virtual {p2, v0, v1, v2}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+
+    new-instance p1, Lg/fei;
+
+    invoke-direct {p1}, Lg/fei;-><init>()V
+
+    iput-object p1, p0, Lg/hcn;->a:Lg/fei;
+
+    return-void
+.end method

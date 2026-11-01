@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@id/update_op_group" android:title="@string/op_update_noti" app:showAsAction="collapseActionView">
+        <menu>
+            <item android:id="@id/update_noti" android:checked="true" android:title="@string/op_update_check" android:checkable="true" app:showAsAction="never" />
+            <group android:id="@id/op_update_freq" android:visible="true" android:checkableBehavior="single">
+                <item android:enabled="false" android:title="@string/op_update_frequency" android:checkable="false" />
+                <item android:id="@id/op_update_freq_hour" android:checked="false" android:title="@string/op_update_freq_hour" />
+                <item android:id="@id/op_update_freq_day" android:checked="false" android:title="@string/op_update_freq_day" />
+                <item android:id="@id/op_update_freq_week" android:checked="false" android:title="@string/op_update_freq_week" />
+                <item android:id="@id/op_update_freq_month" android:checked="false" android:title="@string/op_update_freq_month" />
+            </group>
+            <group android:id="@id/op_update_noti_period" android:checkableBehavior="single">
+                <item android:enabled="false" android:title="@string/op_update_notification_period" android:checkable="false" />
+                <item android:id="@id/op_update_noti_period_normal_work" android:checked="false" android:title="@string/op_update_noti_period_normal_work" />
+                <item android:id="@id/op_update_noti_period_more_work" android:checked="false" android:title="@string/op_update_noti_period_more_work" />
+                <item android:id="@id/op_update_noti_period_all" android:checked="false" android:title="@string/op_update_noti_period_all" />
+            </group>
+            <group android:id="@id/op_update_noti_mode" android:visible="false" android:checkableBehavior="all">
+                <item android:enabled="false" android:title="@string/op_update_notification_mode" android:checkable="false" />
+                <item android:id="@id/op_update_noti_mode_bar" android:checked="false" android:title="@string/op_update_noti_mode_bar" />
+                <item android:id="@id/op_update_noti_mode_app" android:checked="false" android:title="@string/op_update_noti_mode_inapp" />
+                <item android:id="@id/op_update_noti_mode_desk" android:checked="false" android:title="@string/op_update_noti_mode_desk" />
+            </group>
+        </menu>
+    </item>
+</menu>

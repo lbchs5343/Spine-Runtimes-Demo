@@ -1,0 +1,10 @@
+package com.ss.android.socialbase.downloader.downloader;
+
+/* loaded from: classes.dex */
+public interface fw {
+    String d();
+
+    String dq();
+
+    int ox();
+}

@@ -1,0 +1,18 @@
+.class interface abstract Lcom/bytedance/sdk/component/widget/recycler/RecyclerView$iw$dq;
+.super Ljava/lang/Object;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/bytedance/sdk/component/widget/recycler/RecyclerView$iw;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x609
+    name = "dq"
+.end annotation
+
+
+# virtual methods
+.method public abstract dq(Lcom/bytedance/sdk/component/widget/recycler/RecyclerView$k;)V
+.end method

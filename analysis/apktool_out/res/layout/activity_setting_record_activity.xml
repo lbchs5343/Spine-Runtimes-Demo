@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:theme="@style/SettingThemeOverlay" android:background="?settingPageBackgroundColor" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include android:theme="@style/SettingToolbarThemeOverlay" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_alignParentTop="true" layout="@layout/view_toolbar" />
+    <ScrollView android:background="?settingPageBackgroundColor" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginBottom="@dimen/dp_8" android:layout_above="@id/alayout" android:layout_below="@id/toolbar">
+        <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+            <LinearLayout android:orientation="vertical" android:layout_width="0.0dp" android:layout_height="wrap_content" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" app:layout_constraintWidth_max="720.0dp">
+                <LinearLayout style="@style/SettingSection">
+                    <LinearLayout style="@style/SettingSectionContent">
+                        <RelativeLayout style="@style/SettingInteractiveRow">
+                            <androidx.appcompat.widget.SwitchCompat android:id="@id/wv_small_window_default_switch" android:text="@string/window_viewer_small_window_default" style="@style/SettingRowSwitch" />
+                        </RelativeLayout>
+                        <RelativeLayout style="@style/SettingInteractiveRow">
+                            <androidx.appcompat.widget.SwitchCompat android:id="@id/wv_show_icon_switch" android:text="@string/window_viewer_show_icon" style="@style/SettingRowSwitch" />
+                        </RelativeLayout>
+                        <RelativeLayout style="@style/SettingInteractiveRow">
+                            <androidx.appcompat.widget.SwitchCompat android:id="@id/wv_show_name_switch" android:text="@string/window_viewer_show_name" style="@style/SettingRowSwitch" />
+                        </RelativeLayout>
+                        <RelativeLayout style="@style/SettingInteractiveRow">
+                            <androidx.appcompat.widget.SwitchCompat android:id="@id/wv_show_title_switch" android:text="@string/window_viewer_show_title" style="@style/SettingRowSwitch" />
+                        </RelativeLayout>
+                        <RelativeLayout style="@style/SettingInteractiveRow">
+                            <androidx.appcompat.widget.SwitchCompat android:id="@id/wv_show_time_switch" android:text="@string/window_viewer_show_time" style="@style/SettingRowSwitch" />
+                        </RelativeLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+    <include android:id="@id/alayout" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" layout="@layout/layout_ga" />
+</RelativeLayout>

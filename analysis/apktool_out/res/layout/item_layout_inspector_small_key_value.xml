@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="?android:selectableItemBackground" android:focusable="true" android:clickable="true" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingLeft="@dimen/dp_16" android:paddingRight="@dimen/dp_16" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="@dimen/dp_40">
+        <TextView android:gravity="center" android:id="@id/key" android:layout_width="@dimen/liMallItemMinWidth" android:layout_height="match_parent" android:layout_marginRight="@dimen/dp_8" android:maxWidth="@dimen/liMallItemMinWidth" android:minWidth="@dimen/liMallItemMinWidth" style="@style/WindowMiddleFont" />
+        <TextView android:gravity="left|center" android:id="@id/value" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginLeft="@dimen/dp_8" style="@style/WindowSmallFont" />
+    </LinearLayout>
+    <include android:layout_width="match_parent" android:layout_height="@dimen/dp_1" layout="@layout/view_divider_gray" />
+</LinearLayout>

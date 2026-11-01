@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:icon="@drawable/menu_search" android:id="@id/search" android:background="?android:selectableItemBackground" android:title="@string/manifest_search" app:iconTint="?colorOnSurface" app:showAsAction="always" />
+    <item android:icon="@drawable/download" android:id="@id/save" android:background="?android:selectableItemBackground" android:title="@string/save" app:iconTint="?colorOnSurface" app:showAsAction="always" />
+    <item android:icon="@drawable/menu_about" android:id="@id/bundle_info" android:background="?android:selectableItemBackground" android:visible="false" android:title="@string/manifest_tip_title" app:iconTint="?colorOnSurface" app:showAsAction="always" />
+    <item android:id="@id/mode" android:title="@string/manifest_mode_auto" app:showAsAction="collapseActionView">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item android:id="@id/mode_auto" android:title="@string/manifest_mode_auto" />
+                <item android:id="@id/mode_html" android:title="@string/manifest_mode_html" />
+                <item android:id="@id/mode_text" android:title="@string/manifest_mode_text" />
+            </group>
+        </menu>
+    </item>
+    <item android:id="@id/wrap" android:checked="false" android:title="@string/manifest_wrap" android:checkable="true" app:showAsAction="collapseActionView" />
+    <item android:id="@id/scalable" android:checked="false" android:title="@string/manifest_scalable" android:checkable="true" app:showAsAction="collapseActionView" />
+    <item android:id="@id/line_number" android:checked="false" android:title="@string/file_viewer_line_number" android:checkable="true" app:showAsAction="collapseActionView" />
+    <item android:id="@id/share" android:title="@string/share" app:showAsAction="collapseActionView" />
+    <item android:id="@id/start_app" android:title="@string/start_app" app:showAsAction="collapseActionView" />
+    <item android:id="@id/start_app_info" android:title="@string/start_app_info" app:showAsAction="collapseActionView" />
+</menu>

@@ -1,0 +1,70 @@
+.class public final Lg/gyh;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+# interfaces
+.implements Lg/buv;
+
+
+# instance fields
+.field public final synthetic a:Lg/ub;
+
+
+# direct methods
+.method public constructor <init>(Lg/ub;)V
+    .locals 0
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lg/gyh;->a:Lg/ub;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final b(Landroidx/activity/ComponentActivity;)V
+    .locals 4
+
+    iget-object p1, p0, Lg/gyh;->a:Lg/ub;
+
+    invoke-virtual {p1}, Lg/ub;->getDelegate()Lg/dkn;
+
+    move-result-object v0
+
+    move-object v1, v0
+
+    check-cast v1, Lg/dre;
+
+    iget-object v2, v1, Lg/dre;->aw:Landroid/content/Context;
+
+    invoke-static {v2}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/view/LayoutInflater;->getFactory()Landroid/view/LayoutInflater$Factory;
+
+    move-result-object v3
+
+    if-nez v3, :cond_0
+
+    invoke-virtual {v2, v1}, Landroid/view/LayoutInflater;->setFactory2(Landroid/view/LayoutInflater$Factory2;)V
+
+    goto :goto_0
+
+    :cond_0
+    invoke-virtual {v2}, Landroid/view/LayoutInflater;->getFactory2()Landroid/view/LayoutInflater$Factory2;
+
+    :goto_0
+    invoke-virtual {p1}, Landroidx/activity/ComponentActivity;->getSavedStateRegistry()Lg/hbu;
+
+    move-result-object p1
+
+    const-string v1, "androidx:appcompat"
+
+    invoke-virtual {p1, v1}, Lg/hbu;->h(Ljava/lang/String;)Landroid/os/Bundle;
+
+    invoke-virtual {v0}, Lg/dkn;->w()V
+
+    return-void
+.end method
